@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Agencia_Autos
 {
+    [Serializable]
     class Usuario: Persona
     {
 

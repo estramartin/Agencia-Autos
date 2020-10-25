@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Agencia_Autos
 {
+    [Serializable]
     class Alquiler
     {
         private Persona cliente;
@@ -18,7 +19,7 @@ namespace Agencia_Autos
         public Alquiler(Persona cliente) {
 
 
-            this.cliente = cliente;
+            this.cliente = new Cliente(((Cliente)cliente).Nombre, ((Cliente)cliente).Dni, ((Cliente)cliente).Cuit, ((Cliente)cliente).Direccion, ((Cliente)cliente).Telefono, ((Cliente)cliente).Fechanac, ((Cliente)cliente).Estadocivil, ((Cliente)cliente).Nacionalidad, ((Cliente)cliente).Carnet);
 
             
         }

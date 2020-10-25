@@ -6,28 +6,32 @@ using System.Threading.Tasks;
 
 namespace Agencia_Autos
 {
+    [Serializable]
     class Empresa
     {
+        private string razonSocial;
+        private string direccionFiscal;
+        private long cuil;
 
         public string RazonSocial {
 
-            get { return RazonSocial; }
-            set { RazonSocial = value; }
+            get { return razonSocial; }
+            set { razonSocial = value; }
         
         }
 
         public long Cuil
         {
 
-            get { return Cuil; }
-            set { Cuil = value; }
+            get { return cuil; }
+            set { cuil = value; }
 
         }
         public string DireccionFiscal
         {
 
-            get { return DireccionFiscal; }
-            set { DireccionFiscal = value; }
+            get { return direccionFiscal; }
+            set { direccionFiscal = value; }
 
         }
 

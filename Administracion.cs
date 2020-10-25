@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Agencia_Autos
 {
+    [Serializable]
     class Administracion
     {
 
@@ -47,8 +48,11 @@ namespace Agencia_Autos
         }
         public void CargarAlquiler(Alquiler unAlquiler) {
 
-           
-            alquilerVigente.Add(unAlquiler);
+            Alquiler alquiler = new Alquiler(unAlquiler.getClinete());
+
+            alquiler = unAlquiler;
+
+            alquilerVigente.Add(alquiler);
         
         }
 
@@ -60,6 +64,10 @@ namespace Agencia_Autos
             TimeSpan periodoAlquiler = alquilerVigente[pos].InicioAlquiler.Subtract(finalizar);
 
             int diasalquiler = periodoAlquiler.Days;
+
+
+            int recorrido = kms - alquilerVigente[pos].Auto.Kms;
+
 
 
             return diasalquiler;

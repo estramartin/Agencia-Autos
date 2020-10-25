@@ -9,6 +9,7 @@ using System.Windows.Forms;
 
 namespace Agencia_Autos
 {
+    [Serializable]
     class Vehículo
     {
        

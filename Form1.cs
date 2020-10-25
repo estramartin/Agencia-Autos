@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.Serialization.Formatters;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Agencia_Autos
 {
@@ -16,9 +18,9 @@ namespace Agencia_Autos
         Administracion administracion;
         Persona persona;
         Vehículo vehículo;
-        
+      
         Empresa unaEmpresa;
-        
+        string nombreArchivo = Application.StartupPath+"\\datos.dat";
 
 
         public Form1()
@@ -62,6 +64,18 @@ namespace Agencia_Autos
                 listBox2.Items.Add(v.GetVehiculo());
 
             }
+
+            /*
+            if (File.Exists(nombreArchivo))
+            {
+
+                FileStream archivo = new FileStream(nombreArchivo, FileMode.Open, FileAccess.Read);
+                BinaryFormatter Deserializador = new BinaryFormatter();
+               administracion = (Administracion)Deserializador.Deserialize(archivo);
+                archivo.Close();
+                archivo.Dispose();
+            }
+           */
 
         }
 
@@ -240,27 +254,32 @@ namespace Agencia_Autos
 
         private void listBox1_DoubleClick(object sender, EventArgs e)
         {
-            string ruta = administracion.GetVehículos()[listBox1.SelectedIndex].Imagen;
+
+
+
            
-            GenerarAlquiler alquilar = new GenerarAlquiler();
-
             
+           string ruta = administracion.GetVehículos()[listBox1.SelectedIndex].Imagen;
+           
+            GenerarAlquiler VentanaAlquilar = new GenerarAlquiler();
 
-            alquilar.pictureBox1.Image = Image.FromFile(ruta);
-            alquilar.comboBox1.Show();
-            if (alquilar.ShowDialog() == DialogResult.OK)
+
+
+            VentanaAlquilar.pictureBox1.Image = Image.FromFile(ruta);
+            VentanaAlquilar.comboBox1.Show();
+            if (VentanaAlquilar.ShowDialog() == DialogResult.OK)
             {
-                string nombre = alquilar.tbNombreCliente.Text;
-                int Dni = Convert.ToInt32(alquilar.tbDniCliente.Text);
-                long cuil = Convert.ToInt64(alquilar.tbCuilCliente.Text);
-                string dir = alquilar.tbDireccionCliente.Text;
-                int tel = Convert.ToInt32(alquilar.tbTelefonoCliente.Text);
-                DateTime fechanac = alquilar.dtpFechaNac.Value;
-                string estadocivil = alquilar.tbEstadoCivilCliente.Text;
-                string nacionalidad = alquilar.tbNacionalidadCliente.Text;
-                long carnet = Convert.ToInt64(alquilar.tbCarnetCliente.Text);
-                int diasDeAlquiler = Convert.ToInt32(alquilar.tbDiasDeAlquiler.Text);
-                int cantidadConductores = alquilar.comboBox1.SelectedIndex;
+                string nombre = VentanaAlquilar.tbNombreCliente.Text;
+                int Dni = Convert.ToInt32(VentanaAlquilar.tbDniCliente.Text);
+                long cuil = Convert.ToInt64(VentanaAlquilar.tbCuilCliente.Text);
+                string dir = VentanaAlquilar.tbDireccionCliente.Text;
+                int tel = Convert.ToInt32(VentanaAlquilar.tbTelefonoCliente.Text);
+                DateTime fechanac = VentanaAlquilar.dtpFechaNac.Value;
+                string estadocivil = VentanaAlquilar.tbEstadoCivilCliente.Text;
+                string nacionalidad = VentanaAlquilar.tbNacionalidadCliente.Text;
+                long carnet = Convert.ToInt64(VentanaAlquilar.tbCarnetCliente.Text);
+                int diasDeAlquiler = Convert.ToInt32(VentanaAlquilar.tbDiasDeAlquiler.Text);
+                int cantidadConductores = VentanaAlquilar.comboBox1.SelectedIndex;
 
                 persona = new Cliente(nombre, Dni, cuil, dir, tel, fechanac, estadocivil, nacionalidad, carnet);
 
@@ -270,15 +289,15 @@ namespace Agencia_Autos
                 switch (cantidadConductores) {
 
                     case 1: {
-                            string nombre1 = alquilar.tbNombreAcompañante1.Text;
-                            int Dni1 = Convert.ToInt32(alquilar.tbDNIAcompañante1.Text);
-                            long cuil1 = Convert.ToInt64(alquilar.tbCuilAcompañante1.Text);
-                            string dir1 = alquilar.tbDirAcompañante1.Text;
-                            int tel1 = Convert.ToInt32(alquilar.tbTelAcompañante1.Text);
-                            DateTime fechanac1 = alquilar.dtpFechaNacAcompañante1.Value;
-                            string estadocivil1 = alquilar.tbEstadoCivilAcompañante1.Text;
-                            string nacionalidad1 = alquilar.tbNacAcompañante1.Text;
-                            long carnet1 = Convert.ToInt64(alquilar.tbCarnetAcompañante1.Text);
+                            string nombre1 = VentanaAlquilar.tbNombreAcompañante1.Text;
+                            int Dni1 = Convert.ToInt32(VentanaAlquilar.tbDNIAcompañante1.Text);
+                            long cuil1 = Convert.ToInt64(VentanaAlquilar.tbCuilAcompañante1.Text);
+                            string dir1 = VentanaAlquilar.tbDirAcompañante1.Text;
+                            int tel1 = Convert.ToInt32(VentanaAlquilar.tbTelAcompañante1.Text);
+                            DateTime fechanac1 = VentanaAlquilar.dtpFechaNacAcompañante1.Value;
+                            string estadocivil1 = VentanaAlquilar.tbEstadoCivilAcompañante1.Text;
+                            string nacionalidad1 = VentanaAlquilar.tbNacAcompañante1.Text;
+                            long carnet1 = Convert.ToInt64(VentanaAlquilar.tbCarnetAcompañante1.Text);
                             persona = new Cliente(nombre1, Dni1, cuil1, dir1, tel1, fechanac1, estadocivil1, nacionalidad1, carnet1);
                             alquiler.agregarConductores(persona);
 
@@ -286,27 +305,27 @@ namespace Agencia_Autos
                         }
                     case 2: {
 
-                            string nombre1 = alquilar.tbNombreAcompañante1.Text;
-                            int Dni1 = Convert.ToInt32(alquilar.tbDNIAcompañante1.Text);
-                            long cuil1 = Convert.ToInt64(alquilar.tbCuilAcompañante1.Text);
-                            string dir1 = alquilar.tbDirAcompañante1.Text;
-                            int tel1 = Convert.ToInt32(alquilar.tbTelAcompañante1.Text);
-                            DateTime fechanac1 = alquilar.dtpFechaNacAcompañante1.Value;
-                            string estadocivil1 = alquilar.tbEstadoCivilAcompañante1.Text;
-                            string nacionalidad1 = alquilar.tbNacAcompañante1.Text;
-                            long carnet1 = Convert.ToInt64(alquilar.tbCarnetAcompañante1.Text);
+                            string nombre1 = VentanaAlquilar.tbNombreAcompañante1.Text;
+                            int Dni1 = Convert.ToInt32(VentanaAlquilar.tbDNIAcompañante1.Text);
+                            long cuil1 = Convert.ToInt64(VentanaAlquilar.tbCuilAcompañante1.Text);
+                            string dir1 = VentanaAlquilar.tbDirAcompañante1.Text;
+                            int tel1 = Convert.ToInt32(VentanaAlquilar.tbTelAcompañante1.Text);
+                            DateTime fechanac1 = VentanaAlquilar.dtpFechaNacAcompañante1.Value;
+                            string estadocivil1 = VentanaAlquilar.tbEstadoCivilAcompañante1.Text;
+                            string nacionalidad1 = VentanaAlquilar.tbNacAcompañante1.Text;
+                            long carnet1 = Convert.ToInt64(VentanaAlquilar.tbCarnetAcompañante1.Text);
                             persona = new Cliente(nombre1, Dni1, cuil1, dir1, tel1, fechanac1, estadocivil1, nacionalidad1, carnet1);
                             alquiler.agregarConductores(persona);
 
-                            string nombre2 = alquilar.tbNombreAcompañante2.Text;
-                            int Dni2 = Convert.ToInt32(alquilar.tbDNIAcompañante2.Text);
-                            long cuil2 = Convert.ToInt64(alquilar.tbCuilAcompañante2.Text);
-                            string dir2 = alquilar.tbDirAcompañante2.Text;
-                            int tel2 = Convert.ToInt32(alquilar.tbTelAcompañante2.Text);
-                            DateTime fechanac2 = alquilar.dtpFechaNacAcompañante2.Value;
-                            string estadocivil2 = alquilar.tbEstadoCivilAcompañante2.Text;
-                            string nacionalidad2 = alquilar.tbNacAcompañante2.Text;
-                            long carnet2 = Convert.ToInt64(alquilar.tbCarnetAcompañante2.Text);
+                            string nombre2 = VentanaAlquilar.tbNombreAcompañante2.Text;
+                            int Dni2 = Convert.ToInt32(VentanaAlquilar.tbDNIAcompañante2.Text);
+                            long cuil2 = Convert.ToInt64(VentanaAlquilar.tbCuilAcompañante2.Text);
+                            string dir2 = VentanaAlquilar.tbDirAcompañante2.Text;
+                            int tel2 = Convert.ToInt32(VentanaAlquilar.tbTelAcompañante2.Text);
+                            DateTime fechanac2 = VentanaAlquilar.dtpFechaNacAcompañante2.Value;
+                            string estadocivil2 = VentanaAlquilar.tbEstadoCivilAcompañante2.Text;
+                            string nacionalidad2 = VentanaAlquilar.tbNacAcompañante2.Text;
+                            long carnet2 = Convert.ToInt64(VentanaAlquilar.tbCarnetAcompañante2.Text);
                             persona = new Cliente(nombre2, Dni2, cuil2, dir2, tel2, fechanac2, estadocivil2, nacionalidad2, carnet2);
                             alquiler.agregarConductores(persona);
                             break;
@@ -314,40 +333,40 @@ namespace Agencia_Autos
                         }
                     case 3: {
 
-                            string nombre1 = alquilar.tbNombreAcompañante1.Text;
-                            int Dni1 = Convert.ToInt32(alquilar.tbDNIAcompañante1.Text);
-                            long cuil1 = Convert.ToInt64(alquilar.tbCuilAcompañante1.Text);
-                            string dir1 = alquilar.tbDirAcompañante1.Text;
-                            int tel1 = Convert.ToInt32(alquilar.tbTelAcompañante1.Text);
-                            DateTime fechanac1 = alquilar.dtpFechaNacAcompañante1.Value;
-                            string estadocivil1 = alquilar.tbEstadoCivilAcompañante1.Text;
-                            string nacionalidad1 = alquilar.tbNacAcompañante1.Text;
-                            long carnet1 = Convert.ToInt64(alquilar.tbCarnetAcompañante1.Text);
+                            string nombre1 = VentanaAlquilar.tbNombreAcompañante1.Text;
+                            int Dni1 = Convert.ToInt32(VentanaAlquilar.tbDNIAcompañante1.Text);
+                            long cuil1 = Convert.ToInt64(VentanaAlquilar.tbCuilAcompañante1.Text);
+                            string dir1 = VentanaAlquilar.tbDirAcompañante1.Text;
+                            int tel1 = Convert.ToInt32(VentanaAlquilar.tbTelAcompañante1.Text);
+                            DateTime fechanac1 = VentanaAlquilar.dtpFechaNacAcompañante1.Value;
+                            string estadocivil1 = VentanaAlquilar.tbEstadoCivilAcompañante1.Text;
+                            string nacionalidad1 = VentanaAlquilar.tbNacAcompañante1.Text;
+                            long carnet1 = Convert.ToInt64(VentanaAlquilar.tbCarnetAcompañante1.Text);
                             persona = new Cliente(nombre1, Dni1, cuil1, dir1, tel1, fechanac1, estadocivil1, nacionalidad1, carnet1);
                             alquiler.agregarConductores(persona);
 
-                            string nombre2 = alquilar.tbNombreAcompañante2.Text;
-                            int Dni2 = Convert.ToInt32(alquilar.tbDNIAcompañante2.Text);
-                            long cuil2 = Convert.ToInt64(alquilar.tbCuilAcompañante2.Text);
-                            string dir2 = alquilar.tbDirAcompañante2.Text;
-                            int tel2 = Convert.ToInt32(alquilar.tbTelAcompañante2.Text);
-                            DateTime fechanac2 = alquilar.dtpFechaNacAcompañante2.Value;
-                            string estadocivil2 = alquilar.tbEstadoCivilAcompañante2.Text;
-                            string nacionalidad2 = alquilar.tbNacAcompañante2.Text;
-                            long carnet2 = Convert.ToInt64(alquilar.tbCarnetAcompañante2.Text);
+                            string nombre2 = VentanaAlquilar.tbNombreAcompañante2.Text;
+                            int Dni2 = Convert.ToInt32(VentanaAlquilar.tbDNIAcompañante2.Text);
+                            long cuil2 = Convert.ToInt64(VentanaAlquilar.tbCuilAcompañante2.Text);
+                            string dir2 = VentanaAlquilar.tbDirAcompañante2.Text;
+                            int tel2 = Convert.ToInt32(VentanaAlquilar.tbTelAcompañante2.Text);
+                            DateTime fechanac2 = VentanaAlquilar.dtpFechaNacAcompañante2.Value;
+                            string estadocivil2 = VentanaAlquilar.tbEstadoCivilAcompañante2.Text;
+                            string nacionalidad2 = VentanaAlquilar.tbNacAcompañante2.Text;
+                            long carnet2 = Convert.ToInt64(VentanaAlquilar.tbCarnetAcompañante2.Text);
                             persona = new Cliente(nombre2, Dni2, cuil2, dir2, tel2, fechanac2, estadocivil2, nacionalidad2, carnet2);
                             alquiler.agregarConductores(persona);
                             
                            
-                            string nombre3 = alquilar.tbNombreAcompañante3.Text;
-                            int Dni3 = Convert.ToInt32(alquilar.tbDNIAcompañante3.Text);
-                            long cuil3 = Convert.ToInt64(alquilar.tbCuilAcompañante3.Text);
-                            string dir3 = alquilar.tbDirAcompañante3.Text;
-                            int tel3 = Convert.ToInt32(alquilar.tbTelAcompañante3.Text);
-                            DateTime fechanac3 = alquilar.dtpFechaNacAcompañante3.Value;
-                            string estadocivil3 = alquilar.tbEstadoCivilAcompañante3.Text;
-                            string nacionalidad3 = alquilar.tbNacAcompañante3.Text;
-                            long carnet3 = Convert.ToInt64(alquilar.tbCarnetAcompañante3.Text);
+                            string nombre3 = VentanaAlquilar.tbNombreAcompañante3.Text;
+                            int Dni3 = Convert.ToInt32(VentanaAlquilar.tbDNIAcompañante3.Text);
+                            long cuil3 = Convert.ToInt64(VentanaAlquilar.tbCuilAcompañante3.Text);
+                            string dir3 = VentanaAlquilar.tbDirAcompañante3.Text;
+                            int tel3 = Convert.ToInt32(VentanaAlquilar.tbTelAcompañante3.Text);
+                            DateTime fechanac3 = VentanaAlquilar.dtpFechaNacAcompañante3.Value;
+                            string estadocivil3 = VentanaAlquilar.tbEstadoCivilAcompañante3.Text;
+                            string nacionalidad3 = VentanaAlquilar.tbNacAcompañante3.Text;
+                            long carnet3 = Convert.ToInt64(VentanaAlquilar.tbCarnetAcompañante3.Text);
                             persona = new Cliente(nombre3, Dni3, cuil3, dir3, tel3, fechanac3, estadocivil3, nacionalidad3, carnet3);
                             alquiler.agregarConductores(persona);
                             break;
@@ -358,11 +377,31 @@ namespace Agencia_Autos
 
                 }
 
+               
                 alquiler.Auto = administracion.GetVehículos()[listBox1.SelectedIndex];
                 alquiler.InicioAlquiler = DateTime.Now;
                 alquiler.Auto.Disponible = false;
                 administracion.CargarAlquiler(alquiler);
 
+
+                listBox1.Items.Clear();
+                foreach (Vehículo v in administracion.GetVehículos()) {
+
+                    if (v.Disponible == true)
+                    {
+
+                        listBox1.Items.Add(v.GetVehiculo());
+
+
+                    }
+                    else {
+
+                        listBox1.Items.Add(v.GetVehiculo() + "  (Alquilado)");
+                    
+                    }
+                
+                
+                }
 
 
             }
@@ -376,6 +415,10 @@ namespace Agencia_Autos
                 veralquileres.listBox1.Items.Add(p.getClinete().DatosPersonales() + " " + p.Auto.GetVehiculo()); ;
 
             if (veralquileres.ShowDialog() == DialogResult.OK) {
+
+
+
+
 
 
 
@@ -399,36 +442,68 @@ namespace Agencia_Autos
         {
             string ruta = administracion.GetVehiculosConChofer()[listBox2.SelectedIndex].Imagen;
 
-            GenerarAlquiler alquilar = new GenerarAlquiler();
-            alquilar.label11.Text = ((VehículoConChofer)(administracion.GetVehiculosConChofer()[listBox2.SelectedIndex])).UnChofer.DatosPersonales() ;
-            alquilar.comboBox1.Hide();
+            GenerarAlquiler VentanaAlquilar = new GenerarAlquiler();
+            VentanaAlquilar.label11.Text = ((VehículoConChofer)(administracion.GetVehiculosConChofer()[listBox2.SelectedIndex])).UnChofer.DatosPersonales() ;
+            VentanaAlquilar.comboBox1.Hide();
 
-            alquilar.pictureBox1.Image = Image.FromFile(ruta);
+            VentanaAlquilar.pictureBox1.Image = Image.FromFile(ruta);
 
-            if (alquilar.ShowDialog() == DialogResult.OK)
+            if (VentanaAlquilar.ShowDialog() == DialogResult.OK)
             {
-                string nombre = alquilar.tbNombreCliente.Text;
-                int Dni = Convert.ToInt32(alquilar.tbDniCliente.Text);
-                long cuil = Convert.ToInt64(alquilar.tbCuilCliente.Text);
-                string dir = alquilar.tbDireccionCliente.Text;
-                int tel = Convert.ToInt32(alquilar.tbTelefonoCliente.Text);
-                DateTime fechanac = alquilar.dtpFechaNac.Value;
-                string estadocivil = alquilar.tbEstadoCivilCliente.Text;
-                string nacionalidad = alquilar.tbNacionalidadCliente.Text;
-                long carnet = Convert.ToInt64(alquilar.tbCarnetCliente.Text);
-                int cantidadConductores = alquilar.comboBox1.SelectedIndex;
+                string nombre = VentanaAlquilar.tbNombreCliente.Text;
+                int Dni = Convert.ToInt32(VentanaAlquilar.tbDniCliente.Text);
+                long cuil = Convert.ToInt64(VentanaAlquilar.tbCuilCliente.Text);
+                string dir = VentanaAlquilar.tbDireccionCliente.Text;
+                int tel = Convert.ToInt32(VentanaAlquilar.tbTelefonoCliente.Text);
+                DateTime fechanac = VentanaAlquilar.dtpFechaNac.Value;
+                string estadocivil = VentanaAlquilar.tbEstadoCivilCliente.Text;
+                string nacionalidad = VentanaAlquilar.tbNacionalidadCliente.Text;
+                long carnet = Convert.ToInt64(VentanaAlquilar.tbCarnetCliente.Text);
+                int cantidadConductores = VentanaAlquilar.comboBox1.SelectedIndex;
 
                 persona = new Cliente(nombre, Dni, cuil, dir, tel, fechanac, estadocivil, nacionalidad, carnet);
 
                 Alquiler alquiler = new Alquiler(persona);
                 alquiler.Auto = administracion.GetVehiculosConChofer()[listBox2.SelectedIndex];
                 alquiler.InicioAlquiler = DateTime.Now;
-                
+                alquiler.Auto.Disponible = false;
                 administracion.CargarAlquiler(alquiler);
 
+                listBox2.Items.Clear();
+                foreach (Vehículo v in administracion.GetVehiculosConChofer())
+                {
+
+                    if (v.Disponible == true)
+                    {
+
+                        listBox2.Items.Add(v.GetVehiculo());
+
+
+                    }
+                    else
+                    {
+
+                        listBox1.Items.Add(v.GetVehiculo() + "  (Alquilado)");
+
+                    }
+
+                }
 
 
             }
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+            /*FileStream archivo = new FileStream(nombreArchivo, FileMode.CreateNew, FileAccess.Write);
+            BinaryFormatter serializador = new BinaryFormatter();
+            serializador.Serialize(archivo, administracion);
+
+            archivo.Close();
+           
+            */
+
         }
     }
 }
