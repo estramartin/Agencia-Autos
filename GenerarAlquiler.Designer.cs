@@ -54,8 +54,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.gbConductor1 = new System.Windows.Forms.GroupBox();
-            this.gbConductor2 = new System.Windows.Forms.GroupBox();
-            this.gbConductor3 = new System.Windows.Forms.GroupBox();
             this.label13 = new System.Windows.Forms.Label();
             this.tbCarnetAcompañante1 = new System.Windows.Forms.TextBox();
             this.dtpFechaNacAcompañante1 = new System.Windows.Forms.DateTimePicker();
@@ -74,6 +72,7 @@
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
+            this.gbConductor2 = new System.Windows.Forms.GroupBox();
             this.label15 = new System.Windows.Forms.Label();
             this.tbCarnetAcompañante2 = new System.Windows.Forms.TextBox();
             this.dtpFechaNacAcompañante2 = new System.Windows.Forms.DateTimePicker();
@@ -92,6 +91,7 @@
             this.label28 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
+            this.gbConductor3 = new System.Windows.Forms.GroupBox();
             this.label31 = new System.Windows.Forms.Label();
             this.tbCarnetAcompañante3 = new System.Windows.Forms.TextBox();
             this.dtpFechaNacAcompañante3 = new System.Windows.Forms.DateTimePicker();
@@ -110,6 +110,8 @@
             this.label37 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.tbDiasDeAlquiler = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gbConductor1.SuspendLayout();
             this.gbConductor2.SuspendLayout();
@@ -119,7 +121,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(75, 68);
+            this.label1.Location = new System.Drawing.Point(75, 40);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 0;
@@ -128,7 +130,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(93, 98);
+            this.label2.Location = new System.Drawing.Point(93, 70);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 13);
             this.label2.TabIndex = 1;
@@ -137,7 +139,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(73, 131);
+            this.label3.Location = new System.Drawing.Point(73, 103);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(49, 13);
             this.label3.TabIndex = 2;
@@ -146,7 +148,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(67, 159);
+            this.label4.Location = new System.Drawing.Point(67, 131);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(55, 13);
             this.label4.TabIndex = 3;
@@ -155,7 +157,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(67, 185);
+            this.label5.Location = new System.Drawing.Point(67, 157);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(52, 13);
             this.label5.TabIndex = 4;
@@ -164,7 +166,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(23, 213);
+            this.label6.Location = new System.Drawing.Point(23, 185);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(96, 13);
             this.label6.TabIndex = 5;
@@ -174,7 +176,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(54, 253);
+            this.label7.Location = new System.Drawing.Point(54, 225);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(65, 13);
             this.label7.TabIndex = 6;
@@ -183,7 +185,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(47, 286);
+            this.label8.Location = new System.Drawing.Point(47, 258);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(72, 13);
             this.label8.TabIndex = 7;
@@ -229,56 +231,56 @@
             // 
             // tbNombreCliente
             // 
-            this.tbNombreCliente.Location = new System.Drawing.Point(131, 65);
+            this.tbNombreCliente.Location = new System.Drawing.Point(131, 37);
             this.tbNombreCliente.Name = "tbNombreCliente";
             this.tbNombreCliente.Size = new System.Drawing.Size(100, 20);
             this.tbNombreCliente.TabIndex = 12;
             // 
             // tbDniCliente
             // 
-            this.tbDniCliente.Location = new System.Drawing.Point(131, 95);
+            this.tbDniCliente.Location = new System.Drawing.Point(131, 67);
             this.tbDniCliente.Name = "tbDniCliente";
             this.tbDniCliente.Size = new System.Drawing.Size(100, 20);
             this.tbDniCliente.TabIndex = 13;
             // 
             // tbCuilCliente
             // 
-            this.tbCuilCliente.Location = new System.Drawing.Point(131, 128);
+            this.tbCuilCliente.Location = new System.Drawing.Point(131, 100);
             this.tbCuilCliente.Name = "tbCuilCliente";
             this.tbCuilCliente.Size = new System.Drawing.Size(100, 20);
             this.tbCuilCliente.TabIndex = 14;
             // 
             // tbDireccionCliente
             // 
-            this.tbDireccionCliente.Location = new System.Drawing.Point(131, 156);
+            this.tbDireccionCliente.Location = new System.Drawing.Point(131, 128);
             this.tbDireccionCliente.Name = "tbDireccionCliente";
             this.tbDireccionCliente.Size = new System.Drawing.Size(100, 20);
             this.tbDireccionCliente.TabIndex = 15;
             // 
             // tbTelefonoCliente
             // 
-            this.tbTelefonoCliente.Location = new System.Drawing.Point(131, 182);
+            this.tbTelefonoCliente.Location = new System.Drawing.Point(131, 154);
             this.tbTelefonoCliente.Name = "tbTelefonoCliente";
             this.tbTelefonoCliente.Size = new System.Drawing.Size(100, 20);
             this.tbTelefonoCliente.TabIndex = 16;
             // 
             // tbEstadoCivilCliente
             // 
-            this.tbEstadoCivilCliente.Location = new System.Drawing.Point(125, 250);
+            this.tbEstadoCivilCliente.Location = new System.Drawing.Point(125, 222);
             this.tbEstadoCivilCliente.Name = "tbEstadoCivilCliente";
             this.tbEstadoCivilCliente.Size = new System.Drawing.Size(100, 20);
             this.tbEstadoCivilCliente.TabIndex = 17;
             // 
             // tbNacionalidadCliente
             // 
-            this.tbNacionalidadCliente.Location = new System.Drawing.Point(125, 283);
+            this.tbNacionalidadCliente.Location = new System.Drawing.Point(125, 255);
             this.tbNacionalidadCliente.Name = "tbNacionalidadCliente";
             this.tbNacionalidadCliente.Size = new System.Drawing.Size(100, 20);
             this.tbNacionalidadCliente.TabIndex = 18;
             // 
             // dtpFechaNac
             // 
-            this.dtpFechaNac.Location = new System.Drawing.Point(125, 210);
+            this.dtpFechaNac.Location = new System.Drawing.Point(125, 182);
             this.dtpFechaNac.Name = "dtpFechaNac";
             this.dtpFechaNac.Size = new System.Drawing.Size(200, 20);
             this.dtpFechaNac.TabIndex = 19;
@@ -309,7 +311,7 @@
             // 
             // tbCarnetCliente
             // 
-            this.tbCarnetCliente.Location = new System.Drawing.Point(125, 309);
+            this.tbCarnetCliente.Location = new System.Drawing.Point(125, 281);
             this.tbCarnetCliente.Name = "tbCarnetCliente";
             this.tbCarnetCliente.Size = new System.Drawing.Size(100, 20);
             this.tbCarnetCliente.TabIndex = 23;
@@ -317,7 +319,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(73, 312);
+            this.label12.Location = new System.Drawing.Point(73, 284);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(41, 13);
             this.label12.TabIndex = 24;
@@ -357,60 +359,6 @@
             this.gbConductor1.TabIndex = 29;
             this.gbConductor1.TabStop = false;
             this.gbConductor1.Text = "Conductor 1:";
-            // 
-            // gbConductor2
-            // 
-            this.gbConductor2.Controls.Add(this.label15);
-            this.gbConductor2.Controls.Add(this.tbCarnetAcompañante2);
-            this.gbConductor2.Controls.Add(this.dtpFechaNacAcompañante2);
-            this.gbConductor2.Controls.Add(this.tbNacAcompañante2);
-            this.gbConductor2.Controls.Add(this.tbEstadoCivilAcompañante2);
-            this.gbConductor2.Controls.Add(this.tbTelAcompañante2);
-            this.gbConductor2.Controls.Add(this.tbDirAcompañante2);
-            this.gbConductor2.Controls.Add(this.tbCuilAcompañante2);
-            this.gbConductor2.Controls.Add(this.tbDNIAcompañante2);
-            this.gbConductor2.Controls.Add(this.tbNombreAcompañante2);
-            this.gbConductor2.Controls.Add(this.label16);
-            this.gbConductor2.Controls.Add(this.label17);
-            this.gbConductor2.Controls.Add(this.label18);
-            this.gbConductor2.Controls.Add(this.label26);
-            this.gbConductor2.Controls.Add(this.label27);
-            this.gbConductor2.Controls.Add(this.label28);
-            this.gbConductor2.Controls.Add(this.label29);
-            this.gbConductor2.Controls.Add(this.label30);
-            this.gbConductor2.Location = new System.Drawing.Point(268, 419);
-            this.gbConductor2.Name = "gbConductor2";
-            this.gbConductor2.Size = new System.Drawing.Size(243, 343);
-            this.gbConductor2.TabIndex = 30;
-            this.gbConductor2.TabStop = false;
-            this.gbConductor2.Text = "Conductor 2:";
-            // 
-            // gbConductor3
-            // 
-            this.gbConductor3.Controls.Add(this.label31);
-            this.gbConductor3.Controls.Add(this.tbCarnetAcompañante3);
-            this.gbConductor3.Controls.Add(this.dtpFechaNacAcompañante3);
-            this.gbConductor3.Controls.Add(this.tbNacAcompañante3);
-            this.gbConductor3.Controls.Add(this.tbEstadoCivilAcompañante3);
-            this.gbConductor3.Controls.Add(this.tbTelAcompañante3);
-            this.gbConductor3.Controls.Add(this.tbDirAcompañante3);
-            this.gbConductor3.Controls.Add(this.tbCuilAcompañante3);
-            this.gbConductor3.Controls.Add(this.tbDNIAcompañante3);
-            this.gbConductor3.Controls.Add(this.tbNombreAcompañante3);
-            this.gbConductor3.Controls.Add(this.label32);
-            this.gbConductor3.Controls.Add(this.label33);
-            this.gbConductor3.Controls.Add(this.label34);
-            this.gbConductor3.Controls.Add(this.label35);
-            this.gbConductor3.Controls.Add(this.label36);
-            this.gbConductor3.Controls.Add(this.label37);
-            this.gbConductor3.Controls.Add(this.label38);
-            this.gbConductor3.Controls.Add(this.label39);
-            this.gbConductor3.Location = new System.Drawing.Point(517, 419);
-            this.gbConductor3.Name = "gbConductor3";
-            this.gbConductor3.Size = new System.Drawing.Size(243, 343);
-            this.gbConductor3.TabIndex = 30;
-            this.gbConductor3.TabStop = false;
-            this.gbConductor3.Text = "Conductor 3:";
             // 
             // label13
             // 
@@ -556,6 +504,33 @@
             this.label25.TabIndex = 25;
             this.label25.Text = "Nombre:";
             // 
+            // gbConductor2
+            // 
+            this.gbConductor2.Controls.Add(this.label15);
+            this.gbConductor2.Controls.Add(this.tbCarnetAcompañante2);
+            this.gbConductor2.Controls.Add(this.dtpFechaNacAcompañante2);
+            this.gbConductor2.Controls.Add(this.tbNacAcompañante2);
+            this.gbConductor2.Controls.Add(this.tbEstadoCivilAcompañante2);
+            this.gbConductor2.Controls.Add(this.tbTelAcompañante2);
+            this.gbConductor2.Controls.Add(this.tbDirAcompañante2);
+            this.gbConductor2.Controls.Add(this.tbCuilAcompañante2);
+            this.gbConductor2.Controls.Add(this.tbDNIAcompañante2);
+            this.gbConductor2.Controls.Add(this.tbNombreAcompañante2);
+            this.gbConductor2.Controls.Add(this.label16);
+            this.gbConductor2.Controls.Add(this.label17);
+            this.gbConductor2.Controls.Add(this.label18);
+            this.gbConductor2.Controls.Add(this.label26);
+            this.gbConductor2.Controls.Add(this.label27);
+            this.gbConductor2.Controls.Add(this.label28);
+            this.gbConductor2.Controls.Add(this.label29);
+            this.gbConductor2.Controls.Add(this.label30);
+            this.gbConductor2.Location = new System.Drawing.Point(268, 419);
+            this.gbConductor2.Name = "gbConductor2";
+            this.gbConductor2.Size = new System.Drawing.Size(243, 343);
+            this.gbConductor2.TabIndex = 30;
+            this.gbConductor2.TabStop = false;
+            this.gbConductor2.Text = "Conductor 2:";
+            // 
             // label15
             // 
             this.label15.AutoSize = true;
@@ -699,6 +674,33 @@
             this.label30.Size = new System.Drawing.Size(47, 13);
             this.label30.TabIndex = 43;
             this.label30.Text = "Nombre:";
+            // 
+            // gbConductor3
+            // 
+            this.gbConductor3.Controls.Add(this.label31);
+            this.gbConductor3.Controls.Add(this.tbCarnetAcompañante3);
+            this.gbConductor3.Controls.Add(this.dtpFechaNacAcompañante3);
+            this.gbConductor3.Controls.Add(this.tbNacAcompañante3);
+            this.gbConductor3.Controls.Add(this.tbEstadoCivilAcompañante3);
+            this.gbConductor3.Controls.Add(this.tbTelAcompañante3);
+            this.gbConductor3.Controls.Add(this.tbDirAcompañante3);
+            this.gbConductor3.Controls.Add(this.tbCuilAcompañante3);
+            this.gbConductor3.Controls.Add(this.tbDNIAcompañante3);
+            this.gbConductor3.Controls.Add(this.tbNombreAcompañante3);
+            this.gbConductor3.Controls.Add(this.label32);
+            this.gbConductor3.Controls.Add(this.label33);
+            this.gbConductor3.Controls.Add(this.label34);
+            this.gbConductor3.Controls.Add(this.label35);
+            this.gbConductor3.Controls.Add(this.label36);
+            this.gbConductor3.Controls.Add(this.label37);
+            this.gbConductor3.Controls.Add(this.label38);
+            this.gbConductor3.Controls.Add(this.label39);
+            this.gbConductor3.Location = new System.Drawing.Point(517, 419);
+            this.gbConductor3.Name = "gbConductor3";
+            this.gbConductor3.Size = new System.Drawing.Size(243, 343);
+            this.gbConductor3.TabIndex = 30;
+            this.gbConductor3.TabStop = false;
+            this.gbConductor3.Text = "Conductor 3:";
             // 
             // label31
             // 
@@ -844,11 +846,29 @@
             this.label39.TabIndex = 43;
             this.label39.Text = "Nombre:";
             // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(32, 310);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(82, 13);
+            this.label40.TabIndex = 32;
+            this.label40.Text = "Dias de alquiler:";
+            // 
+            // tbDiasDeAlquiler
+            // 
+            this.tbDiasDeAlquiler.Location = new System.Drawing.Point(125, 307);
+            this.tbDiasDeAlquiler.Name = "tbDiasDeAlquiler";
+            this.tbDiasDeAlquiler.Size = new System.Drawing.Size(100, 20);
+            this.tbDiasDeAlquiler.TabIndex = 31;
+            // 
             // GenerarAlquiler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 806);
+            this.Controls.Add(this.label40);
+            this.Controls.Add(this.tbDiasDeAlquiler);
             this.Controls.Add(this.gbConductor3);
             this.Controls.Add(this.gbConductor2);
             this.Controls.Add(this.gbConductor1);
@@ -974,5 +994,7 @@
         public System.Windows.Forms.Label label37;
         public System.Windows.Forms.Label label38;
         public System.Windows.Forms.Label label39;
+        public System.Windows.Forms.Label label40;
+        public System.Windows.Forms.TextBox tbDiasDeAlquiler;
     }
 }

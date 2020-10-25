@@ -8,15 +8,15 @@ namespace Agencia_Autos
 {
     abstract class Persona
     {
-        string nombre;
-        string apellido;
-        int dni;
-        long cuit;
-        string direccion;
-        int telefono;
-        DateTime fechanac;
-        string estadocivil;
-        string nacionalidad;
+        protected string nombre;
+       
+        protected int dni;
+        protected long cuit;
+        protected string direccion;
+        protected int telefono;
+        protected DateTime fechanac;
+        protected string estadocivil;
+        protected string nacionalidad;
 
         public abstract string DatosPersonales();
 

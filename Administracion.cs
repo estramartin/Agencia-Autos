@@ -13,16 +13,16 @@ namespace Agencia_Autos
         List<Alquiler> alquilerVigente = new List<Alquiler>();
         List<Vehículo> vehículos = new List<Vehículo>();
         List<Vehículo> vehículoConChofers = new List<Vehículo>();
+        Empresa unaEmpresa;
+       // Alquiler unAlquiler;
+         public Administracion(Empresa unaEmpresa) {
 
-        Alquiler unAlquiler;
-        /* public Administracion(Alquiler unAlquiler, Historico unHistorico, Empresa unaEmpresa) {
-
-
-
-
+            this.unaEmpresa = unaEmpresa;
 
 
-         }*/
+
+
+         }
 
         public void agregarVehiculo(Vehículo v) {
 
@@ -52,10 +52,17 @@ namespace Agencia_Autos
         
         }
 
-        public void Devolucion() {
-        
-        
+        public double Devolucion(int pos, int kms) {
 
+           
+            DateTime finalizar = DateTime.Now;
+                      
+            TimeSpan periodoAlquiler = alquilerVigente[pos].InicioAlquiler.Subtract(finalizar);
+
+            int diasalquiler = periodoAlquiler.Days;
+
+
+            return diasalquiler;
         
         
         }

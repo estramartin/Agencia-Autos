@@ -12,6 +12,7 @@ namespace Agencia_Autos
         private Vehículo vehiculo;
         private int cantAcompañantes = 0;
         private Persona[] acompañantes = new Cliente[3];
+        private int diasDeAlquiler;
         private DateTime inicioAlquiler;
 
         public Alquiler(Persona cliente) {
@@ -36,8 +37,13 @@ namespace Agencia_Autos
         
         }
 
+        public int DiasDeAlquiler
+        {
+            get { return diasDeAlquiler; }
+            set { diasDeAlquiler = value; }
 
-       
+        }
+
 
         public Persona getClinete() {
 

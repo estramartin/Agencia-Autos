@@ -16,5 +16,10 @@ namespace Agencia_Autos
         {
             InitializeComponent();
         }
+
+        private void btnFinalizar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

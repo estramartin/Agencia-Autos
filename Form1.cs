@@ -13,17 +13,24 @@ namespace Agencia_Autos
 {
     public partial class Form1 : Form
     {
-        Administracion administracion = new Administracion();
+        Administracion administracion;
         Persona persona;
         Vehículo vehículo;
-        FileStream archivo;
-
+        
+        Empresa unaEmpresa;
         
 
 
         public Form1()
         {
             InitializeComponent();
+
+
+            unaEmpresa = new Empresa();
+            unaEmpresa.RazonSocial = "ALQUILAUTO";
+            unaEmpresa.DireccionFiscal = "Los Eucaliptus 1234";
+            unaEmpresa.Cuil = 465698568;
+            administracion = new Administracion(unaEmpresa);
             persona = new Usuario("Alejandro", "1111", true);
             administracion.agregarUsuario(persona);
             persona = new Usuario("Facundo", "2222", false);
@@ -32,14 +39,14 @@ namespace Agencia_Autos
             administracion.agregarUsuario(persona);
             persona = new Usuario("Pablo", "4444", false);
             administracion.agregarUsuario(persona);
-            vehículo = new Vehículo(true, false, "ppk891", "Toyota Etios", "2016", "Nafta", @"D:\Martin\TSP\Laboratorio 2\TP 2\Agencia Autos\Resources\Etios.jpg", 5, 43);
+            vehículo = new Vehículo(true, false, "ppk891", "Toyota Etios", "2016", "Nafta", @"D:\Martin\TSP\Laboratorio 2\TP 2\Agencia Autos\Resources\Etios.jpg", 5, 43,48000);
             administracion.agregarVehiculo(vehículo);
-            vehículo = new Vehículo(true, false, "hbp564", "Peugueot 206", "2008", "Nafta", @"D:\Martin\TSP\Laboratorio 2\TP 2\Agencia Autos\Resources\206.jpg", 5,48);
+            vehículo = new Vehículo(true, false, "hbp564", "Peugueot 206", "2008", "Nafta", @"D:\Martin\TSP\Laboratorio 2\TP 2\Agencia Autos\Resources\206.jpg", 5,48,60000);
             administracion.agregarVehiculo(vehículo);
 
             DateTime fechanac = DateTime.Now;
             persona = new Chofer("Marios Sanchez", 34565789, 20345657899, "Corrientes 234", 4232425, fechanac, "Casado", "Argentino", 23234234);
-            vehículo = new VehículoConChofer(true, true, "grd454", "Renault Clio", "2017", "nafta", @"D:\Martin\TSP\Laboratorio 2\TP 2\Agencia Autos\Resources\Clio.jpg", 5,persona,40);
+            vehículo = new VehículoConChofer(true, true, "grd454", "Renault Clio", "2017", "nafta", @"D:\Martin\TSP\Laboratorio 2\TP 2\Agencia Autos\Resources\Clio.jpg", 5,persona,40,55000);
             administracion.agregarVehiculo(vehículo);
 
             
@@ -146,11 +153,11 @@ namespace Agencia_Autos
                 int capacidad = Convert.ToInt32(agregar.tbCapacidad.Text);
                 string path = agregar.path;
                 int unidadDeCobro = Convert.ToInt32(agregar.tbUnidadDeCobro.Text);
-
+                int kms = Convert.ToInt32(agregar.tbKilometros.Text);
                 //Agregando Vehiculo ver como seguir
 
 
-                vehículo = new Vehículo(disponible, false, patente, marca, modelo, combustible, path, capacidad,unidadDeCobro);
+                vehículo = new Vehículo(disponible, chofer, patente, marca, modelo, combustible, path, capacidad,unidadDeCobro,kms);
 
                 
 
@@ -180,7 +187,7 @@ namespace Agencia_Autos
             if (agregar.ShowDialog() == DialogResult.OK)
             {
 
-                bool disponible = true, chofer = false;
+                bool disponible = true, chofer = true;
 
 
                 string patente = agregar.tbPatente.Text;
@@ -190,6 +197,7 @@ namespace Agencia_Autos
                 int capacidad = Convert.ToInt32(agregar.tbCapacidad.Text);
                 string path = agregar.path;
                 int unidadDeCobro = Convert.ToInt32(agregar.tbUnidadDeCobro.Text);
+                int kms = Convert.ToInt32(agregar.tbKilometros.Text);
 
                 string nombre = agregar.tbNombreChofer.Text;
                 int Dni = Convert.ToInt32(agregar.tbDniChofer.Text);
@@ -202,7 +210,7 @@ namespace Agencia_Autos
                 long carnet = Convert.ToInt64(agregar.tbCarnet.Text);
 
                 persona = new Chofer(nombre, Dni, cuil, dir, tel, fechanac, estadocivil, nacionalidad,carnet);
-                vehículo = new VehículoConChofer(disponible, true, patente, marca, modelo, combustible, path, capacidad, persona,unidadDeCobro);
+                vehículo = new VehículoConChofer(disponible, chofer, patente, marca, modelo, combustible, path, capacidad, persona,unidadDeCobro,kms);
 
                 administracion.agregarVehiculo(vehículo);
 
@@ -251,11 +259,13 @@ namespace Agencia_Autos
                 string estadocivil = alquilar.tbEstadoCivilCliente.Text;
                 string nacionalidad = alquilar.tbNacionalidadCliente.Text;
                 long carnet = Convert.ToInt64(alquilar.tbCarnetCliente.Text);
+                int diasDeAlquiler = Convert.ToInt32(alquilar.tbDiasDeAlquiler.Text);
                 int cantidadConductores = alquilar.comboBox1.SelectedIndex;
 
                 persona = new Cliente(nombre, Dni, cuil, dir, tel, fechanac, estadocivil, nacionalidad, carnet);
 
                 Alquiler alquiler = new Alquiler(persona);
+                alquiler.DiasDeAlquiler = diasDeAlquiler;
 
                 switch (cantidadConductores) {
 
@@ -367,9 +377,11 @@ namespace Agencia_Autos
 
             if (veralquileres.ShowDialog() == DialogResult.OK) {
 
+
+
+                label3.Text = Convert.ToString(administracion.Devolucion(veralquileres.listBox1.SelectedIndex,15000));
                 
                 
-            
             
             
             }

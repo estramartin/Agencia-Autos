@@ -10,14 +10,7 @@ namespace Agencia_Autos
     {
 
         public static int viatico = 140;
-        string nombre;
-        int dni;
-        long cuit;
-        string direccion;
-        int telefono;
-        DateTime fechanac;
-        string estadocivil;
-        string nacionalidad;
+        
         long carnet;
         public Chofer(string nombreCompleto, int dni, long cuil, string dir, int tel, DateTime fechanac, string estadoCiv, string nac, long carnet) {
             

@@ -50,6 +50,7 @@
             this.btnFinalizar.TabIndex = 1;
             this.btnFinalizar.Text = "Finalizar";
             this.btnFinalizar.UseVisualStyleBackColor = true;
+            this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
             // 
             // btnVolver
             // 

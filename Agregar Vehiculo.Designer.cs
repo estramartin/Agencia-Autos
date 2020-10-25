@@ -40,31 +40,33 @@
             this.tbPatente = new System.Windows.Forms.TextBox();
             this.btnCarcarImagenAuto = new System.Windows.Forms.Button();
             this.gbDatosVehiculos = new System.Windows.Forms.GroupBox();
+            this.tbUnidadDeCobro = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.gbDatosChofer = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.tbNombreChofer = new System.Windows.Forms.TextBox();
-            this.tbDniChofer = new System.Windows.Forms.TextBox();
-            this.tbCuit = new System.Windows.Forms.TextBox();
-            this.tbDireccion = new System.Windows.Forms.TextBox();
-            this.tbTelefono = new System.Windows.Forms.TextBox();
-            this.tbEstadoCivil = new System.Windows.Forms.TextBox();
+            this.tbCarnet = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.dtpFechaNac = new System.Windows.Forms.DateTimePicker();
             this.tbNacionalidad = new System.Windows.Forms.TextBox();
+            this.tbEstadoCivil = new System.Windows.Forms.TextBox();
+            this.tbTelefono = new System.Windows.Forms.TextBox();
+            this.tbDireccion = new System.Windows.Forms.TextBox();
+            this.tbCuit = new System.Windows.Forms.TextBox();
+            this.tbDniChofer = new System.Windows.Forms.TextBox();
+            this.tbNombreChofer = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.btnCargar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.dtpFechaNac = new System.Windows.Forms.DateTimePicker();
-            this.label14 = new System.Windows.Forms.Label();
-            this.tbCarnet = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.tbUnidadDeCobro = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
+            this.tbKilometros = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.gbDatosVehiculos.SuspendLayout();
             this.gbDatosChofer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -167,6 +169,8 @@
             // 
             // gbDatosVehiculos
             // 
+            this.gbDatosVehiculos.Controls.Add(this.tbKilometros);
+            this.gbDatosVehiculos.Controls.Add(this.label16);
             this.gbDatosVehiculos.Controls.Add(this.tbUnidadDeCobro);
             this.gbDatosVehiculos.Controls.Add(this.label15);
             this.gbDatosVehiculos.Controls.Add(this.tbPatente);
@@ -179,12 +183,28 @@
             this.gbDatosVehiculos.Controls.Add(this.label3);
             this.gbDatosVehiculos.Controls.Add(this.label2);
             this.gbDatosVehiculos.Controls.Add(this.label1);
-            this.gbDatosVehiculos.Location = new System.Drawing.Point(84, 68);
+            this.gbDatosVehiculos.Location = new System.Drawing.Point(84, 38);
             this.gbDatosVehiculos.Name = "gbDatosVehiculos";
-            this.gbDatosVehiculos.Size = new System.Drawing.Size(326, 222);
+            this.gbDatosVehiculos.Size = new System.Drawing.Size(326, 252);
             this.gbDatosVehiculos.TabIndex = 13;
             this.gbDatosVehiculos.TabStop = false;
             this.gbDatosVehiculos.Text = "Datos Vehiculo";
+            // 
+            // tbUnidadDeCobro
+            // 
+            this.tbUnidadDeCobro.Location = new System.Drawing.Point(158, 187);
+            this.tbUnidadDeCobro.Name = "tbUnidadDeCobro";
+            this.tbUnidadDeCobro.Size = new System.Drawing.Size(100, 20);
+            this.tbUnidadDeCobro.TabIndex = 12;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(96, 190);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(33, 13);
+            this.label15.TabIndex = 11;
+            this.label15.Text = "UDC:";
             // 
             // gbDatosChofer
             // 
@@ -213,68 +233,77 @@
             this.gbDatosChofer.TabStop = false;
             this.gbDatosChofer.Text = "Datos Chofer:";
             // 
-            // label6
+            // tbCarnet
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(69, 33);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(47, 13);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Nombre:";
+            this.tbCarnet.Location = new System.Drawing.Point(128, 261);
+            this.tbCarnet.Name = "tbCarnet";
+            this.tbCarnet.Size = new System.Drawing.Size(100, 20);
+            this.tbCarnet.TabIndex = 21;
             // 
-            // label7
+            // label14
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(90, 64);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(26, 13);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "Dni:";
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(68, 264);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(41, 13);
+            this.label14.TabIndex = 20;
+            this.label14.Text = "Carnet:";
             // 
-            // label8
+            // dtpFechaNac
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(86, 87);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(28, 13);
-            this.label8.TabIndex = 2;
-            this.label8.Text = "Cuit:";
+            this.dtpFechaNac.Location = new System.Drawing.Point(126, 165);
+            this.dtpFechaNac.Name = "dtpFechaNac";
+            this.dtpFechaNac.Size = new System.Drawing.Size(194, 20);
+            this.dtpFechaNac.TabIndex = 19;
             // 
-            // label9
+            // tbNacionalidad
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(59, 110);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(55, 13);
-            this.label9.TabIndex = 3;
-            this.label9.Text = "Direccion:";
+            this.tbNacionalidad.Location = new System.Drawing.Point(129, 229);
+            this.tbNacionalidad.Name = "tbNacionalidad";
+            this.tbNacionalidad.Size = new System.Drawing.Size(100, 20);
+            this.tbNacionalidad.TabIndex = 18;
             // 
-            // label10
+            // tbEstadoCivil
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(62, 138);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(52, 13);
-            this.label10.TabIndex = 4;
-            this.label10.Text = "Telefono:";
+            this.tbEstadoCivil.Location = new System.Drawing.Point(129, 197);
+            this.tbEstadoCivil.Name = "tbEstadoCivil";
+            this.tbEstadoCivil.Size = new System.Drawing.Size(100, 20);
+            this.tbEstadoCivil.TabIndex = 17;
             // 
-            // label11
+            // tbTelefono
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(5, 168);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(109, 13);
-            this.label11.TabIndex = 5;
-            this.label11.Text = "Fecha de nacimiento:";
+            this.tbTelefono.Location = new System.Drawing.Point(129, 135);
+            this.tbTelefono.Name = "tbTelefono";
+            this.tbTelefono.Size = new System.Drawing.Size(100, 20);
+            this.tbTelefono.TabIndex = 15;
             // 
-            // label12
+            // tbDireccion
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(49, 200);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(65, 13);
-            this.label12.TabIndex = 6;
-            this.label12.Text = "Estado Civil:";
+            this.tbDireccion.Location = new System.Drawing.Point(129, 107);
+            this.tbDireccion.Name = "tbDireccion";
+            this.tbDireccion.Size = new System.Drawing.Size(100, 20);
+            this.tbDireccion.TabIndex = 14;
+            // 
+            // tbCuit
+            // 
+            this.tbCuit.Location = new System.Drawing.Point(129, 84);
+            this.tbCuit.Name = "tbCuit";
+            this.tbCuit.Size = new System.Drawing.Size(100, 20);
+            this.tbCuit.TabIndex = 13;
+            // 
+            // tbDniChofer
+            // 
+            this.tbDniChofer.Location = new System.Drawing.Point(129, 61);
+            this.tbDniChofer.Name = "tbDniChofer";
+            this.tbDniChofer.Size = new System.Drawing.Size(100, 20);
+            this.tbDniChofer.TabIndex = 12;
+            // 
+            // tbNombreChofer
+            // 
+            this.tbNombreChofer.Location = new System.Drawing.Point(129, 30);
+            this.tbNombreChofer.Name = "tbNombreChofer";
+            this.tbNombreChofer.Size = new System.Drawing.Size(100, 20);
+            this.tbNombreChofer.TabIndex = 11;
             // 
             // label13
             // 
@@ -285,54 +314,68 @@
             this.label13.TabIndex = 7;
             this.label13.Text = "Nacionalidad:";
             // 
-            // tbNombreChofer
+            // label12
             // 
-            this.tbNombreChofer.Location = new System.Drawing.Point(129, 30);
-            this.tbNombreChofer.Name = "tbNombreChofer";
-            this.tbNombreChofer.Size = new System.Drawing.Size(100, 20);
-            this.tbNombreChofer.TabIndex = 11;
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(49, 200);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(65, 13);
+            this.label12.TabIndex = 6;
+            this.label12.Text = "Estado Civil:";
             // 
-            // tbDniChofer
+            // label11
             // 
-            this.tbDniChofer.Location = new System.Drawing.Point(129, 61);
-            this.tbDniChofer.Name = "tbDniChofer";
-            this.tbDniChofer.Size = new System.Drawing.Size(100, 20);
-            this.tbDniChofer.TabIndex = 12;
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(5, 168);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(109, 13);
+            this.label11.TabIndex = 5;
+            this.label11.Text = "Fecha de nacimiento:";
             // 
-            // tbCuit
+            // label10
             // 
-            this.tbCuit.Location = new System.Drawing.Point(129, 84);
-            this.tbCuit.Name = "tbCuit";
-            this.tbCuit.Size = new System.Drawing.Size(100, 20);
-            this.tbCuit.TabIndex = 13;
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(62, 138);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(52, 13);
+            this.label10.TabIndex = 4;
+            this.label10.Text = "Telefono:";
             // 
-            // tbDireccion
+            // label9
             // 
-            this.tbDireccion.Location = new System.Drawing.Point(129, 107);
-            this.tbDireccion.Name = "tbDireccion";
-            this.tbDireccion.Size = new System.Drawing.Size(100, 20);
-            this.tbDireccion.TabIndex = 14;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(59, 110);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(55, 13);
+            this.label9.TabIndex = 3;
+            this.label9.Text = "Direccion:";
             // 
-            // tbTelefono
+            // label8
             // 
-            this.tbTelefono.Location = new System.Drawing.Point(129, 135);
-            this.tbTelefono.Name = "tbTelefono";
-            this.tbTelefono.Size = new System.Drawing.Size(100, 20);
-            this.tbTelefono.TabIndex = 15;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(86, 87);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(28, 13);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "Cuit:";
             // 
-            // tbEstadoCivil
+            // label7
             // 
-            this.tbEstadoCivil.Location = new System.Drawing.Point(129, 197);
-            this.tbEstadoCivil.Name = "tbEstadoCivil";
-            this.tbEstadoCivil.Size = new System.Drawing.Size(100, 20);
-            this.tbEstadoCivil.TabIndex = 17;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(90, 64);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(26, 13);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "Dni:";
             // 
-            // tbNacionalidad
+            // label6
             // 
-            this.tbNacionalidad.Location = new System.Drawing.Point(129, 229);
-            this.tbNacionalidad.Name = "tbNacionalidad";
-            this.tbNacionalidad.Size = new System.Drawing.Size(100, 20);
-            this.tbNacionalidad.TabIndex = 18;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(69, 33);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(47, 13);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Nombre:";
             // 
             // openFileDialog1
             // 
@@ -357,29 +400,6 @@
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
             // 
-            // dtpFechaNac
-            // 
-            this.dtpFechaNac.Location = new System.Drawing.Point(126, 165);
-            this.dtpFechaNac.Name = "dtpFechaNac";
-            this.dtpFechaNac.Size = new System.Drawing.Size(194, 20);
-            this.dtpFechaNac.TabIndex = 19;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(68, 264);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(41, 13);
-            this.label14.TabIndex = 20;
-            this.label14.Text = "Carnet:";
-            // 
-            // tbCarnet
-            // 
-            this.tbCarnet.Location = new System.Drawing.Point(128, 261);
-            this.tbCarnet.Name = "tbCarnet";
-            this.tbCarnet.Size = new System.Drawing.Size(100, 20);
-            this.tbCarnet.TabIndex = 21;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Location = new System.Drawing.Point(440, 80);
@@ -389,21 +409,21 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // tbUnidadDeCobro
+            // tbKilometros
             // 
-            this.tbUnidadDeCobro.Location = new System.Drawing.Point(158, 187);
-            this.tbUnidadDeCobro.Name = "tbUnidadDeCobro";
-            this.tbUnidadDeCobro.Size = new System.Drawing.Size(100, 20);
-            this.tbUnidadDeCobro.TabIndex = 12;
+            this.tbKilometros.Location = new System.Drawing.Point(158, 213);
+            this.tbKilometros.Name = "tbKilometros";
+            this.tbKilometros.Size = new System.Drawing.Size(100, 20);
+            this.tbKilometros.TabIndex = 14;
             // 
-            // label15
+            // label16
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(96, 190);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(33, 13);
-            this.label15.TabIndex = 11;
-            this.label15.Text = "UDC:";
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(96, 216);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(58, 13);
+            this.label16.TabIndex = 13;
+            this.label16.Text = "Kilometros:";
             // 
             // Agregar_Vehiculo
             // 
@@ -466,5 +486,7 @@
         public System.Windows.Forms.TextBox tbUnidadDeCobro;
         private System.Windows.Forms.Label label15;
         public System.Windows.Forms.TextBox tbCarnet;
+        public System.Windows.Forms.TextBox tbKilometros;
+        private System.Windows.Forms.Label label16;
     }
 }

@@ -12,12 +12,12 @@ namespace Agencia_Autos
     class Vehículo
     {
        
-       protected bool disponible, conchofer;
-       protected string patente, marca, modelo, tipocombustible, imagen;
-       protected int capacidad, unidadDeCobro;
-        
+        private bool disponible, conchofer;
+        private string patente, marca, modelo, tipocombustible, imagen;
+        private int capacidad, unidadDeCobro, kms;
+       
 
-        public Vehículo(bool disponible, bool chofer, string patente, string marca, string modelo, string combustible, string path, int capacidad, int unidadCobro) {
+        public Vehículo(bool disponible, bool chofer, string patente, string marca, string modelo, string combustible, string path, int capacidad, int unidadCobro,int kms) {
 
 
             this.Disponible = disponible;
@@ -29,7 +29,7 @@ namespace Agencia_Autos
             Imagen = path;
             this.Capacidad = capacidad;
             this.unidadDeCobro = unidadCobro;
-        
+            this.kms = kms;
         
         }
 
@@ -42,8 +42,7 @@ namespace Agencia_Autos
         public string Imagen { get => imagen; set => imagen = value; }
         public int Capacidad { get => capacidad; set => capacidad = value; }
         public int UnidadDeCobro { get => unidadDeCobro; set => unidadDeCobro = value; }
-
-
+        public int Kms { get => kms; set => kms = value; }
 
         public string GetVehiculo() {           
 

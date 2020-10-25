@@ -9,22 +9,14 @@ namespace Agencia_Autos
     class Cliente: Persona
     {
 
-        
-        private string nombre;
-        private int dni;
-        private long cuit;
-        private string direccion;
-        private int telefono;
-        private DateTime fechanac;
-        private string estadocivil;
-        private string nacionalidad;
+             
         private long carnet;
         
 
         public Cliente(string nombreCompleto, int dni, long cuil, string dir, int tel, DateTime fechanac, string estadoCiv, string nac, long carnet)
         {
 
-            Nombre = nombreCompleto;
+             Nombre = nombreCompleto;
             this.Dni = dni;
             this.Cuit = cuil;
             Direccion = dir;

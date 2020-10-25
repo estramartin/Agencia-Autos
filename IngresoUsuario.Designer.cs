@@ -39,6 +39,7 @@
             // 
             // btnIngresar
             // 
+            this.btnIngresar.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnIngresar.Location = new System.Drawing.Point(293, 275);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(172, 33);

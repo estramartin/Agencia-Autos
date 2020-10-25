@@ -31,20 +31,20 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menúToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.conChoferToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sinChoferToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.borrarRegistrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificarValoresDeAlquilerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.conChoferToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sinChoferToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -79,6 +79,20 @@
             this.agregarToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.agregarToolStripMenuItem.Text = "Agregar Vehículo";
             this.agregarToolStripMenuItem.Click += new System.EventHandler(this.agregarToolStripMenuItem_Click);
+            // 
+            // conChoferToolStripMenuItem
+            // 
+            this.conChoferToolStripMenuItem.Name = "conChoferToolStripMenuItem";
+            this.conChoferToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.conChoferToolStripMenuItem.Text = "Con Chofer";
+            this.conChoferToolStripMenuItem.Click += new System.EventHandler(this.conChoferToolStripMenuItem_Click);
+            // 
+            // sinChoferToolStripMenuItem
+            // 
+            this.sinChoferToolStripMenuItem.Name = "sinChoferToolStripMenuItem";
+            this.sinChoferToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.sinChoferToolStripMenuItem.Text = "Sin Chofer";
+            this.sinChoferToolStripMenuItem.Click += new System.EventHandler(this.sinChoferToolStripMenuItem_Click);
             // 
             // borrarRegistrosToolStripMenuItem
             // 
@@ -130,18 +144,9 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Vehiculos con Chofer";
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(57, 153);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(163, 33);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Finalizar Alquiler";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(57, 220);
+            this.button3.Location = new System.Drawing.Point(56, 168);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(164, 30);
             this.button3.TabIndex = 7;
@@ -151,7 +156,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(54, 287);
+            this.button4.Location = new System.Drawing.Point(54, 222);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(166, 35);
             this.button4.TabIndex = 8;
@@ -167,20 +172,6 @@
             this.button5.Text = "button5";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // conChoferToolStripMenuItem
-            // 
-            this.conChoferToolStripMenuItem.Name = "conChoferToolStripMenuItem";
-            this.conChoferToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
-            this.conChoferToolStripMenuItem.Text = "Con Chofer";
-            this.conChoferToolStripMenuItem.Click += new System.EventHandler(this.conChoferToolStripMenuItem_Click);
-            // 
-            // sinChoferToolStripMenuItem
-            // 
-            this.sinChoferToolStripMenuItem.Name = "sinChoferToolStripMenuItem";
-            this.sinChoferToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
-            this.sinChoferToolStripMenuItem.Text = "Sin Chofer";
-            this.sinChoferToolStripMenuItem.Click += new System.EventHandler(this.sinChoferToolStripMenuItem_Click);
             // 
             // pictureBox2
             // 
@@ -198,17 +189,26 @@
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(113, 338);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "label3";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1210, 450);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listBox2);
@@ -238,7 +238,6 @@
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
@@ -246,6 +245,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.ToolStripMenuItem conChoferToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sinChoferToolStripMenuItem;
+        private System.Windows.Forms.Label label3;
     }
 }
 
