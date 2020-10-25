@@ -62,11 +62,24 @@ namespace Agencia_Autos
             DateTime finalizar = DateTime.Now;
                       
             TimeSpan periodoAlquiler = alquilerVigente[pos].InicioAlquiler.Subtract(finalizar);
-
+            int unidadesDeCobroPorKM = 0;
             int diasalquiler = periodoAlquiler.Days;
 
 
             int recorrido = kms - alquilerVigente[pos].Auto.Kms;
+
+           if(diasalquiler <= alquilerVigente[pos].DiasDeAlquiler) { 
+              
+                
+                
+            
+            
+
+            
+           }
+          
+
+
 
 
 

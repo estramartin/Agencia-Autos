@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace Agencia_Autos
 {
+    [Serializable]
     public partial class AlquileresVigentes : Form
     {
         public AlquileresVigentes()

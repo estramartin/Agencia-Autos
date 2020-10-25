@@ -46,7 +46,7 @@ namespace Agencia_Autos
         {
            
 
-
+            
             
 
             if (comboBox1.SelectedIndex == 0)
@@ -66,6 +66,11 @@ namespace Agencia_Autos
                 if (comboBox1.SelectedIndex == 2) { gbConductor1.Show(); gbConductor2.Show(); gbConductor3.Hide(); }
                 if (comboBox1.SelectedIndex == 3) { gbConductor1.Show(); gbConductor2.Show(); gbConductor3.Show(); }
             }
+        }
+
+        private void GenerarAlquiler_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

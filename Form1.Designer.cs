@@ -45,6 +45,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnSalir = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -198,11 +199,22 @@
             this.label3.TabIndex = 12;
             this.label3.Text = "label3";
             // 
+            // btnSalir
+            // 
+            this.btnSalir.Location = new System.Drawing.Point(90, 391);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(129, 26);
+            this.btnSalir.TabIndex = 13;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1210, 450);
+            this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
@@ -247,6 +259,7 @@
         private System.Windows.Forms.ToolStripMenuItem conChoferToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sinChoferToolStripMenuItem;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnSalir;
     }
 }
 

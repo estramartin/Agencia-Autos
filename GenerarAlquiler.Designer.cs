@@ -112,16 +112,18 @@
             this.label39 = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
             this.tbDiasDeAlquiler = new System.Windows.Forms.TextBox();
+            this.gbCliente = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gbConductor1.SuspendLayout();
             this.gbConductor2.SuspendLayout();
             this.gbConductor3.SuspendLayout();
+            this.gbCliente.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(75, 40);
+            this.label1.Location = new System.Drawing.Point(73, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 0;
@@ -130,7 +132,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(93, 70);
+            this.label2.Location = new System.Drawing.Point(88, 49);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 13);
             this.label2.TabIndex = 1;
@@ -139,7 +141,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(73, 103);
+            this.label3.Location = new System.Drawing.Point(68, 82);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(49, 13);
             this.label3.TabIndex = 2;
@@ -148,7 +150,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(67, 131);
+            this.label4.Location = new System.Drawing.Point(62, 110);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(55, 13);
             this.label4.TabIndex = 3;
@@ -157,7 +159,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(67, 157);
+            this.label5.Location = new System.Drawing.Point(62, 136);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(52, 13);
             this.label5.TabIndex = 4;
@@ -166,7 +168,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(23, 185);
+            this.label6.Location = new System.Drawing.Point(18, 164);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(96, 13);
             this.label6.TabIndex = 5;
@@ -176,7 +178,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(54, 225);
+            this.label7.Location = new System.Drawing.Point(49, 204);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(65, 13);
             this.label7.TabIndex = 6;
@@ -185,7 +187,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(47, 258);
+            this.label8.Location = new System.Drawing.Point(42, 237);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(72, 13);
             this.label8.TabIndex = 7;
@@ -194,7 +196,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(12, 351);
+            this.label9.Location = new System.Drawing.Point(7, 330);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(219, 13);
             this.label9.TabIndex = 8;
@@ -231,56 +233,56 @@
             // 
             // tbNombreCliente
             // 
-            this.tbNombreCliente.Location = new System.Drawing.Point(131, 37);
+            this.tbNombreCliente.Location = new System.Drawing.Point(126, 16);
             this.tbNombreCliente.Name = "tbNombreCliente";
             this.tbNombreCliente.Size = new System.Drawing.Size(100, 20);
             this.tbNombreCliente.TabIndex = 12;
             // 
             // tbDniCliente
             // 
-            this.tbDniCliente.Location = new System.Drawing.Point(131, 67);
+            this.tbDniCliente.Location = new System.Drawing.Point(126, 46);
             this.tbDniCliente.Name = "tbDniCliente";
             this.tbDniCliente.Size = new System.Drawing.Size(100, 20);
             this.tbDniCliente.TabIndex = 13;
             // 
             // tbCuilCliente
             // 
-            this.tbCuilCliente.Location = new System.Drawing.Point(131, 100);
+            this.tbCuilCliente.Location = new System.Drawing.Point(126, 79);
             this.tbCuilCliente.Name = "tbCuilCliente";
             this.tbCuilCliente.Size = new System.Drawing.Size(100, 20);
             this.tbCuilCliente.TabIndex = 14;
             // 
             // tbDireccionCliente
             // 
-            this.tbDireccionCliente.Location = new System.Drawing.Point(131, 128);
+            this.tbDireccionCliente.Location = new System.Drawing.Point(126, 107);
             this.tbDireccionCliente.Name = "tbDireccionCliente";
             this.tbDireccionCliente.Size = new System.Drawing.Size(100, 20);
             this.tbDireccionCliente.TabIndex = 15;
             // 
             // tbTelefonoCliente
             // 
-            this.tbTelefonoCliente.Location = new System.Drawing.Point(131, 154);
+            this.tbTelefonoCliente.Location = new System.Drawing.Point(126, 133);
             this.tbTelefonoCliente.Name = "tbTelefonoCliente";
             this.tbTelefonoCliente.Size = new System.Drawing.Size(100, 20);
             this.tbTelefonoCliente.TabIndex = 16;
             // 
             // tbEstadoCivilCliente
             // 
-            this.tbEstadoCivilCliente.Location = new System.Drawing.Point(125, 222);
+            this.tbEstadoCivilCliente.Location = new System.Drawing.Point(120, 201);
             this.tbEstadoCivilCliente.Name = "tbEstadoCivilCliente";
             this.tbEstadoCivilCliente.Size = new System.Drawing.Size(100, 20);
             this.tbEstadoCivilCliente.TabIndex = 17;
             // 
             // tbNacionalidadCliente
             // 
-            this.tbNacionalidadCliente.Location = new System.Drawing.Point(125, 255);
+            this.tbNacionalidadCliente.Location = new System.Drawing.Point(120, 234);
             this.tbNacionalidadCliente.Name = "tbNacionalidadCliente";
             this.tbNacionalidadCliente.Size = new System.Drawing.Size(100, 20);
             this.tbNacionalidadCliente.TabIndex = 18;
             // 
             // dtpFechaNac
             // 
-            this.dtpFechaNac.Location = new System.Drawing.Point(125, 182);
+            this.dtpFechaNac.Location = new System.Drawing.Point(120, 161);
             this.dtpFechaNac.Name = "dtpFechaNac";
             this.dtpFechaNac.Size = new System.Drawing.Size(200, 20);
             this.dtpFechaNac.TabIndex = 19;
@@ -293,7 +295,7 @@
             "1",
             "2",
             "3"});
-            this.comboBox1.Location = new System.Drawing.Point(240, 348);
+            this.comboBox1.Location = new System.Drawing.Point(235, 327);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 20;
@@ -311,7 +313,7 @@
             // 
             // tbCarnetCliente
             // 
-            this.tbCarnetCliente.Location = new System.Drawing.Point(125, 281);
+            this.tbCarnetCliente.Location = new System.Drawing.Point(120, 260);
             this.tbCarnetCliente.Name = "tbCarnetCliente";
             this.tbCarnetCliente.Size = new System.Drawing.Size(100, 20);
             this.tbCarnetCliente.TabIndex = 23;
@@ -319,7 +321,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(73, 284);
+            this.label12.Location = new System.Drawing.Point(68, 263);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(41, 13);
             this.label12.TabIndex = 24;
@@ -850,7 +852,7 @@
             // label40
             // 
             this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(32, 310);
+            this.label40.Location = new System.Drawing.Point(27, 289);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(82, 13);
             this.label40.TabIndex = 32;
@@ -858,48 +860,59 @@
             // 
             // tbDiasDeAlquiler
             // 
-            this.tbDiasDeAlquiler.Location = new System.Drawing.Point(125, 307);
+            this.tbDiasDeAlquiler.Location = new System.Drawing.Point(120, 286);
             this.tbDiasDeAlquiler.Name = "tbDiasDeAlquiler";
             this.tbDiasDeAlquiler.Size = new System.Drawing.Size(100, 20);
             this.tbDiasDeAlquiler.TabIndex = 31;
+            // 
+            // gbCliente
+            // 
+            this.gbCliente.Controls.Add(this.label40);
+            this.gbCliente.Controls.Add(this.tbDiasDeAlquiler);
+            this.gbCliente.Controls.Add(this.label12);
+            this.gbCliente.Controls.Add(this.tbCarnetCliente);
+            this.gbCliente.Controls.Add(this.comboBox1);
+            this.gbCliente.Controls.Add(this.dtpFechaNac);
+            this.gbCliente.Controls.Add(this.tbNacionalidadCliente);
+            this.gbCliente.Controls.Add(this.tbEstadoCivilCliente);
+            this.gbCliente.Controls.Add(this.tbTelefonoCliente);
+            this.gbCliente.Controls.Add(this.tbDireccionCliente);
+            this.gbCliente.Controls.Add(this.tbCuilCliente);
+            this.gbCliente.Controls.Add(this.tbDniCliente);
+            this.gbCliente.Controls.Add(this.tbNombreCliente);
+            this.gbCliente.Controls.Add(this.label9);
+            this.gbCliente.Controls.Add(this.label8);
+            this.gbCliente.Controls.Add(this.label7);
+            this.gbCliente.Controls.Add(this.label6);
+            this.gbCliente.Controls.Add(this.label5);
+            this.gbCliente.Controls.Add(this.label4);
+            this.gbCliente.Controls.Add(this.label3);
+            this.gbCliente.Controls.Add(this.label2);
+            this.gbCliente.Controls.Add(this.label1);
+            this.gbCliente.Location = new System.Drawing.Point(5, 37);
+            this.gbCliente.Name = "gbCliente";
+            this.gbCliente.Size = new System.Drawing.Size(366, 361);
+            this.gbCliente.TabIndex = 33;
+            this.gbCliente.TabStop = false;
+            this.gbCliente.Text = "Datos cliente";
             // 
             // GenerarAlquiler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 806);
-            this.Controls.Add(this.label40);
-            this.Controls.Add(this.tbDiasDeAlquiler);
+            this.Controls.Add(this.gbCliente);
             this.Controls.Add(this.gbConductor3);
             this.Controls.Add(this.gbConductor2);
             this.Controls.Add(this.gbConductor1);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.tbCarnetCliente);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.dtpFechaNac);
-            this.Controls.Add(this.tbNacionalidadCliente);
-            this.Controls.Add(this.tbEstadoCivilCliente);
-            this.Controls.Add(this.tbTelefonoCliente);
-            this.Controls.Add(this.tbDireccionCliente);
-            this.Controls.Add(this.tbCuilCliente);
-            this.Controls.Add(this.tbDniCliente);
-            this.Controls.Add(this.tbNombreCliente);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnAlquilar);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Name = "GenerarAlquiler";
             this.Text = "GenerarAlquiler";
+            this.Load += new System.EventHandler(this.GenerarAlquiler_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.gbConductor1.ResumeLayout(false);
             this.gbConductor1.PerformLayout();
@@ -907,6 +920,8 @@
             this.gbConductor2.PerformLayout();
             this.gbConductor3.ResumeLayout(false);
             this.gbConductor3.PerformLayout();
+            this.gbCliente.ResumeLayout(false);
+            this.gbCliente.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -997,5 +1012,6 @@
         public System.Windows.Forms.Label label39;
         public System.Windows.Forms.Label label40;
         public System.Windows.Forms.TextBox tbDiasDeAlquiler;
+        public System.Windows.Forms.GroupBox gbCliente;
     }
 }

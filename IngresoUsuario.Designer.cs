@@ -113,6 +113,7 @@
             this.Controls.Add(this.btnIngresar);
             this.Name = "IngresoUsuario";
             this.Text = "IngresoUsuario";
+            this.Load += new System.EventHandler(this.IngresoUsuario_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

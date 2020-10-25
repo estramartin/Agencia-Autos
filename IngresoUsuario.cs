@@ -16,5 +16,10 @@ namespace Agencia_Autos
         {
             InitializeComponent();
         }
+
+        private void IngresoUsuario_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

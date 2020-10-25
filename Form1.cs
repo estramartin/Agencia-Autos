@@ -15,67 +15,44 @@ namespace Agencia_Autos
 {
     public partial class Form1 : Form
     {
+
         Administracion administracion;
         Persona persona;
         Vehículo vehículo;
       
-        Empresa unaEmpresa;
+       
         string nombreArchivo = Application.StartupPath+"\\datos.dat";
 
 
         public Form1()
         {
             InitializeComponent();
-
-
-            unaEmpresa = new Empresa();
-            unaEmpresa.RazonSocial = "ALQUILAUTO";
-            unaEmpresa.DireccionFiscal = "Los Eucaliptus 1234";
-            unaEmpresa.Cuil = 465698568;
-            administracion = new Administracion(unaEmpresa);
-            persona = new Usuario("Alejandro", "1111", true);
-            administracion.agregarUsuario(persona);
-            persona = new Usuario("Facundo", "2222", false);
-            administracion.agregarUsuario(persona);
-            persona = new Usuario("Martin", "3333", false);
-            administracion.agregarUsuario(persona);
-            persona = new Usuario("Pablo", "4444", false);
-            administracion.agregarUsuario(persona);
-            vehículo = new Vehículo(true, false, "ppk891", "Toyota Etios", "2016", "Nafta", @"D:\Martin\TSP\Laboratorio 2\TP 2\Agencia Autos\Resources\Etios.jpg", 5, 43,48000);
-            administracion.agregarVehiculo(vehículo);
-            vehículo = new Vehículo(true, false, "hbp564", "Peugueot 206", "2008", "Nafta", @"D:\Martin\TSP\Laboratorio 2\TP 2\Agencia Autos\Resources\206.jpg", 5,48,60000);
-            administracion.agregarVehiculo(vehículo);
-
-            DateTime fechanac = DateTime.Now;
-            persona = new Chofer("Marios Sanchez", 34565789, 20345657899, "Corrientes 234", 4232425, fechanac, "Casado", "Argentino", 23234234);
-            vehículo = new VehículoConChofer(true, true, "grd454", "Renault Clio", "2017", "nafta", @"D:\Martin\TSP\Laboratorio 2\TP 2\Agencia Autos\Resources\Clio.jpg", 5,persona,40,55000);
-            administracion.agregarVehiculo(vehículo);
-
-            
-
-
-            foreach (Vehículo v in administracion.GetVehículos())
-            {
-                listBox1.Items.Add(v.GetVehiculo());
-
-            }
-            foreach (Vehículo v in administracion.GetVehiculosConChofer())
-            {
-                listBox2.Items.Add(v.GetVehiculo());
-
-            }
-
-            /*
             if (File.Exists(nombreArchivo))
             {
 
                 FileStream archivo = new FileStream(nombreArchivo, FileMode.Open, FileAccess.Read);
                 BinaryFormatter Deserializador = new BinaryFormatter();
-               administracion = (Administracion)Deserializador.Deserialize(archivo);
+                administracion = (Administracion)Deserializador.Deserialize(archivo);
                 archivo.Close();
                 archivo.Dispose();
             }
-           */
+
+                              
+           
+            foreach (Vehículo v in administracion.GetVehículos())
+            {
+                if (v.Disponible == true) { listBox1.Items.Add(v.GetVehiculo()); }
+                else { listBox1.Items.Add(v.GetVehiculo()+" (Alquilado)"); }
+
+            }
+            foreach (Vehículo v in administracion.GetVehiculosConChofer())
+            {
+                if (v.Disponible == true) listBox2.Items.Add(v.GetVehiculo());
+                else listBox2.Items.Add(v.GetVehiculo()+" (Alquilado)") ;
+            }
+
+            
+
 
         }
 
@@ -150,6 +127,7 @@ namespace Agencia_Autos
         private void sinChoferToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Agregar_Vehiculo agregar = new Agregar_Vehiculo();
+
 
             agregar.Size = new Size(816, 370);
             agregar.btnCargar.Location = new Point(657, 296);
@@ -260,11 +238,22 @@ namespace Agencia_Autos
            
             
            string ruta = administracion.GetVehículos()[listBox1.SelectedIndex].Imagen;
-           
             GenerarAlquiler VentanaAlquilar = new GenerarAlquiler();
 
+            if (administracion.GetVehículos()[listBox1.SelectedIndex].Disponible == false)
+            {
 
+                VentanaAlquilar.gbCliente.Enabled = false;
+                VentanaAlquilar.btnAlquilar.Enabled = false;
 
+            }
+            else {
+
+                VentanaAlquilar.gbCliente.Enabled = true;
+                VentanaAlquilar.btnAlquilar.Enabled = true;
+
+            }
+            
             VentanaAlquilar.pictureBox1.Image = Image.FromFile(ruta);
             VentanaAlquilar.comboBox1.Show();
             if (VentanaAlquilar.ShowDialog() == DialogResult.OK)
@@ -443,6 +432,21 @@ namespace Agencia_Autos
             string ruta = administracion.GetVehiculosConChofer()[listBox2.SelectedIndex].Imagen;
 
             GenerarAlquiler VentanaAlquilar = new GenerarAlquiler();
+
+            if (administracion.GetVehículos()[listBox2.SelectedIndex].Disponible == false)
+            {
+
+                VentanaAlquilar.gbCliente.Enabled = false;
+                VentanaAlquilar.btnAlquilar.Enabled = false;
+
+            }
+            else
+            {
+
+                VentanaAlquilar.gbCliente.Enabled = true;
+                VentanaAlquilar.btnAlquilar.Enabled = true;
+
+            }
             VentanaAlquilar.label11.Text = ((VehículoConChofer)(administracion.GetVehiculosConChofer()[listBox2.SelectedIndex])).UnChofer.DatosPersonales() ;
             VentanaAlquilar.comboBox1.Hide();
 
@@ -483,7 +487,7 @@ namespace Agencia_Autos
                     else
                     {
 
-                        listBox1.Items.Add(v.GetVehiculo() + "  (Alquilado)");
+                        listBox2.Items.Add(v.GetVehiculo() + "  (Alquilado)");
 
                     }
 
@@ -496,14 +500,20 @@ namespace Agencia_Autos
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
 
-            /*FileStream archivo = new FileStream(nombreArchivo, FileMode.CreateNew, FileAccess.Write);
+            if (File.Exists(nombreArchivo)) File.Delete(nombreArchivo);
+            FileStream archivo = new FileStream(nombreArchivo, FileMode.CreateNew, FileAccess.Write);
             BinaryFormatter serializador = new BinaryFormatter();
             serializador.Serialize(archivo, administracion);
 
             archivo.Close();
            
-            */
+            
 
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
