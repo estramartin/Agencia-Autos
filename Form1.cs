@@ -146,7 +146,7 @@ namespace Agencia_Autos
                 string path = agregar.path;
                 int unidadDeCobro = Convert.ToInt32(agregar.tbUnidadDeCobro.Text);
                 int kms = Convert.ToInt32(agregar.tbKilometros.Text);
-                //Agregando Vehiculo ver como seguir
+               
 
 
                 vehículo = new Vehículo(disponible, chofer, patente, marca, modelo, combustible, path, capacidad,unidadDeCobro,kms);
@@ -220,9 +220,10 @@ namespace Agencia_Autos
         {
             ModificarValoresDeAlquiler modificar = new ModificarValoresDeAlquiler();
 
-            if (modificar.ShowDialog() == DialogResult.OK) { 
-            
-            
+            if (modificar.ShowDialog() == DialogResult.OK) {
+
+                double valor = Convert.ToDouble(modificar.tbModificarValorDeAlquiler.Text);
+                Administracion.pesos = valor;
             
             
             }
@@ -232,14 +233,10 @@ namespace Agencia_Autos
 
         private void listBox1_DoubleClick(object sender, EventArgs e)
         {
-
-
-
-           
-            
+                      
            string ruta = administracion.GetVehículos()[listBox1.SelectedIndex].Imagen;
             GenerarAlquiler VentanaAlquilar = new GenerarAlquiler();
-
+            VentanaAlquilar.label11.Text = administracion.GetVehículos()[listBox1.SelectedIndex].GetVehiculo();
             if (administracion.GetVehículos()[listBox1.SelectedIndex].Disponible == false)
             {
 
@@ -274,26 +271,12 @@ namespace Agencia_Autos
 
                 Alquiler alquiler = new Alquiler(persona);
                 alquiler.DiasDeAlquiler = diasDeAlquiler;
+                alquiler.agregarConductores(persona);
 
                 switch (cantidadConductores) {
 
-                    case 1: {
-                            string nombre1 = VentanaAlquilar.tbNombreAcompañante1.Text;
-                            int Dni1 = Convert.ToInt32(VentanaAlquilar.tbDNIAcompañante1.Text);
-                            long cuil1 = Convert.ToInt64(VentanaAlquilar.tbCuilAcompañante1.Text);
-                            string dir1 = VentanaAlquilar.tbDirAcompañante1.Text;
-                            int tel1 = Convert.ToInt32(VentanaAlquilar.tbTelAcompañante1.Text);
-                            DateTime fechanac1 = VentanaAlquilar.dtpFechaNacAcompañante1.Value;
-                            string estadocivil1 = VentanaAlquilar.tbEstadoCivilAcompañante1.Text;
-                            string nacionalidad1 = VentanaAlquilar.tbNacAcompañante1.Text;
-                            long carnet1 = Convert.ToInt64(VentanaAlquilar.tbCarnetAcompañante1.Text);
-                            persona = new Cliente(nombre1, Dni1, cuil1, dir1, tel1, fechanac1, estadocivil1, nacionalidad1, carnet1);
-                            alquiler.agregarConductores(persona);
-
-                            break;
-                        }
                     case 2: {
-
+                            
                             string nombre1 = VentanaAlquilar.tbNombreAcompañante1.Text;
                             int Dni1 = Convert.ToInt32(VentanaAlquilar.tbDNIAcompañante1.Text);
                             long cuil1 = Convert.ToInt64(VentanaAlquilar.tbCuilAcompañante1.Text);
@@ -306,19 +289,7 @@ namespace Agencia_Autos
                             persona = new Cliente(nombre1, Dni1, cuil1, dir1, tel1, fechanac1, estadocivil1, nacionalidad1, carnet1);
                             alquiler.agregarConductores(persona);
 
-                            string nombre2 = VentanaAlquilar.tbNombreAcompañante2.Text;
-                            int Dni2 = Convert.ToInt32(VentanaAlquilar.tbDNIAcompañante2.Text);
-                            long cuil2 = Convert.ToInt64(VentanaAlquilar.tbCuilAcompañante2.Text);
-                            string dir2 = VentanaAlquilar.tbDirAcompañante2.Text;
-                            int tel2 = Convert.ToInt32(VentanaAlquilar.tbTelAcompañante2.Text);
-                            DateTime fechanac2 = VentanaAlquilar.dtpFechaNacAcompañante2.Value;
-                            string estadocivil2 = VentanaAlquilar.tbEstadoCivilAcompañante2.Text;
-                            string nacionalidad2 = VentanaAlquilar.tbNacAcompañante2.Text;
-                            long carnet2 = Convert.ToInt64(VentanaAlquilar.tbCarnetAcompañante2.Text);
-                            persona = new Cliente(nombre2, Dni2, cuil2, dir2, tel2, fechanac2, estadocivil2, nacionalidad2, carnet2);
-                            alquiler.agregarConductores(persona);
                             break;
-
                         }
                     case 3: {
 
@@ -345,24 +316,10 @@ namespace Agencia_Autos
                             long carnet2 = Convert.ToInt64(VentanaAlquilar.tbCarnetAcompañante2.Text);
                             persona = new Cliente(nombre2, Dni2, cuil2, dir2, tel2, fechanac2, estadocivil2, nacionalidad2, carnet2);
                             alquiler.agregarConductores(persona);
-                            
-                           
-                            string nombre3 = VentanaAlquilar.tbNombreAcompañante3.Text;
-                            int Dni3 = Convert.ToInt32(VentanaAlquilar.tbDNIAcompañante3.Text);
-                            long cuil3 = Convert.ToInt64(VentanaAlquilar.tbCuilAcompañante3.Text);
-                            string dir3 = VentanaAlquilar.tbDirAcompañante3.Text;
-                            int tel3 = Convert.ToInt32(VentanaAlquilar.tbTelAcompañante3.Text);
-                            DateTime fechanac3 = VentanaAlquilar.dtpFechaNacAcompañante3.Value;
-                            string estadocivil3 = VentanaAlquilar.tbEstadoCivilAcompañante3.Text;
-                            string nacionalidad3 = VentanaAlquilar.tbNacAcompañante3.Text;
-                            long carnet3 = Convert.ToInt64(VentanaAlquilar.tbCarnetAcompañante3.Text);
-                            persona = new Cliente(nombre3, Dni3, cuil3, dir3, tel3, fechanac3, estadocivil3, nacionalidad3, carnet3);
-                            alquiler.agregarConductores(persona);
                             break;
-                        }
-                
 
-                       
+                        }
+                  
 
                 }
 
@@ -514,6 +471,16 @@ namespace Agencia_Autos
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void listBox1_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = Image.FromFile(administracion.GetVehículos()[listBox1.SelectedIndex].Imagen);
+        }
+
+        private void listBox2_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = Image.FromFile(administracion.GetVehiculosConChofer()[listBox2.SelectedIndex].Imagen);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace Agencia_Autos
     [Serializable]
     class Administracion
     {
-
+        public static double pesos; 
         List<Persona> Usuario = new List<Persona>();
         List<Alquiler> alquilerVigente = new List<Alquiler>();
         List<Vehículo> vehículos = new List<Vehículo>();

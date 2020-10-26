@@ -91,32 +91,12 @@
             this.label28 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
-            this.gbConductor3 = new System.Windows.Forms.GroupBox();
-            this.label31 = new System.Windows.Forms.Label();
-            this.tbCarnetAcompañante3 = new System.Windows.Forms.TextBox();
-            this.dtpFechaNacAcompañante3 = new System.Windows.Forms.DateTimePicker();
-            this.tbNacAcompañante3 = new System.Windows.Forms.TextBox();
-            this.tbEstadoCivilAcompañante3 = new System.Windows.Forms.TextBox();
-            this.tbTelAcompañante3 = new System.Windows.Forms.TextBox();
-            this.tbDirAcompañante3 = new System.Windows.Forms.TextBox();
-            this.tbCuilAcompañante3 = new System.Windows.Forms.TextBox();
-            this.tbDNIAcompañante3 = new System.Windows.Forms.TextBox();
-            this.tbNombreAcompañante3 = new System.Windows.Forms.TextBox();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
-            this.label37 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
-            this.label39 = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
             this.tbDiasDeAlquiler = new System.Windows.Forms.TextBox();
             this.gbCliente = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gbConductor1.SuspendLayout();
             this.gbConductor2.SuspendLayout();
-            this.gbConductor3.SuspendLayout();
             this.gbCliente.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -291,7 +271,6 @@
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
-            "0",
             "1",
             "2",
             "3"});
@@ -356,9 +335,9 @@
             this.gbConductor1.Controls.Add(this.label23);
             this.gbConductor1.Controls.Add(this.label24);
             this.gbConductor1.Controls.Add(this.label25);
-            this.gbConductor1.Location = new System.Drawing.Point(26, 419);
+            this.gbConductor1.Location = new System.Drawing.Point(57, 419);
             this.gbConductor1.Name = "gbConductor1";
-            this.gbConductor1.Size = new System.Drawing.Size(236, 343);
+            this.gbConductor1.Size = new System.Drawing.Size(279, 343);
             this.gbConductor1.TabIndex = 29;
             this.gbConductor1.TabStop = false;
             this.gbConductor1.Text = "Conductor 1:";
@@ -383,7 +362,7 @@
             // 
             this.dtpFechaNacAcompañante1.Location = new System.Drawing.Point(69, 184);
             this.dtpFechaNacAcompañante1.Name = "dtpFechaNacAcompañante1";
-            this.dtpFechaNacAcompañante1.Size = new System.Drawing.Size(136, 20);
+            this.dtpFechaNacAcompañante1.Size = new System.Drawing.Size(204, 20);
             this.dtpFechaNacAcompañante1.TabIndex = 40;
             // 
             // tbNacAcompañante1
@@ -527,9 +506,9 @@
             this.gbConductor2.Controls.Add(this.label28);
             this.gbConductor2.Controls.Add(this.label29);
             this.gbConductor2.Controls.Add(this.label30);
-            this.gbConductor2.Location = new System.Drawing.Point(268, 419);
+            this.gbConductor2.Location = new System.Drawing.Point(387, 419);
             this.gbConductor2.Name = "gbConductor2";
-            this.gbConductor2.Size = new System.Drawing.Size(243, 343);
+            this.gbConductor2.Size = new System.Drawing.Size(300, 343);
             this.gbConductor2.TabIndex = 30;
             this.gbConductor2.TabStop = false;
             this.gbConductor2.Text = "Conductor 2:";
@@ -554,7 +533,7 @@
             // 
             this.dtpFechaNacAcompañante2.Location = new System.Drawing.Point(88, 189);
             this.dtpFechaNacAcompañante2.Name = "dtpFechaNacAcompañante2";
-            this.dtpFechaNacAcompañante2.Size = new System.Drawing.Size(136, 20);
+            this.dtpFechaNacAcompañante2.Size = new System.Drawing.Size(206, 20);
             this.dtpFechaNacAcompañante2.TabIndex = 58;
             // 
             // tbNacAcompañante2
@@ -678,177 +657,6 @@
             this.label30.TabIndex = 43;
             this.label30.Text = "Nombre:";
             // 
-            // gbConductor3
-            // 
-            this.gbConductor3.Controls.Add(this.label31);
-            this.gbConductor3.Controls.Add(this.tbCarnetAcompañante3);
-            this.gbConductor3.Controls.Add(this.dtpFechaNacAcompañante3);
-            this.gbConductor3.Controls.Add(this.tbNacAcompañante3);
-            this.gbConductor3.Controls.Add(this.tbEstadoCivilAcompañante3);
-            this.gbConductor3.Controls.Add(this.tbTelAcompañante3);
-            this.gbConductor3.Controls.Add(this.tbDirAcompañante3);
-            this.gbConductor3.Controls.Add(this.tbCuilAcompañante3);
-            this.gbConductor3.Controls.Add(this.tbDNIAcompañante3);
-            this.gbConductor3.Controls.Add(this.tbNombreAcompañante3);
-            this.gbConductor3.Controls.Add(this.label32);
-            this.gbConductor3.Controls.Add(this.label33);
-            this.gbConductor3.Controls.Add(this.label34);
-            this.gbConductor3.Controls.Add(this.label35);
-            this.gbConductor3.Controls.Add(this.label36);
-            this.gbConductor3.Controls.Add(this.label37);
-            this.gbConductor3.Controls.Add(this.label38);
-            this.gbConductor3.Controls.Add(this.label39);
-            this.gbConductor3.Location = new System.Drawing.Point(517, 419);
-            this.gbConductor3.Name = "gbConductor3";
-            this.gbConductor3.Size = new System.Drawing.Size(243, 343);
-            this.gbConductor3.TabIndex = 30;
-            this.gbConductor3.TabStop = false;
-            this.gbConductor3.Text = "Conductor 3:";
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(44, 282);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(41, 13);
-            this.label31.TabIndex = 60;
-            this.label31.Text = "Carnet:";
-            // 
-            // tbCarnetAcompañante3
-            // 
-            this.tbCarnetAcompañante3.Location = new System.Drawing.Point(96, 279);
-            this.tbCarnetAcompañante3.Name = "tbCarnetAcompañante3";
-            this.tbCarnetAcompañante3.Size = new System.Drawing.Size(100, 20);
-            this.tbCarnetAcompañante3.TabIndex = 59;
-            // 
-            // dtpFechaNacAcompañante3
-            // 
-            this.dtpFechaNacAcompañante3.Location = new System.Drawing.Point(88, 189);
-            this.dtpFechaNacAcompañante3.Name = "dtpFechaNacAcompañante3";
-            this.dtpFechaNacAcompañante3.Size = new System.Drawing.Size(136, 20);
-            this.dtpFechaNacAcompañante3.TabIndex = 58;
-            // 
-            // tbNacAcompañante3
-            // 
-            this.tbNacAcompañante3.Location = new System.Drawing.Point(96, 253);
-            this.tbNacAcompañante3.Name = "tbNacAcompañante3";
-            this.tbNacAcompañante3.Size = new System.Drawing.Size(100, 20);
-            this.tbNacAcompañante3.TabIndex = 57;
-            // 
-            // tbEstadoCivilAcompañante3
-            // 
-            this.tbEstadoCivilAcompañante3.Location = new System.Drawing.Point(96, 220);
-            this.tbEstadoCivilAcompañante3.Name = "tbEstadoCivilAcompañante3";
-            this.tbEstadoCivilAcompañante3.Size = new System.Drawing.Size(100, 20);
-            this.tbEstadoCivilAcompañante3.TabIndex = 56;
-            // 
-            // tbTelAcompañante3
-            // 
-            this.tbTelAcompañante3.Location = new System.Drawing.Point(94, 161);
-            this.tbTelAcompañante3.Name = "tbTelAcompañante3";
-            this.tbTelAcompañante3.Size = new System.Drawing.Size(100, 20);
-            this.tbTelAcompañante3.TabIndex = 55;
-            // 
-            // tbDirAcompañante3
-            // 
-            this.tbDirAcompañante3.Location = new System.Drawing.Point(94, 135);
-            this.tbDirAcompañante3.Name = "tbDirAcompañante3";
-            this.tbDirAcompañante3.Size = new System.Drawing.Size(100, 20);
-            this.tbDirAcompañante3.TabIndex = 54;
-            // 
-            // tbCuilAcompañante3
-            // 
-            this.tbCuilAcompañante3.Location = new System.Drawing.Point(94, 107);
-            this.tbCuilAcompañante3.Name = "tbCuilAcompañante3";
-            this.tbCuilAcompañante3.Size = new System.Drawing.Size(100, 20);
-            this.tbCuilAcompañante3.TabIndex = 53;
-            // 
-            // tbDNIAcompañante3
-            // 
-            this.tbDNIAcompañante3.Location = new System.Drawing.Point(94, 74);
-            this.tbDNIAcompañante3.Name = "tbDNIAcompañante3";
-            this.tbDNIAcompañante3.Size = new System.Drawing.Size(100, 20);
-            this.tbDNIAcompañante3.TabIndex = 52;
-            // 
-            // tbNombreAcompañante3
-            // 
-            this.tbNombreAcompañante3.Location = new System.Drawing.Point(94, 44);
-            this.tbNombreAcompañante3.Name = "tbNombreAcompañante3";
-            this.tbNombreAcompañante3.Size = new System.Drawing.Size(100, 20);
-            this.tbNombreAcompañante3.TabIndex = 51;
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(18, 256);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(72, 13);
-            this.label32.TabIndex = 50;
-            this.label32.Text = "Nacionalidad:";
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(25, 223);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(65, 13);
-            this.label33.TabIndex = 49;
-            this.label33.Text = "Estado Civil:";
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(19, 195);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(63, 13);
-            this.label34.TabIndex = 48;
-            this.label34.Text = "Fecha Nac:";
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(30, 164);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(52, 13);
-            this.label35.TabIndex = 47;
-            this.label35.Text = "Telefono:";
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(30, 138);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(55, 13);
-            this.label36.TabIndex = 46;
-            this.label36.Text = "Direccion:";
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(36, 110);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(49, 13);
-            this.label37.TabIndex = 45;
-            this.label37.Text = "Cuit/cuil:";
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(56, 77);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(29, 13);
-            this.label38.TabIndex = 44;
-            this.label38.Text = "DNI:";
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(38, 47);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(47, 13);
-            this.label39.TabIndex = 43;
-            this.label39.Text = "Nombre:";
-            // 
             // label40
             // 
             this.label40.AutoSize = true;
@@ -902,7 +710,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 806);
             this.Controls.Add(this.gbCliente);
-            this.Controls.Add(this.gbConductor3);
             this.Controls.Add(this.gbConductor2);
             this.Controls.Add(this.gbConductor1);
             this.Controls.Add(this.label11);
@@ -918,8 +725,6 @@
             this.gbConductor1.PerformLayout();
             this.gbConductor2.ResumeLayout(false);
             this.gbConductor2.PerformLayout();
-            this.gbConductor3.ResumeLayout(false);
-            this.gbConductor3.PerformLayout();
             this.gbCliente.ResumeLayout(false);
             this.gbCliente.PerformLayout();
             this.ResumeLayout(false);
@@ -955,7 +760,6 @@
         public System.Windows.Forms.Label label12;
         public System.Windows.Forms.GroupBox gbConductor1;
         public System.Windows.Forms.GroupBox gbConductor2;
-        public System.Windows.Forms.GroupBox gbConductor3;
         public System.Windows.Forms.Label label13;
         public System.Windows.Forms.TextBox tbCarnetAcompañante1;
         public System.Windows.Forms.DateTimePicker dtpFechaNacAcompañante1;
@@ -992,24 +796,6 @@
         public System.Windows.Forms.Label label28;
         public System.Windows.Forms.Label label29;
         public System.Windows.Forms.Label label30;
-        public System.Windows.Forms.Label label31;
-        public System.Windows.Forms.TextBox tbCarnetAcompañante3;
-        public System.Windows.Forms.DateTimePicker dtpFechaNacAcompañante3;
-        public System.Windows.Forms.TextBox tbNacAcompañante3;
-        public System.Windows.Forms.TextBox tbEstadoCivilAcompañante3;
-        public System.Windows.Forms.TextBox tbTelAcompañante3;
-        public System.Windows.Forms.TextBox tbDirAcompañante3;
-        public System.Windows.Forms.TextBox tbCuilAcompañante3;
-        public System.Windows.Forms.TextBox tbDNIAcompañante3;
-        public System.Windows.Forms.TextBox tbNombreAcompañante3;
-        public System.Windows.Forms.Label label32;
-        public System.Windows.Forms.Label label33;
-        public System.Windows.Forms.Label label34;
-        public System.Windows.Forms.Label label35;
-        public System.Windows.Forms.Label label36;
-        public System.Windows.Forms.Label label37;
-        public System.Windows.Forms.Label label38;
-        public System.Windows.Forms.Label label39;
         public System.Windows.Forms.Label label40;
         public System.Windows.Forms.TextBox tbDiasDeAlquiler;
         public System.Windows.Forms.GroupBox gbCliente;

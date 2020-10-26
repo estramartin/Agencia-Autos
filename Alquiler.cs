@@ -12,7 +12,7 @@ namespace Agencia_Autos
         private Persona cliente;
         private Vehículo vehiculo;
         private int cantAcompañantes = 0;
-        private Persona[] acompañantes = new Cliente[3];
+        private Persona[] acompañantes = new Cliente[2];
         private int diasDeAlquiler;
         private DateTime inicioAlquiler;
 

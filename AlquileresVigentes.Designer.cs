@@ -31,6 +31,8 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.btnFinalizar = new System.Windows.Forms.Button();
             this.btnVolver = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // listBox1
@@ -48,7 +50,7 @@
             this.btnFinalizar.Name = "btnFinalizar";
             this.btnFinalizar.Size = new System.Drawing.Size(180, 36);
             this.btnFinalizar.TabIndex = 1;
-            this.btnFinalizar.Text = "Finalizar";
+            this.btnFinalizar.Text = "Finalizar Alquiler";
             this.btnFinalizar.UseVisualStyleBackColor = true;
             this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
             // 
@@ -60,18 +62,37 @@
             this.btnVolver.TabIndex = 2;
             this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(412, 312);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(189, 315);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(217, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Ingrese los kilometros Actuales del vehículo:";
             // 
             // AlquileresVigentes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnFinalizar);
             this.Controls.Add(this.listBox1);
             this.Name = "AlquileresVigentes";
-            this.Text = "AlquileresVigentes";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -80,5 +101,7 @@
         public System.Windows.Forms.ListBox listBox1;
         public System.Windows.Forms.Button btnFinalizar;
         public System.Windows.Forms.Button btnVolver;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
     }
 }
