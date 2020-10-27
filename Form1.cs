@@ -19,8 +19,7 @@ namespace Agencia_Autos
         Administracion administracion;
         Persona persona;
         Vehículo vehículo;
-      
-       
+
         string nombreArchivo = Application.StartupPath+"\\datos.dat";
 
 
@@ -199,11 +198,11 @@ namespace Agencia_Autos
         private void modificarValoresDeAlquilerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ModificarValoresDeAlquiler modificar = new ModificarValoresDeAlquiler();
-
+            modificar.lblMostrarValorActual.Text = administracion.Pesos.ToString();
             if (modificar.ShowDialog() == DialogResult.OK) {
 
                 double valor = Convert.ToDouble(modificar.tbModificarValorDeAlquiler.Text);
-                Administracion.pesos = valor;
+               administracion.Pesos = valor;
             
             
             }
@@ -330,7 +329,7 @@ namespace Agencia_Autos
 
                 MessageBox.Show( "precio: " + precio.ToString());
 
-                
+                ActualizarListboxs();
             
             
             }
@@ -461,6 +460,38 @@ namespace Agencia_Autos
             Vehículo.ordenar = (cbVehiculosConChofer.SelectedIndex);
             administracion.GetVehiculosConChofer().Sort();
             ActualizarListboxs();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            VerHistorico verHistorico = new VerHistorico();
+            verHistorico.listBox1.Items.Clear();
+
+            foreach (Alquiler h in administracion.VerHistorico().GetHistorico()) {
+
+                verHistorico.listBox1.Items.Add(h.GetVehículo().GetVehiculo() + "   " + h.getClinete().DatosPersonales());     
+            
+            }
+
+            verHistorico.ShowDialog();
+
+            if (verHistorico.btnVolver.DialogResult == DialogResult.OK)
+            {
+                if (verHistorico.btnBorrar.DialogResult == DialogResult.Yes)
+                {
+
+                    administracion.VerHistorico().DeleteItem(verHistorico.listBox1.SelectedIndex, verHistorico.listBox1);
+
+
+                }
+
+                verHistorico.Close();
+            }
+          
+             
+
+
+
         }
     }
 }

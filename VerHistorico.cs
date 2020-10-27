@@ -10,15 +10,17 @@ using System.Windows.Forms;
 
 namespace Agencia_Autos
 {
-    [Serializable]
-    public partial class ModificarValoresDeAlquiler : Form
+    public partial class VerHistorico : Form
     {
-        public ModificarValoresDeAlquiler()
+        public VerHistorico()
         {
             InitializeComponent();
+
+
+
         }
 
-        private void ModificarValoresDeAlquiler_Load(object sender, EventArgs e)
+        private void VerHistorico_Load(object sender, EventArgs e)
         {
 
         }

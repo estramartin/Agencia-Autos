@@ -10,7 +10,7 @@ namespace Agencia_Autos
     [Serializable]
     class Administracion
     {
-        public static double pesos; 
+        private double pesos; 
         List<Persona> Usuario = new List<Persona>();
         List<Alquiler> alquilerVigente = new List<Alquiler>();
         List<Vehículo> vehículos = new List<Vehículo>();
@@ -26,6 +26,11 @@ namespace Agencia_Autos
 
 
          }
+
+        public double Pesos {
+            get { return pesos; }
+            set { pesos = value; }
+        }
 
         public void agregarVehiculo(Vehículo v) {
 
@@ -60,12 +65,14 @@ namespace Agencia_Autos
 
         public double Devolucion(int pos, int kms, ListBox lbAlquileres, DateTime finalizar) {
 
+           // paso un parametro DateTime para que no sea siempre valor 1
+            
             double preciofinal = 0;
             double aCobrar = 0;
            // DateTime finalizar = DateTime.Now; //tiempo exacto en el que termina el alquiler
             int horaDevolucion = finalizar.Hour;          //hora de finalizacion
             int mindevolucion = finalizar.Minute;
-            TimeSpan periodoAlquiler = alquilerVigente[pos].InicioAlquiler.Subtract(finalizar); // intervalo en el que el vehiculo permanecio alquilado
+            TimeSpan periodoAlquiler = finalizar.Subtract(alquilerVigente[pos].InicioAlquiler); // intervalo en el que el vehiculo permanecio alquilado
 
             int kilometrosPermitidos = 500;
            
@@ -111,15 +118,15 @@ namespace Agencia_Autos
 
             }
 
-            if (alquilerVigente[pos].Auto.Conchofer == false) preciofinal = aCobrar * pesos;
+            if (alquilerVigente[pos].Auto.Conchofer == false) preciofinal = aCobrar * Pesos;
             else {
                 aCobrar = aCobrar + Chofer.viatico;
-                preciofinal = aCobrar* pesos;
+                preciofinal = aCobrar* Pesos;
 
 
             }
 
-           // historico.agregarAlHistorico(alquilerVigente[pos]);
+            historico.IngrearAlquiler(alquilerVigente[pos]);
             alquilerVigente[pos].Auto.Kms = kms;
             alquilerVigente[pos].Auto.Disponible = true;
             
@@ -166,7 +173,11 @@ namespace Agencia_Autos
         
         }
 
+        public Historico VerHistorico() {
 
+            return historico;
+        
+        }
 
 
     }

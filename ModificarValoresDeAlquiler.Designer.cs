@@ -33,6 +33,8 @@
             this.tbModificarValorDeAlquiler = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblMostrarValorActual = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnAceptar
@@ -79,11 +81,31 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Valor expresado en pesos:";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(132, 194);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(66, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Valor actual:";
+            // 
+            // lblMostrarValorActual
+            // 
+            this.lblMostrarValorActual.AutoSize = true;
+            this.lblMostrarValorActual.Location = new System.Drawing.Point(204, 194);
+            this.lblMostrarValorActual.Name = "lblMostrarValorActual";
+            this.lblMostrarValorActual.Size = new System.Drawing.Size(35, 13);
+            this.lblMostrarValorActual.TabIndex = 6;
+            this.lblMostrarValorActual.Text = "label4";
+            // 
             // ModificarValoresDeAlquiler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(606, 384);
+            this.Controls.Add(this.lblMostrarValorActual);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbModificarValorDeAlquiler);
@@ -91,6 +113,7 @@
             this.Controls.Add(this.btnAceptar);
             this.Name = "ModificarValoresDeAlquiler";
             this.Text = "ModificarValoresDeAlquiler";
+            this.Load += new System.EventHandler(this.ModificarValoresDeAlquiler_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -102,5 +125,7 @@
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.Button btnAceptar;
         public System.Windows.Forms.TextBox tbModificarValorDeAlquiler;
+        private System.Windows.Forms.Label label3;
+        public System.Windows.Forms.Label lblMostrarValorActual;
     }
 }
