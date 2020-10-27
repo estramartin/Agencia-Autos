@@ -43,8 +43,9 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
+            this.cbVehiculos = new System.Windows.Forms.ComboBox();
+            this.cbVehiculosConChofer = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -130,7 +131,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(385, 37);
+            this.label1.Location = new System.Drawing.Point(212, 37);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 13);
             this.label1.TabIndex = 4;
@@ -139,7 +140,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(709, 37);
+            this.label2.Location = new System.Drawing.Point(570, 37);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(108, 13);
             this.label2.TabIndex = 5;
@@ -183,15 +184,6 @@
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(113, 338);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "label3";
-            // 
             // btnSalir
             // 
             this.btnSalir.Location = new System.Drawing.Point(90, 391);
@@ -202,13 +194,42 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
+            // cbVehiculos
+            // 
+            this.cbVehiculos.FormattingEnabled = true;
+            this.cbVehiculos.Items.AddRange(new object[] {
+            "Marca y Modelo",
+            "Capacidad",
+            "Tipo de Combustible"});
+            this.cbVehiculos.Location = new System.Drawing.Point(291, 34);
+            this.cbVehiculos.Name = "cbVehiculos";
+            this.cbVehiculos.Size = new System.Drawing.Size(121, 21);
+            this.cbVehiculos.TabIndex = 14;
+            this.cbVehiculos.Text = "Ordenar";
+            this.cbVehiculos.SelectedIndexChanged += new System.EventHandler(this.cbVehiculos_SelectedIndexChanged);
+            // 
+            // cbVehiculosConChofer
+            // 
+            this.cbVehiculosConChofer.FormattingEnabled = true;
+            this.cbVehiculosConChofer.Items.AddRange(new object[] {
+            "Marca y Modelo",
+            "Capacidad",
+            "Tipo de Combustible"});
+            this.cbVehiculosConChofer.Location = new System.Drawing.Point(684, 34);
+            this.cbVehiculosConChofer.Name = "cbVehiculosConChofer";
+            this.cbVehiculosConChofer.Size = new System.Drawing.Size(121, 21);
+            this.cbVehiculosConChofer.TabIndex = 15;
+            this.cbVehiculosConChofer.Text = "Ordenar";
+            this.cbVehiculosConChofer.SelectedIndexChanged += new System.EventHandler(this.cbVehiculosConChofer_SelectedIndexChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1210, 450);
+            this.Controls.Add(this.cbVehiculosConChofer);
+            this.Controls.Add(this.cbVehiculos);
             this.Controls.Add(this.btnSalir);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
@@ -248,8 +269,9 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripMenuItem conChoferToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sinChoferToolStripMenuItem;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnSalir;
+        public System.Windows.Forms.ComboBox cbVehiculos;
+        public System.Windows.Forms.ComboBox cbVehiculosConChofer;
     }
 }
 

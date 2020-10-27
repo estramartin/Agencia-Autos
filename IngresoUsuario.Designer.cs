@@ -33,8 +33,8 @@
             this.tbClave = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.rbSuperovisor = new System.Windows.Forms.RadioButton();
             this.btnSalir = new System.Windows.Forms.Button();
+            this.cbSupervisor = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // btnIngresar
@@ -46,6 +46,7 @@
             this.btnIngresar.TabIndex = 0;
             this.btnIngresar.Text = "Ingresar";
             this.btnIngresar.UseVisualStyleBackColor = true;
+            this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
             // tbNombreUsuario
             // 
@@ -79,17 +80,6 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Clave:";
             // 
-            // rbSuperovisor
-            // 
-            this.rbSuperovisor.AutoSize = true;
-            this.rbSuperovisor.Location = new System.Drawing.Point(561, 129);
-            this.rbSuperovisor.Name = "rbSuperovisor";
-            this.rbSuperovisor.Size = new System.Drawing.Size(75, 17);
-            this.rbSuperovisor.TabIndex = 1;
-            this.rbSuperovisor.TabStop = true;
-            this.rbSuperovisor.Text = "Supervisor";
-            this.rbSuperovisor.UseVisualStyleBackColor = true;
-            // 
             // btnSalir
             // 
             this.btnSalir.Location = new System.Drawing.Point(327, 377);
@@ -99,13 +89,23 @@
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
             // 
+            // cbSupervisor
+            // 
+            this.cbSupervisor.AutoSize = true;
+            this.cbSupervisor.Location = new System.Drawing.Point(561, 174);
+            this.cbSupervisor.Name = "cbSupervisor";
+            this.cbSupervisor.Size = new System.Drawing.Size(76, 17);
+            this.cbSupervisor.TabIndex = 6;
+            this.cbSupervisor.Text = "Supervisor";
+            this.cbSupervisor.UseVisualStyleBackColor = true;
+            // 
             // IngresoUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.cbSupervisor);
             this.Controls.Add(this.btnSalir);
-            this.Controls.Add(this.rbSuperovisor);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbClave);
@@ -126,6 +126,6 @@
         public System.Windows.Forms.Button btnSalir;
         public System.Windows.Forms.TextBox tbNombreUsuario;
         public System.Windows.Forms.TextBox tbClave;
-        public System.Windows.Forms.RadioButton rbSuperovisor;
+        public System.Windows.Forms.CheckBox cbSupervisor;
     }
 }

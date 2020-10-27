@@ -37,21 +37,8 @@ namespace Agencia_Autos
                 archivo.Dispose();
             }
 
-                              
-           
-            foreach (Vehículo v in administracion.GetVehículos())
-            {
-                if (v.Disponible == true) { listBox1.Items.Add(v.GetVehiculo()); }
-                else { listBox1.Items.Add(v.GetVehiculo()+" (Alquilado)"); }
 
-            }
-            foreach (Vehículo v in administracion.GetVehiculosConChofer())
-            {
-                if (v.Disponible == true) listBox2.Items.Add(v.GetVehiculo());
-                else listBox2.Items.Add(v.GetVehiculo()+" (Alquilado)") ;
-            }
-
-            
+            ActualizarListboxs();    
 
 
         }
@@ -59,53 +46,60 @@ namespace Agencia_Autos
         private void Form1_Load(object sender, EventArgs e)
         {
 
-            IngresoUsuario ingresarUsuario = new IngresoUsuario();
+            bool control = false;
+            IngresoUsuario ingresarUsuario = new IngresoUsuario() ;
 
-
-            if (ingresarUsuario.ShowDialog() == DialogResult.OK)
-            {
-
-                bool control = false;
-
-
-                while (control == false)
+           
+                if (ingresarUsuario.ShowDialog() == DialogResult.OK)
                 {
-
-                    string usuario = ingresarUsuario.tbNombreUsuario.Text;
-                    string clave = ingresarUsuario.tbClave.Text;
-                    bool Supervisor = false;
-                    if (ingresarUsuario.rbSuperovisor.Checked == true) Supervisor = true;
-
-
-                    persona = new Usuario(usuario, clave, Supervisor);
-                    foreach (Persona u in administracion.GetUsuario())
+                
+                
+                   while (control == false)
                     {
 
-                        if (((Usuario)u).Nombreusuario == usuario && ((Usuario)u).Clave == clave && ((Usuario)u).TipoUsuario == Supervisor)
+                        string usuario = ingresarUsuario.tbNombreUsuario.Text;
+                        string clave = ingresarUsuario.tbClave.Text;
+                        bool Supervisor;
+                        if (ingresarUsuario.cbSupervisor.Checked == true) Supervisor = true;
+                        else { Supervisor = false; }
+
+                        foreach (Usuario u in administracion.GetUsuario())
                         {
-                            control = true;
 
-                            DialogResult = DialogResult.OK;
+                            if (u.Nombreusuario == usuario && (u).Clave == clave && (u).TipoUsuario == Supervisor)
+                            {
+                                ingresarUsuario.btnIngresar.DialogResult = DialogResult.OK;
+                                control = true;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Usuario Incorrecto");
+                                break;
+
+                            }
+
                         }
-                        else
-                        {
 
-                            DialogResult = DialogResult.None;
 
-                        }
 
                     }
 
-
-
                 }
+               
+            
 
-            }
-
-
-
+                
+            
 
         }
+               
+
+    
+
+
+
+
+        
 
         private void agregarToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -155,16 +149,7 @@ namespace Agencia_Autos
 
                 administracion.agregarVehiculo(vehículo);
 
-                listBox1.Items.Clear();
-                foreach (Vehículo v in administracion.GetVehículos())
-                {
-                    listBox1.Items.Add(v.GetVehiculo());
-
-                }
-
-
-
-
+                ActualizarListboxs();
             }
         }
 
@@ -206,12 +191,7 @@ namespace Agencia_Autos
 
                 administracion.agregarVehiculo(vehículo);
 
-                listBox2.Items.Clear();
-                foreach (Vehículo v in administracion.GetVehiculosConChofer())
-                {
-                    listBox2.Items.Add(v.GetVehiculo());
-
-                }
+                ActualizarListboxs();
 
             }
         }
@@ -331,24 +311,7 @@ namespace Agencia_Autos
 
 
                 listBox1.Items.Clear();
-                foreach (Vehículo v in administracion.GetVehículos()) {
-
-                    if (v.Disponible == true)
-                    {
-
-                        listBox1.Items.Add(v.GetVehiculo());
-
-
-                    }
-                    else {
-
-                        listBox1.Items.Add(v.GetVehiculo() + "  (Alquilado)");
-                    
-                    }
-                
-                
-                }
-
+                ActualizarListboxs();
 
             }
         }
@@ -363,13 +326,10 @@ namespace Agencia_Autos
             if (veralquileres.ShowDialog() == DialogResult.OK) {
 
 
+                double precio = administracion.Devolucion(veralquileres.listBox1.SelectedIndex, Convert.ToInt32(veralquileres.textBox1.Text),veralquileres.listBox1, veralquileres.dateTimePicker1.Value);
 
+                MessageBox.Show( "precio: " + precio.ToString());
 
-
-
-
-                label3.Text = Convert.ToString(administracion.Devolucion(veralquileres.listBox1.SelectedIndex,15000));
-                
                 
             
             
@@ -390,7 +350,7 @@ namespace Agencia_Autos
 
             GenerarAlquiler VentanaAlquilar = new GenerarAlquiler();
 
-            if (administracion.GetVehículos()[listBox2.SelectedIndex].Disponible == false)
+            if (administracion.GetVehiculosConChofer()[listBox2.SelectedIndex].Disponible == false)
             {
 
                 VentanaAlquilar.gbCliente.Enabled = false;
@@ -430,25 +390,7 @@ namespace Agencia_Autos
                 alquiler.Auto.Disponible = false;
                 administracion.CargarAlquiler(alquiler);
 
-                listBox2.Items.Clear();
-                foreach (Vehículo v in administracion.GetVehiculosConChofer())
-                {
-
-                    if (v.Disponible == true)
-                    {
-
-                        listBox2.Items.Add(v.GetVehiculo());
-
-
-                    }
-                    else
-                    {
-
-                        listBox2.Items.Add(v.GetVehiculo() + "  (Alquilado)");
-
-                    }
-
-                }
+                ActualizarListboxs();
 
 
             }
@@ -481,6 +423,44 @@ namespace Agencia_Autos
         private void listBox2_Click(object sender, EventArgs e)
         {
             pictureBox1.Image = Image.FromFile(administracion.GetVehiculosConChofer()[listBox2.SelectedIndex].Imagen);
+        }
+
+
+        public void ActualizarListboxs() {
+
+            listBox1.Items.Clear();
+            listBox2.Items.Clear();
+
+
+         foreach (Vehículo v in administracion.GetVehículos())
+            {
+                if (v.Disponible == true) { listBox1.Items.Add(v.GetVehiculo()); }
+                else { listBox1.Items.Add(v.GetVehiculo()+" (Alquilado)"); }
+
+            }
+            foreach (Vehículo v in administracion.GetVehiculosConChofer())
+            {
+                if (v.Disponible == true) listBox2.Items.Add(v.GetVehiculo());
+                else listBox2.Items.Add(v.GetVehiculo()+" (Alquilado)") ;
+            }
+        
+        }
+
+        private void cbVehiculos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Vehículo.ordenar = (cbVehiculosConChofer.SelectedIndex);
+            administracion.GetVehículos().Sort();
+            ActualizarListboxs();
+
+
+
+        }
+
+        private void cbVehiculosConChofer_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Vehículo.ordenar = (cbVehiculosConChofer.SelectedIndex);
+            administracion.GetVehiculosConChofer().Sort();
+            ActualizarListboxs();
         }
     }
 }

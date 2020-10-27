@@ -12,14 +12,23 @@ namespace Agencia_Autos
 {
     public partial class IngresoUsuario : Form
     {
+      
+
         public IngresoUsuario()
         {
             InitializeComponent();
+            
         }
-
         private void IngresoUsuario_Load(object sender, EventArgs e)
         {
 
         }
+
+        private void btnIngresar_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+       
     }
 }
