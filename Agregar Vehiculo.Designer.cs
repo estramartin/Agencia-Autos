@@ -40,6 +40,8 @@
             this.tbPatente = new System.Windows.Forms.TextBox();
             this.btnCarcarImagenAuto = new System.Windows.Forms.Button();
             this.gbDatosVehiculos = new System.Windows.Forms.GroupBox();
+            this.tbKilometros = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.tbUnidadDeCobro = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.gbDatosChofer = new System.Windows.Forms.GroupBox();
@@ -65,8 +67,6 @@
             this.btnCargar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.tbKilometros = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
             this.gbDatosVehiculos.SuspendLayout();
             this.gbDatosChofer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -189,6 +189,22 @@
             this.gbDatosVehiculos.TabIndex = 13;
             this.gbDatosVehiculos.TabStop = false;
             this.gbDatosVehiculos.Text = "Datos Vehiculo";
+            // 
+            // tbKilometros
+            // 
+            this.tbKilometros.Location = new System.Drawing.Point(158, 213);
+            this.tbKilometros.Name = "tbKilometros";
+            this.tbKilometros.Size = new System.Drawing.Size(100, 20);
+            this.tbKilometros.TabIndex = 14;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(96, 216);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(58, 13);
+            this.label16.TabIndex = 13;
+            this.label16.Text = "Kilometros:";
             // 
             // tbUnidadDeCobro
             // 
@@ -405,25 +421,10 @@
             this.pictureBox1.Location = new System.Drawing.Point(440, 80);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(314, 210);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 12;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // tbKilometros
-            // 
-            this.tbKilometros.Location = new System.Drawing.Point(158, 213);
-            this.tbKilometros.Name = "tbKilometros";
-            this.tbKilometros.Size = new System.Drawing.Size(100, 20);
-            this.tbKilometros.TabIndex = 14;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(96, 216);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(58, 13);
-            this.label16.TabIndex = 13;
-            this.label16.Text = "Kilometros:";
             // 
             // Agregar_Vehiculo
             // 

@@ -43,23 +43,24 @@
             // 
             // btnBorrar
             // 
-            this.btnBorrar.DialogResult = System.Windows.Forms.DialogResult.Yes;
             this.btnBorrar.Location = new System.Drawing.Point(332, 386);
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(137, 30);
             this.btnBorrar.TabIndex = 1;
             this.btnBorrar.Text = "Borrar";
             this.btnBorrar.UseVisualStyleBackColor = true;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
             // btnVolver
             // 
-            this.btnVolver.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnVolver.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnVolver.Location = new System.Drawing.Point(337, 315);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(132, 35);
             this.btnVolver.TabIndex = 2;
             this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // VerHistorico
             // 

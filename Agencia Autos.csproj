@@ -91,6 +91,7 @@
       <DependentUpon>GenerarAlquiler.cs</DependentUpon>
     </Compile>
     <Compile Include="Historico.cs" />
+    <Compile Include="IGuardar.cs" />
     <Compile Include="IngresoUsuario.cs">
       <SubType>Form</SubType>
     </Compile>

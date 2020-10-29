@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,7 @@ using System.Windows.Forms.VisualStyles;
 namespace Agencia_Autos
 {
     [Serializable]
-    class Historico
+    class Historico: IGuardar
     {
 
         List<Alquiler> historico = new List<Alquiler>();
@@ -43,6 +44,31 @@ namespace Agencia_Autos
            
 
         
+        }
+
+        public void GrabarCSV(string nombreArchivoHistorico) {
+
+
+            FileStream Archivo;
+                                 
+            Archivo = new FileStream(nombreArchivoHistorico, FileMode.Create, FileAccess.Write); 
+
+            StreamWriter escribir = new StreamWriter(Archivo);
+
+            string linea = "";
+
+            foreach (Alquiler a in historico) {
+
+                linea = a.Auto.Marca + ';' + a.Auto.Patente + ';' + a.getClinete().DatosPersonales() + ';';
+
+                escribir.WriteLine(linea);
+
+            }
+            escribir.Close();
+            Archivo.Close();
+
+            
+
         }
 
 

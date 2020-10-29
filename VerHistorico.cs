@@ -24,5 +24,17 @@ namespace Agencia_Autos
         {
 
         }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+
+            this.DialogResult = DialogResult.Cancel;
+
+        }
+
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+        }
     }
 }
