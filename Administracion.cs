@@ -11,21 +11,27 @@ namespace Agencia_Autos
     class Administracion
     {
         private double pesos; 
-        List<Persona> Usuario = new List<Persona>();
+        public List<Persona> Usuario = new List<Persona>();
         List<Alquiler> alquilerVigente = new List<Alquiler>();
         List<Vehículo> vehículos = new List<Vehículo>();
         List<Vehículo> vehículoConChofers = new List<Vehículo>();
-        Historico historico = new Historico();
+        Historico unHistorico;
         Empresa unaEmpresa;
-       // Alquiler unAlquiler;
-         public Administracion(Empresa unaEmpresa) {
+        Persona unUsuario;
 
+       
+        public Administracion(Empresa unaEmpresa, Historico unHistorico)
+        {
+
+           
             this.unaEmpresa = unaEmpresa;
-
-
-
-
-         }
+            this.unHistorico = new Historico();
+            this.unHistorico = unHistorico;
+            unUsuario = new Usuario("Supervisor", "supervisar", true);
+            Usuario.Add(unUsuario);
+            unUsuario = new Usuario("Administrador", "administrar", false);
+            Usuario.Add(unUsuario);
+        }
 
         public double Pesos {
             get { return pesos; }
@@ -131,7 +137,7 @@ namespace Agencia_Autos
 
             }
 
-            historico.IngrearAlquiler(alquilerVigente[pos]);
+            unHistorico.IngrearAlquiler(alquilerVigente[pos]);
             alquilerVigente[pos].Auto.Kms = kms;
             alquilerVigente[pos].Auto.Disponible = true;
             
@@ -182,10 +188,15 @@ namespace Agencia_Autos
 
         public Historico VerHistorico() {
 
-            return historico;
+            return unHistorico;
         
         }
+        public Empresa GetEmpresa()
+        {
 
+            return unaEmpresa;
+
+        }
 
     }
 }

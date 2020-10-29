@@ -22,10 +22,13 @@ namespace Agencia_Autos
 
         string nombreArchivo = Application.StartupPath+"\\datos.dat";
         string nombreArchivoChoferes = Application.StartupPath + "\\DatosChoferes.csv";
-        string nombreArchivoHistorico = Application.StartupPath + "\\DatosChoferes.csv";
+        string nombreArchivoHistorico = Application.StartupPath + "\\DatosHistorico.csv";
         public Form1()
         {
             InitializeComponent();
+           
+            
+            
             if (File.Exists(nombreArchivo))
             {
 
@@ -35,6 +38,19 @@ namespace Agencia_Autos
                 archivo.Close();
                 archivo.Dispose();
             }
+            else {
+
+                Empresa unaEmpresa = new Empresa();
+                unaEmpresa.RazonSocial = "ALQUILAUTO";
+                unaEmpresa.DireccionFiscal = "LOS EUCALIPTUS 1234";
+                unaEmpresa.Cuil = 465698568;
+                Historico unHistorico = new Historico();
+                administracion = new Administracion(unaEmpresa,unHistorico);
+
+            }
+
+
+
 
 
             ActualizarListboxs();    
@@ -44,64 +60,18 @@ namespace Agencia_Autos
 
         private void Form1_Load(object sender, EventArgs e)
         {
+           label3.Text = administracion.GetEmpresa().RazonSocial;
+            IngresoUsuario ingresarUsuario = new IngresoUsuario();
+            ingresarUsuario.ShowDialog();
 
-            bool control = false;
-            IngresoUsuario ingresarUsuario = new IngresoUsuario() ;
+            if (ingresarUsuario.superovisor == true){ menuStrip1.Show(); }
+            else { menuStrip1.Hide(); }
 
 
-            DialogResult respuesta = new DialogResult();
-
+            ingresarUsuario.Dispose();
            
-                if (ingresarUsuario.ShowDialog() == DialogResult.OK)
-                {
-                
-                
-                   while (control == false)
-                    {
-
-                        string usuario = ingresarUsuario.tbNombreUsuario.Text;
-                        string clave = ingresarUsuario.tbClave.Text;
-                        bool Supervisor;
-                        if (ingresarUsuario.cbSupervisor.Checked == true) Supervisor = true;
-                        else { Supervisor = false; }
-
-                        foreach (Usuario u in administracion.GetUsuario())
-                        {
-
-                            if (u.Nombreusuario == usuario && (u).Clave == clave && (u).TipoUsuario == Supervisor)
-                            {
-                                ingresarUsuario.btnIngresar.DialogResult = DialogResult.OK;
-                                control = true;
-                            }
-                            else
-                            {
-                                MessageBox.Show("Usuario Incorrecto");
-                                break;
-
-                            }
-
-                        }
-
-
-
-                    }
-
-                }
-               
-            
-
-                
-            
 
         }
-               
-
-    
-
-
-
-
-        
 
         private void agregarToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -491,13 +461,46 @@ namespace Agencia_Autos
         {
             VerHistorico verHistorico = new VerHistorico();
             verHistorico.listBox1.Items.Clear();
-
+            verHistorico.btnBorrar.Hide();
 
 
             foreach (Alquiler h in administracion.VerHistorico().GetHistorico()) {
 
                verHistorico.listBox1.Items.Add(h.GetVehículo().GetVehiculo() + "   " + h.getClinete().DatosPersonales());     
                                  
+            }
+
+
+            DialogResult respuesta = new DialogResult();
+            respuesta = verHistorico.ShowDialog();
+
+
+            if (respuesta == DialogResult.Cancel)
+            {
+
+                
+
+
+
+            }         
+            
+
+
+
+        }
+
+        private void borrarRegistrosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VerHistorico verHistorico = new VerHistorico();
+            verHistorico.listBox1.Items.Clear();
+            verHistorico.btnBorrar.Show();
+
+
+            foreach (Alquiler h in administracion.VerHistorico().GetHistorico())
+            {
+
+                verHistorico.listBox1.Items.Add(h.GetVehículo().GetVehiculo() + "   " + h.getClinete().DatosPersonales());
+
             }
 
 
@@ -519,11 +522,7 @@ namespace Agencia_Autos
 
 
 
-            }         
-            
-
-
-
+            }
         }
     }
 }

@@ -39,7 +39,6 @@
             // 
             // btnIngresar
             // 
-            this.btnIngresar.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnIngresar.Location = new System.Drawing.Point(293, 275);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(172, 33);
@@ -88,11 +87,12 @@
             this.btnSalir.TabIndex = 5;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // cbSupervisor
             // 
             this.cbSupervisor.AutoSize = true;
-            this.cbSupervisor.Location = new System.Drawing.Point(561, 174);
+            this.cbSupervisor.Location = new System.Drawing.Point(560, 130);
             this.cbSupervisor.Name = "cbSupervisor";
             this.cbSupervisor.Size = new System.Drawing.Size(76, 17);
             this.cbSupervisor.TabIndex = 6;
