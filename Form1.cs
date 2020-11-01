@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.Serialization.Formatters;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Web;
+using System.Reflection;
 
 namespace Agencia_Autos
 {
@@ -65,6 +67,9 @@ namespace Agencia_Autos
             IngresoUsuario ingresarUsuario = new IngresoUsuario();
             ingresarUsuario.ShowDialog();
 
+          
+
+
             if (ingresarUsuario.superovisor == true){ menuStrip1.Show(); }
             else { menuStrip1.Hide(); }
 
@@ -80,13 +85,7 @@ namespace Agencia_Autos
 
         }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-            int[] asd = new int[2];
-            asd[7] = 2;
-
-        }
-
+        
         private void button1_Click(object sender, EventArgs e)
         {
            
@@ -96,95 +95,126 @@ namespace Agencia_Autos
         {
             Agregar_Vehiculo agregar = new Agregar_Vehiculo();
 
-
-            agregar.Size = new Size(816, 370);
-            agregar.btnCargar.Location = new Point(657, 296);
-            agregar.btnSalir.Location = new Point(59, 300);
-            if (agregar.ShowDialog() == DialogResult.OK)
+            try
             {
-
-                bool disponible = true, chofer = false;
-
-
-                string patente = agregar.tbPatente.Text;
-                string marca = agregar.tbMarca.Text;
-                string modelo = agregar.tbModelo.Text;
-                string combustible = agregar.tbtipoCombustible.Text;
-                int capacidad = Convert.ToInt32(agregar.tbCapacidad.Text);
-                string path = agregar.path;
-                int unidadDeCobro = Convert.ToInt32(agregar.tbUnidadDeCobro.Text);
-                int kms = Convert.ToInt32(agregar.tbKilometros.Text);
-               
+                agregar.Size = new Size(816, 370);
+                agregar.btnCargar.Location = new Point(657, 296);
+                agregar.btnSalir.Location = new Point(59, 300);
+                if (agregar.ShowDialog() == DialogResult.OK)
+                {
+                    
+                        bool disponible = true, chofer = false;
 
 
-                vehículo = new Vehículo(disponible, chofer, patente, marca, modelo, combustible, path, capacidad,unidadDeCobro,kms);
+                        string patente = agregar.tbPatente.Text;
+                        string marca = agregar.tbMarca.Text;
+                        string modelo = agregar.tbModelo.Text;
+                        string combustible = agregar.tbtipoCombustible.Text;
+                        int capacidad = Convert.ToInt32(agregar.tbCapacidad.Text);
+                        string path = agregar.path;
+                        int unidadDeCobro = Convert.ToInt32(agregar.tbUnidadDeCobro.Text);
+                        int kms = Convert.ToInt32(agregar.tbKilometros.Text);
 
-                
 
-                administracion.agregarVehiculo(vehículo);
-                administracion.GetVehículos().Sort();
-               
 
-                ActualizarListboxs();
+
+
+                        vehículo = new Vehículo(disponible, chofer, patente, marca, modelo, combustible, path, capacidad, unidadDeCobro, kms);
+                    
+
+
+                        administracion.agregarVehiculo(vehículo);
+                   
+                    administracion.GetVehículos().Sort();
+
+
+                    ActualizarListboxs();
+                }
             }
+
+            catch (FormatException ex) {
+
+                MessageBox.Show(ex.Message);
+            
+            }
+                
+            
         }
 
         private void conChoferToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Agregar_Vehiculo agregar = new Agregar_Vehiculo();
-            
-            agregar.Size = new Size(816, 706);
-            agregar.btnCargar.Location = new Point(565, 636);
-            agregar.btnSalir.Location = new Point(35, 641);
-            
-            if (agregar.ShowDialog() == DialogResult.OK)
+
+            try
             {
-
-                bool disponible = true, chofer = true;
-
-
-                string patente = agregar.tbPatente.Text;
-                string marca = agregar.tbMarca.Text;
-                string modelo = agregar.tbModelo.Text;
-                string combustible = agregar.tbtipoCombustible.Text;
-                int capacidad = Convert.ToInt32(agregar.tbCapacidad.Text);
-                string path = agregar.path;
-                int unidadDeCobro = Convert.ToInt32(agregar.tbUnidadDeCobro.Text);
-                int kms = Convert.ToInt32(agregar.tbKilometros.Text);
-
-                string nombre = agregar.tbNombreChofer.Text;
-                int Dni = Convert.ToInt32(agregar.tbDniChofer.Text);
-                long cuil = Convert.ToInt64(agregar.tbCuit.Text);
-                string dir = agregar.tbDireccion.Text;
-                int tel = Convert.ToInt32(agregar.tbTelefono.Text);
-                DateTime fechanac = agregar.dtpFechaNac.Value;
-                string estadocivil = agregar.tbEstadoCivil.Text;
-                string nacionalidad = agregar.tbNacionalidad.Text;
-                long carnet = Convert.ToInt64(agregar.tbCarnet.Text);
-
-                persona = new Chofer(nombre, Dni, cuil, dir, tel, fechanac, estadocivil, nacionalidad,carnet);
-                ((Chofer)persona).GrabarCSV(nombreArchivoChoferes);
-                vehículo = new VehículoConChofer(disponible, chofer, patente, marca, modelo, combustible, path, capacidad, persona,unidadDeCobro,kms);
                 
-                administracion.agregarVehiculo(vehículo);
-                administracion.GetVehiculosConChofer().Sort();
-                ActualizarListboxs();
+                agregar.Size = new Size(816, 706);
+                agregar.btnCargar.Location = new Point(565, 636);
+                agregar.btnSalir.Location = new Point(35, 641);
+
+                if (agregar.ShowDialog() == DialogResult.OK)
+                {
+
+                    bool disponible = true, chofer = true;
+
+                    
+                        string patente = agregar.tbPatente.Text;
+                        string marca = agregar.tbMarca.Text;
+                        string modelo = agregar.tbModelo.Text;
+                        string combustible = agregar.tbtipoCombustible.Text;
+                        int capacidad = Convert.ToInt32(agregar.tbCapacidad.Text);
+                        string path = agregar.path;
+                        int unidadDeCobro = Convert.ToInt32(agregar.tbUnidadDeCobro.Text);
+                        int kms = Convert.ToInt32(agregar.tbKilometros.Text);
+
+                        string nombre = agregar.tbNombreChofer.Text;
+                        int Dni = Convert.ToInt32(agregar.tbDniChofer.Text);
+                        long cuil = Convert.ToInt64(agregar.tbCuit.Text);
+                        string dir = agregar.tbDireccion.Text;
+                        int tel = Convert.ToInt32(agregar.tbTelefono.Text);
+                        DateTime fechanac = agregar.dtpFechaNac.Value;
+                        string estadocivil = agregar.tbEstadoCivil.Text;
+                        string nacionalidad = agregar.tbNacionalidad.Text;
+                        long carnet = Convert.ToInt64(agregar.tbCarnet.Text);
+
+                        persona = new Chofer(nombre, Dni, cuil, dir, tel, fechanac, estadocivil, nacionalidad, carnet);
+                        ((Chofer)persona).GrabarCSV(nombreArchivoChoferes);
+                        vehículo = new VehículoConChofer(disponible, chofer, patente, marca, modelo, combustible, path, capacidad, persona, unidadDeCobro, kms);
+                    
+                    
+                    administracion.agregarVehiculo(vehículo);
+                    administracion.GetVehiculosConChofer().Sort();
+                    ActualizarListboxs();
+
+                }
 
             }
+            catch (FormatException er) {
+
+                MessageBox.Show(er.Message);
+            
+            }
+
+            catch (OverflowException er) { MessageBox.Show(er.Message); }
         }
 
         private void modificarValoresDeAlquilerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ModificarValoresDeAlquiler modificar = new ModificarValoresDeAlquiler();
-            modificar.lblMostrarValorActual.Text = administracion.Pesos.ToString();
-            if (modificar.ShowDialog() == DialogResult.OK) {
+            try
+            {
 
-                double valor = Convert.ToDouble(modificar.tbModificarValorDeAlquiler.Text);
-               administracion.Pesos = valor;
-            
-            
+                modificar.lblMostrarValorActual.Text = administracion.Pesos.ToString();
+                if (modificar.ShowDialog() == DialogResult.OK)
+                {
+
+                    double valor = Convert.ToDouble(modificar.tbModificarValorDeAlquiler.Text);
+                    administracion.Pesos = valor;
+
+
+                }
             }
-
+            catch (FormatException er) { MessageBox.Show(er.Message); }
 
         }
 
@@ -201,13 +231,13 @@ namespace Agencia_Autos
 
             veralquileres.dgvAlquileres.AllowUserToAddRows =false;
             string[] alquileres = new string[6];
-            
+
 
             foreach (Alquiler p in administracion.GetAlquileres())
-            {       
-               
-                
-                string datos = p.getClinete().Nombre + ";" + p.getClinete().Dni + ";" + p.getClinete().Telefono + ";" + Convert.ToString(p.getAcompañantes().Length) + ";" + p.Auto.Marca + ";" + p.Auto.Patente + ";" + p.Auto.Kms;
+            {
+
+
+                string datos = p.getClinete().Nombre + ";" + p.getClinete().Dni + ";" + p.getClinete().Telefono + ";" + Convert.ToString(p.DiasDeAlquiler) + ";" + p.Auto.Marca + ";" + p.Auto.Patente + ";" + p.Auto.Kms;
                
                 alquileres= datos.Split(';');
                 veralquileres.dgvAlquileres.ColumnCount = alquileres.Length;
@@ -223,14 +253,10 @@ namespace Agencia_Autos
                     devolucion = new Alquiler();
                     devolucion = administracion.GetAlquileres()[veralquileres.dgvAlquileres.CurrentRow.Index];
                     precio = administracion.Devolucion(veralquileres.dgvAlquileres.CurrentRow.Index, Convert.ToInt32(veralquileres.textBox1.Text), veralquileres.dgvAlquileres, veralquileres.dateTimePicker1.Value);
-
-                    
+                                     
 
                     unTicket.printPreviewControl1.Document = PrintTicket;
                     ActualizarListboxs();
-
-
-
 
 
                     if (unTicket.ShowDialog() == DialogResult.OK)
@@ -243,7 +269,11 @@ namespace Agencia_Autos
 
 
                 }
-                catch (Exception) { }
+                catch (Exception er) {
+
+                    MessageBox.Show(er.Message);
+                
+                }
 
 
 
@@ -371,7 +401,7 @@ namespace Agencia_Autos
             foreach (Alquiler p in administracion.VerHistorico().GetHistorico())
             {
 
-                string datos = p.getClinete().Nombre + ";" + p.getClinete().Dni + ";" + p.getClinete().Telefono + ";" + Convert.ToString(p.getAcompañantes().Length) + ";" + p.Auto.Marca + ";" + p.Auto.Patente + ";" + p.Auto.Kms;
+                string datos = p.getClinete().Nombre + ";" + p.getClinete().Dni + ";" + p.getClinete().Telefono + ";" + Convert.ToString(p.CantAcompañantes) + ";" + p.Auto.Marca + ";" + p.Auto.Patente + ";" + p.Auto.Kms;
 
                 historico = datos.Split(';');
                 verHistorico.dgvHistorico.ColumnCount = historico.Length;
@@ -467,6 +497,7 @@ namespace Agencia_Autos
 
                 string ruta = SinChof[DGV1.CurrentRow.Index].Imagen;
                 GenerarAlquiler VentanaAlquilar = new GenerarAlquiler();
+                VentanaAlquilar.label9.Show();
                 VentanaAlquilar.label11.Text = SinChof[DGV1.CurrentRow.Index].GetVehiculo();
                 if (SinChof[DGV1.CurrentRow.Index].Disponible == false)
                 {
@@ -502,7 +533,6 @@ namespace Agencia_Autos
                         int cantidadConductores = VentanaAlquilar.comboBox1.SelectedIndex;
 
                         persona = new Cliente(nombre, Dni, cuil, dir, tel, fechanac, estadocivil, nacionalidad, carnet);
-
                         Alquiler alquiler = new Alquiler(persona);
                         alquiler.DiasDeAlquiler = diasDeAlquiler;
                         alquiler.agregarConductores(persona);
@@ -582,6 +612,7 @@ namespace Agencia_Autos
                 string ruta = ConChof[DGV1.CurrentRow.Index].Imagen;
 
                 GenerarAlquiler VentanaAlquilar = new GenerarAlquiler();
+                VentanaAlquilar.label9.Hide();
 
                 if (ConChof[DGV1.CurrentRow.Index].Disponible == false)
                 {
@@ -613,11 +644,12 @@ namespace Agencia_Autos
                     string estadocivil = VentanaAlquilar.tbEstadoCivilCliente.Text;
                     string nacionalidad = VentanaAlquilar.tbNacionalidadCliente.Text;
                     string carnet = (VentanaAlquilar.tbCarnetCliente.Text);
-                    int cantidadConductores = VentanaAlquilar.comboBox1.SelectedIndex;
+                    int diasDeAlquiler = Convert.ToInt32(VentanaAlquilar.tbDiasDeAlquiler.Text);
 
                     persona = new Cliente(nombre, Dni, cuil, dir, tel, fechanac, estadocivil, nacionalidad, carnet);
 
                     Alquiler alquiler = new Alquiler(persona);
+                    alquiler.DiasDeAlquiler = diasDeAlquiler;
                     alquiler.Auto = ConChof[DGV1.CurrentRow.Index];
                     alquiler.InicioAlquiler = DateTime.Now;
                     alquiler.Auto.Disponible = false;
@@ -669,8 +701,7 @@ namespace Agencia_Autos
             DGV1.Rows.Clear();
             DataGridViewRow fila;
             
-            try
-            {
+            
                 if (cbChofer.SelectedIndex == 1)
                 {
                     if (cbVehiculos.SelectedIndex == 0)
@@ -714,7 +745,8 @@ namespace Agencia_Autos
                         DGV1.Rows.Add(fila);
                     }
                 }
-                else {
+                else
+                {
                     if (cbVehiculos.SelectedIndex == 0)
                     {
                         ConChof = (from v in administracion.GetVehiculosConChofer() where ((v.Marca != null) && (v.Marca.StartsWith(tbFiltro.Text))) select v).ToList();
@@ -732,40 +764,39 @@ namespace Agencia_Autos
                     }
 
 
-                }
 
-                foreach (Vehículo v in ConChof)
-                {
 
-                    fila = new DataGridViewRow();
-                    fila.CreateCells(DGV1);
-                    fila.Cells[CMARCA.Index].Value = v.Marca;
-                    fila.Cells[CMOODELO.Index].Value = v.Modelo;
-                    fila.Cells[CCAPACIDAD.Index].Value = v.Capacidad;
-                    fila.Cells[CKMS.Index].Value = v.Kms;
-                    fila.Cells[CPRECIO.Index].Value = ((v.UnidadDeCobro) * (administracion.Pesos));
-                    if (v.Disponible == true)
+                    foreach (Vehículo v in ConChof)
                     {
-                        fila.Cells[CDISPONIBILE.Index].Value = "Disponible";
+
+                        fila = new DataGridViewRow();
+                        fila.CreateCells(DGV1);
+                        fila.Cells[CMARCA.Index].Value = v.Marca;
+                        fila.Cells[CMOODELO.Index].Value = v.Modelo;
+                        fila.Cells[CCAPACIDAD.Index].Value = v.Capacidad;
+                        fila.Cells[CKMS.Index].Value = v.Kms;
+                        fila.Cells[CPRECIO.Index].Value = ((v.UnidadDeCobro) * (administracion.Pesos));
+                        if (v.Disponible == true)
+                        {
+                            fila.Cells[CDISPONIBILE.Index].Value = "Disponible";
+                        }
+                        else { fila.Cells[CDISPONIBILE.Index].Value = "Alquilado"; }
+
+
+                        fila.Cells[CCOMBUSTIBLE.Index].Value = v.Tipocombustible;
+
+                        DGV1.Rows.Add(fila);
+
+
+
+
                     }
-                    else { fila.Cells[CDISPONIBILE.Index].Value = "Alquilado"; }
-
-
-                    fila.Cells[CCOMBUSTIBLE.Index].Value = v.Tipocombustible;
-
-                    DGV1.Rows.Add(fila);
-
-
+                
 
 
                 }
-            }
             
-            catch (Exception ex)
-            {
-                MessageBox.Show(string.Format("Error: {0}", ex.Message), "Error inesperado", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-            }
+           
 
 
         }

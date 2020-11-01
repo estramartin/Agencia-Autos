@@ -30,10 +30,13 @@ namespace Agencia_Autos
 
         }
 
-        private void btnIngresar_Click(object sender, EventArgs e)
+        public void btnIngresar_Click(object sender, EventArgs e)
         {
 
-            string nombre = tbNombreUsuario.Text;
+
+           
+
+           string nombre = tbNombreUsuario.Text;
             string clave = tbClave.Text;
             bool Supervisor;
             if (cbSupervisor.Checked == true) { Supervisor = true; }
@@ -57,7 +60,7 @@ namespace Agencia_Autos
 
         }
 
-        private void btnSalir_Click(object sender, EventArgs e)
+        public void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
         }

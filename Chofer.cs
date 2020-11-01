@@ -41,7 +41,7 @@ namespace Agencia_Autos
         {
 
             
-            return Nombre + " " + Dni + " " + Cuit + " " + Direccion + " " + Telefono + " " + Fechanac + " " + Estadocivil + " " + Carnet;
+            return "Chofer: "+Nombre +" - Carnet: "+ Carnet+ "- Telefono: "+ Telefono;
 
 
 

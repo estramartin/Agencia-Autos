@@ -36,16 +36,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dgvAlquileres = new System.Windows.Forms.DataGridView();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TELEFONO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ACOMPAÑANTES = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MARCA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PATENTE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.KMS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.alquilerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.alquileresVigentesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.verHistoricoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TELEFONO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DIASALQUILER = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MARCA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PATENTE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.KMS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlquileres)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.alquilerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.alquileresVigentesBindingSource)).BeginInit();
@@ -106,20 +106,34 @@
             // 
             // dgvAlquileres
             // 
+            this.dgvAlquileres.AllowUserToAddRows = false;
             this.dgvAlquileres.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAlquileres.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Nombre,
             this.DNI,
             this.TELEFONO,
-            this.ACOMPAÑANTES,
+            this.DIASALQUILER,
             this.MARCA,
             this.PATENTE,
             this.KMS});
-            this.dgvAlquileres.Location = new System.Drawing.Point(28, 27);
+            this.dgvAlquileres.Location = new System.Drawing.Point(25, 27);
             this.dgvAlquileres.Name = "dgvAlquileres";
             this.dgvAlquileres.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAlquileres.Size = new System.Drawing.Size(743, 279);
             this.dgvAlquileres.TabIndex = 6;
+            this.dgvAlquileres.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAlquileres_CellContentClick);
+            // 
+            // alquilerBindingSource
+            // 
+            this.alquilerBindingSource.DataSource = typeof(Agencia_Autos.Alquiler);
+            // 
+            // alquileresVigentesBindingSource
+            // 
+            this.alquileresVigentesBindingSource.DataSource = typeof(Agencia_Autos.AlquileresVigentes);
+            // 
+            // verHistoricoBindingSource
+            // 
+            this.verHistoricoBindingSource.DataSource = typeof(Agencia_Autos.VerHistorico);
             // 
             // Nombre
             // 
@@ -137,11 +151,11 @@
             this.TELEFONO.HeaderText = "TELEFONO";
             this.TELEFONO.Name = "TELEFONO";
             // 
-            // ACOMPAÑANTES
+            // DIASALQUILER
             // 
-            this.ACOMPAÑANTES.HeaderText = "ACOMPAÑANTES";
-            this.ACOMPAÑANTES.Name = "ACOMPAÑANTES";
-            this.ACOMPAÑANTES.ReadOnly = true;
+            this.DIASALQUILER.HeaderText = "DIAS ALQUILER";
+            this.DIASALQUILER.Name = "DIASALQUILER";
+            this.DIASALQUILER.ReadOnly = true;
             // 
             // MARCA
             // 
@@ -160,18 +174,6 @@
             this.KMS.HeaderText = "KMS";
             this.KMS.Name = "KMS";
             this.KMS.ReadOnly = true;
-            // 
-            // alquilerBindingSource
-            // 
-            this.alquilerBindingSource.DataSource = typeof(Agencia_Autos.Alquiler);
-            // 
-            // alquileresVigentesBindingSource
-            // 
-            this.alquileresVigentesBindingSource.DataSource = typeof(Agencia_Autos.AlquileresVigentes);
-            // 
-            // verHistoricoBindingSource
-            // 
-            this.verHistoricoBindingSource.DataSource = typeof(Agencia_Autos.VerHistorico);
             // 
             // AlquileresVigentes
             // 
@@ -211,7 +213,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn DNI;
         private System.Windows.Forms.DataGridViewTextBoxColumn TELEFONO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ACOMPAÑANTES;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DIASALQUILER;
         private System.Windows.Forms.DataGridViewTextBoxColumn MARCA;
         private System.Windows.Forms.DataGridViewTextBoxColumn PATENTE;
         private System.Windows.Forms.DataGridViewTextBoxColumn KMS;

@@ -98,6 +98,7 @@
     <Compile Include="IngresoUsuario.Designer.cs">
       <DependentUpon>IngresoUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="MisExcepciones.cs" />
     <Compile Include="ModificarValoresDeAlquiler.cs">
       <SubType>Form</SubType>
     </Compile>

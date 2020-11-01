@@ -50,7 +50,14 @@ namespace Agencia_Autos
 
         }
 
+        public int CantAcompañantes
+        {
+            get { return cantAcompañantes; }
+            set { cantAcompañantes = value; }
+        }
 
+
+          
         public Persona getClinete() {
 
 
@@ -68,8 +75,8 @@ namespace Agencia_Autos
 
 
 
-            acompañantes[cantAcompañantes] = cliente;
-            cantAcompañantes++;
+            acompañantes[CantAcompañantes] = cliente;
+            CantAcompañantes++;
 
 
                
@@ -81,6 +88,7 @@ namespace Agencia_Autos
             return acompañantes;
         
         }
+
 
 
 

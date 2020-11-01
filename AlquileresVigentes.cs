@@ -37,5 +37,10 @@ namespace Agencia_Autos
         {
 
         }
+
+        private void dgvAlquileres_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

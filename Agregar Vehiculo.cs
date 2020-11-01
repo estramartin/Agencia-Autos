@@ -31,8 +31,16 @@ namespace Agencia_Autos
            openFileDialog1.ShowDialog();
 
             path = openFileDialog1.FileName;
+            try
+            {
+                pictureBox1.Image = Image.FromFile(path);
+            }
+            catch(System.IO.FileNotFoundException) {
 
-            pictureBox1.Image = Image.FromFile(path);
+                MessageBox.Show("Error");
+            }
+               
+            
 
         }
 

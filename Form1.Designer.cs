@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menúToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -37,7 +38,6 @@
             this.modificarValoresDeAlquilerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.DGV1 = new System.Windows.Forms.DataGridView();
@@ -65,7 +65,7 @@
             this.menúToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1302, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1373, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -137,16 +137,6 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(1041, 361);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 9;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
             // btnSalir
             // 
             this.btnSalir.Location = new System.Drawing.Point(21, 510);
@@ -171,6 +161,8 @@
             // 
             // DGV1
             // 
+            this.DGV1.AllowUserToAddRows = false;
+            this.DGV1.AllowUserToResizeColumns = false;
             this.DGV1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGV1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CMARCA,
@@ -182,8 +174,16 @@
             this.CPRECIO});
             this.DGV1.Location = new System.Drawing.Point(184, 110);
             this.DGV1.Name = "DGV1";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGV1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.DGV1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGV1.Size = new System.Drawing.Size(748, 406);
+            this.DGV1.Size = new System.Drawing.Size(747, 406);
             this.DGV1.TabIndex = 17;
             this.DGV1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV1_CellContentClick);
             this.DGV1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV1_CellContentDoubleClick);
@@ -269,9 +269,9 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(938, 63);
+            this.pictureBox1.Location = new System.Drawing.Point(938, 110);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(339, 264);
+            this.pictureBox1.Size = new System.Drawing.Size(423, 264);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
@@ -292,7 +292,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1302, 548);
+            this.ClientSize = new System.Drawing.Size(1373, 548);
             this.Controls.Add(this.tbFiltro);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbChofer);
@@ -301,7 +301,6 @@
             this.Controls.Add(this.cbVehiculos);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.menuStrip1);
@@ -328,7 +327,6 @@
         private System.Windows.Forms.ToolStripMenuItem modificarValoresDeAlquilerToolStripMenuItem;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripMenuItem conChoferToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sinChoferToolStripMenuItem;

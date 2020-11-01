@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -39,18 +40,24 @@ namespace Agencia_Autos
         }
 
         public void agregarVehiculo(Vehículo v) {
-
-            if (v.Conchofer == false) {
-
-                vehículos.Add(v);
-            
-            
-            }
-            else
+            if (v != null)
             {
-                vehículoConChofers.Add(v);
-            }    
-        
+                if (v.Conchofer == false)
+                {
+
+                    vehículos.Add(v);
+                    
+
+                }
+                else
+                {
+                    vehículoConChofers.Add(v);
+                    
+                }
+            }
+            else throw new NullReferenceException();
+
+
         }
 
         public void agregarUsuario(Persona usuario) {
@@ -78,7 +85,16 @@ namespace Agencia_Autos
            // DateTime finalizar = DateTime.Now; //tiempo exacto en el que termina el alquiler
             //int horaDevolucion = finalizar.Hour;          //hora de finalizacion
             //int mindevolucion = finalizar.Minute;
+            
+            
             TimeSpan periodoAlquiler = finalizar.Subtract(alquilerVigente[pos].InicioAlquiler); // intervalo en el que el vehiculo permanecio alquilado
+
+            if (finalizar < DateTime.Now) {
+               
+                throw new Exception("Fecha mal ingresada");
+            
+            }
+
 
             int kilometrosPermitidos = 500;
                  
@@ -122,8 +138,8 @@ namespace Agencia_Autos
                 if ((diasDeAlquilerEnMintos > DiasSolicitadosAMinutos) && (recorrido <= recorridoPermitido))
                 {
 
-                    double exedente = diasdealquiler - alquilerVigente[pos].DiasDeAlquiler;
-                    exedente = Math.Ceiling(exedente);
+                    int exedente = diasdealquiler - alquilerVigente[pos].DiasDeAlquiler;
+                   // exedente = Math.Ceiling(exedente);
 
                     aCobrar = (alquilerVigente[pos].DiasDeAlquiler * alquilerVigente[pos].Auto.UnidadDeCobro) + (exedente * alquilerVigente[pos].Auto.UnidadDeCobro * 1.1);
                 }
