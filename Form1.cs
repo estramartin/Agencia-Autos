@@ -351,22 +351,6 @@ namespace Agencia_Autos
 
         private void cbVehiculos_SelectedIndexChanged(object sender, EventArgs e)
         {
-           /* if (cbChofer.SelectedIndex == 1)
-            {
-
-                Vehículo.ordenar = (cbVehiculos.SelectedIndex);
-                administracion.GetVehículos().Sort();
-                ActualizarListboxs();
-            }
-            else {
-
-                Vehículo.ordenar = (cbVehiculos.SelectedIndex);
-                administracion.GetVehiculosConChofer().Sort();
-                ActualizarListboxs();
-            }*/
-            
-
-
         }
 
         private void cbVehiculosConChofer_SelectedIndexChanged(object sender, EventArgs e)
@@ -384,9 +368,8 @@ namespace Agencia_Autos
             string[] historico = new string[6];
 
 
-            foreach (Alquiler p in administracion.GetAlquileres())
+            foreach (Alquiler p in administracion.VerHistorico().GetHistorico())
             {
-
 
                 string datos = p.getClinete().Nombre + ";" + p.getClinete().Dni + ";" + p.getClinete().Telefono + ";" + Convert.ToString(p.getAcompañantes().Length) + ";" + p.Auto.Marca + ";" + p.Auto.Patente + ";" + p.Auto.Kms;
 
@@ -394,57 +377,40 @@ namespace Agencia_Autos
                 verHistorico.dgvHistorico.ColumnCount = historico.Length;
                 verHistorico.dgvHistorico.Rows.Add(historico);
 
-                //
-                
-                
-                verHistorico.dgvHistorico.Rows.Add(p.getClinete().Nombre + " " + p.getClinete().Dni + " " + p.getClinete().Telefono + " " + Convert.ToString(p.getAcompañantes().Length) + " " + p.Auto.Marca + " " + p.Auto.Patente + " " + p.Auto.Kms);
-
-
-
-            }
-
-                   
+            }                  
             
             DialogResult respuesta = new DialogResult();
             respuesta = verHistorico.ShowDialog();
 
 
             if (respuesta == DialogResult.Cancel)
-            {
-
-                
-
-
-
-            }         
-            
-
-
-
+            { } 
         }
 
         private void borrarRegistrosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             VerHistorico verHistorico = new VerHistorico();
             verHistorico.dgvHistorico.Rows.Clear();
-            verHistorico.btnBorrar.Hide();
+            verHistorico.btnBorrar.Show();
 
             verHistorico.dgvHistorico.AllowUserToAddRows = false;
             string[] historico = new string[6];
 
 
-            foreach (Alquiler p in administracion.GetAlquileres())
+            foreach (Alquiler p in administracion.VerHistorico().GetHistorico()) 
             {
 
+                try
+                {
+                    string datos = p.getClinete().Nombre + ";" + p.getClinete().Dni + ";" + p.getClinete().Telefono + ";" + Convert.ToString(p.getAcompañantes().Length) + ";" + p.Auto.Marca + ";" + p.Auto.Patente + ";" + p.Auto.Kms;
 
-                string datos = p.getClinete().Nombre + ";" + p.getClinete().Dni + ";" + p.getClinete().Telefono + ";" + Convert.ToString(p.getAcompañantes().Length) + ";" + p.Auto.Marca + ";" + p.Auto.Patente + ";" + p.Auto.Kms;
+                    historico = datos.Split(';');
+                    verHistorico.dgvHistorico.ColumnCount = historico.Length;
+                    verHistorico.dgvHistorico.Rows.Add(historico);
 
-                historico = datos.Split(';');
-                verHistorico.dgvHistorico.ColumnCount = historico.Length;
-                verHistorico.dgvHistorico.Rows.Add(historico);
-
-                verHistorico.dgvHistorico.Rows.Add(p.getClinete().Nombre + " " + p.getClinete().Dni + " " + p.getClinete().Telefono + " " + Convert.ToString(p.getAcompañantes().Length) + " " + p.Auto.Marca + " " + p.Auto.Patente + " " + p.Auto.Kms);
-
+                    
+                }
+                catch (Exception) { }
 
 
             }
@@ -679,10 +645,7 @@ namespace Agencia_Autos
 
             try
             {
-                /*string auto = administracion.GetAlquileres()[veralquileres.dgvAlquileres.CurrentRow.Index].Auto.Marca;
-                string cliente = administracion.GetAlquileres()[veralquileres.dgvAlquileres.CurrentRow.Index].getClinete().Nombre;
-                string dni = Convert.ToString(administracion.GetAlquileres()[veralquileres.dgvAlquileres.CurrentRow.Index].getClinete().Dni);
-                string dias = Convert.ToString(administracion.GetAlquileres()[veralquileres.dgvAlquileres.CurrentRow.Index].DiasDeAlquiler);*/
+               
                 string preciofinal = Convert.ToString(precio);
 
                 PaperSize paperSize = new PaperSize("My Envelope", 990, 500);

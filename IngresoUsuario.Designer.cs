@@ -53,6 +53,7 @@
             this.tbNombreUsuario.Name = "tbNombreUsuario";
             this.tbNombreUsuario.Size = new System.Drawing.Size(172, 20);
             this.tbNombreUsuario.TabIndex = 1;
+            this.tbNombreUsuario.Text = "Supervisor";
             // 
             // tbClave
             // 
@@ -60,6 +61,7 @@
             this.tbClave.Name = "tbClave";
             this.tbClave.Size = new System.Drawing.Size(172, 20);
             this.tbClave.TabIndex = 2;
+            this.tbClave.Text = "supervisar";
             // 
             // label1
             // 
@@ -92,6 +94,8 @@
             // cbSupervisor
             // 
             this.cbSupervisor.AutoSize = true;
+            this.cbSupervisor.Checked = true;
+            this.cbSupervisor.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbSupervisor.Location = new System.Drawing.Point(560, 130);
             this.cbSupervisor.Name = "cbSupervisor";
             this.cbSupervisor.Size = new System.Drawing.Size(76, 17);
