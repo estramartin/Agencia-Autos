@@ -27,5 +27,15 @@ namespace Agencia_Autos
         {
             this.Close();
         }
+
+        private void AlquileresVigentes_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

@@ -35,19 +35,26 @@
             this.sinChoferToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.borrarRegistrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificarValoresDeAlquilerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.listBox2 = new System.Windows.Forms.ListBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.cbVehiculos = new System.Windows.Forms.ComboBox();
-            this.cbVehiculosConChofer = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.DGV1 = new System.Windows.Forms.DataGridView();
+            this.CMARCA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CMOODELO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CCAPACIDAD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CCOMBUSTIBLE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CKMS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CDISPONIBILE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CPRECIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cbChofer = new System.Windows.Forms.ComboBox();
+            this.cbVehiculos = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.PrintTicket = new System.Drawing.Printing.PrintDocument();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -109,45 +116,6 @@
             this.modificarValoresDeAlquilerToolStripMenuItem.Text = "Modificar valores de alquiler";
             this.modificarValoresDeAlquilerToolStripMenuItem.Click += new System.EventHandler(this.modificarValoresDeAlquilerToolStripMenuItem_Click);
             // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(195, 187);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(319, 303);
-            this.listBox1.TabIndex = 2;
-            this.listBox1.Click += new System.EventHandler(this.listBox1_Click);
-            this.listBox1.DoubleClick += new System.EventHandler(this.listBox1_DoubleClick);
-            // 
-            // listBox2
-            // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(548, 187);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(329, 303);
-            this.listBox2.TabIndex = 3;
-            this.listBox2.Click += new System.EventHandler(this.listBox2_Click);
-            this.listBox2.SelectedIndexChanged += new System.EventHandler(this.listBox2_SelectedIndexChanged);
-            this.listBox2.DoubleClick += new System.EventHandler(this.listBox2_DoubleClick);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(222, 152);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Vehiculos";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(580, 152);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(108, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Vehiculos con Chofer";
-            // 
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(12, 168);
@@ -178,15 +146,6 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(919, 63);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(339, 264);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 10;
-            this.pictureBox1.TabStop = false;
-            // 
             // btnSalir
             // 
             this.btnSalir.Location = new System.Drawing.Point(21, 510);
@@ -196,34 +155,6 @@
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
-            // 
-            // cbVehiculos
-            // 
-            this.cbVehiculos.FormattingEnabled = true;
-            this.cbVehiculos.Items.AddRange(new object[] {
-            "Marca y Modelo",
-            "Capacidad",
-            "Tipo de Combustible"});
-            this.cbVehiculos.Location = new System.Drawing.Point(301, 149);
-            this.cbVehiculos.Name = "cbVehiculos";
-            this.cbVehiculos.Size = new System.Drawing.Size(121, 21);
-            this.cbVehiculos.TabIndex = 14;
-            this.cbVehiculos.Text = "Ordenar";
-            this.cbVehiculos.SelectedIndexChanged += new System.EventHandler(this.cbVehiculos_SelectedIndexChanged);
-            // 
-            // cbVehiculosConChofer
-            // 
-            this.cbVehiculosConChofer.FormattingEnabled = true;
-            this.cbVehiculosConChofer.Items.AddRange(new object[] {
-            "Marca y Modelo",
-            "Capacidad",
-            "Tipo de Combustible"});
-            this.cbVehiculosConChofer.Location = new System.Drawing.Point(694, 149);
-            this.cbVehiculosConChofer.Name = "cbVehiculosConChofer";
-            this.cbVehiculosConChofer.Size = new System.Drawing.Size(121, 21);
-            this.cbVehiculosConChofer.TabIndex = 15;
-            this.cbVehiculosConChofer.Text = "Ordenar";
-            this.cbVehiculosConChofer.SelectedIndexChanged += new System.EventHandler(this.cbVehiculosConChofer_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -237,31 +168,141 @@
             this.label3.TabIndex = 16;
             this.label3.Text = "label3";
             // 
+            // DGV1
+            // 
+            this.DGV1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGV1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CMARCA,
+            this.CMOODELO,
+            this.CCAPACIDAD,
+            this.CCOMBUSTIBLE,
+            this.CKMS,
+            this.CDISPONIBILE,
+            this.CPRECIO});
+            this.DGV1.Location = new System.Drawing.Point(192, 110);
+            this.DGV1.Name = "DGV1";
+            this.DGV1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DGV1.Size = new System.Drawing.Size(740, 406);
+            this.DGV1.TabIndex = 17;
+            this.DGV1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV1_CellContentClick);
+            this.DGV1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV1_CellContentDoubleClick);
+            this.DGV1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV1_CellDoubleClick);
+            // 
+            // CMARCA
+            // 
+            this.CMARCA.HeaderText = "MARCA";
+            this.CMARCA.Name = "CMARCA";
+            this.CMARCA.ReadOnly = true;
+            // 
+            // CMOODELO
+            // 
+            this.CMOODELO.HeaderText = "MODELO";
+            this.CMOODELO.Name = "CMOODELO";
+            this.CMOODELO.ReadOnly = true;
+            // 
+            // CCAPACIDAD
+            // 
+            this.CCAPACIDAD.HeaderText = "CAPACIDAD";
+            this.CCAPACIDAD.Name = "CCAPACIDAD";
+            this.CCAPACIDAD.ReadOnly = true;
+            // 
+            // CCOMBUSTIBLE
+            // 
+            this.CCOMBUSTIBLE.HeaderText = "COMBUSTIBLE";
+            this.CCOMBUSTIBLE.Name = "CCOMBUSTIBLE";
+            this.CCOMBUSTIBLE.ReadOnly = true;
+            // 
+            // CKMS
+            // 
+            this.CKMS.HeaderText = "KMS";
+            this.CKMS.Name = "CKMS";
+            this.CKMS.ReadOnly = true;
+            // 
+            // CDISPONIBILE
+            // 
+            this.CDISPONIBILE.HeaderText = "DISPONIBLE";
+            this.CDISPONIBILE.Name = "CDISPONIBILE";
+            this.CDISPONIBILE.ReadOnly = true;
+            // 
+            // CPRECIO
+            // 
+            this.CPRECIO.HeaderText = "PRECIO";
+            this.CPRECIO.Name = "CPRECIO";
+            this.CPRECIO.ReadOnly = true;
+            // 
+            // cbChofer
+            // 
+            this.cbChofer.FormattingEnabled = true;
+            this.cbChofer.Items.AddRange(new object[] {
+            "CON CHOFER",
+            "SIN CHOFER"});
+            this.cbChofer.Location = new System.Drawing.Point(744, 83);
+            this.cbChofer.Name = "cbChofer";
+            this.cbChofer.Size = new System.Drawing.Size(121, 21);
+            this.cbChofer.TabIndex = 18;
+            this.cbChofer.Text = "Con/Sin";
+            this.cbChofer.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // cbVehiculos
+            // 
+            this.cbVehiculos.FormattingEnabled = true;
+            this.cbVehiculos.Items.AddRange(new object[] {
+            "Marca y Modelo",
+            "Capacidad",
+            "Tipo de Combustible"});
+            this.cbVehiculos.Location = new System.Drawing.Point(315, 80);
+            this.cbVehiculos.Name = "cbVehiculos";
+            this.cbVehiculos.Size = new System.Drawing.Size(121, 21);
+            this.cbVehiculos.TabIndex = 14;
+            this.cbVehiculos.Text = "Ordenar";
+            this.cbVehiculos.SelectedIndexChanged += new System.EventHandler(this.cbVehiculos_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(697, 86);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(41, 13);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Chofer:";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(938, 63);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(339, 264);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
+            // 
+            // PrintTicket
+            // 
+            this.PrintTicket.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.PrintTicket_PrintPage);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1302, 548);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cbChofer);
+            this.Controls.Add(this.DGV1);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.cbVehiculosConChofer);
             this.Controls.Add(this.cbVehiculos);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.listBox2);
-            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "ALQUILAUTO 1.0";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -275,10 +316,6 @@
         private System.Windows.Forms.ToolStripMenuItem agregarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem borrarRegistrosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modificarValoresDeAlquilerToolStripMenuItem;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.ListBox listBox2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
@@ -286,9 +323,19 @@
         private System.Windows.Forms.ToolStripMenuItem conChoferToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sinChoferToolStripMenuItem;
         private System.Windows.Forms.Button btnSalir;
-        public System.Windows.Forms.ComboBox cbVehiculos;
-        public System.Windows.Forms.ComboBox cbVehiculosConChofer;
         public System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridView DGV1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CMARCA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CMOODELO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CCAPACIDAD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CCOMBUSTIBLE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CKMS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CDISPONIBILE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CPRECIO;
+        public System.Windows.Forms.ComboBox cbChofer;
+        public System.Windows.Forms.ComboBox cbVehiculos;
+        private System.Windows.Forms.Label label1;
+        private System.Drawing.Printing.PrintDocument PrintTicket;
     }
 }
 

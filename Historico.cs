@@ -31,14 +31,14 @@ namespace Agencia_Autos
         
         }
 
-        public void DeleteItem(int pos, ListBox lb1) {
+        public void DeleteItem(int pos, DataGridView lb1) {
 
 
             historico.RemoveAt(pos);
-            lb1.Items.Clear();
+            lb1.Rows.Clear();
 
-            foreach (Alquiler a in historico) {
-                lb1.Items.Add(a.GetVehículo().GetVehiculo()+"   "+a.getClinete().DatosPersonales());
+            foreach (Alquiler p in historico) {
+                lb1.Rows.Add(p.getClinete().Nombre + " " + p.getClinete().Dni + " " + p.getClinete().Telefono + " " + Convert.ToString(p.getAcompañantes().Length) + " " + p.Auto.Marca + " " + p.Auto.Patente + " " + p.Auto.Kms);
 
             }
            

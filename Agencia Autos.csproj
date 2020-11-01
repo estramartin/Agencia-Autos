@@ -107,6 +107,12 @@
     <Compile Include="Persona.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ticket.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ticket.Designer.cs">
+      <DependentUpon>Ticket.cs</DependentUpon>
+    </Compile>
     <Compile Include="Usuario.cs" />
     <Compile Include="Vehículo.cs" />
     <Compile Include="VehículoConChofer.cs" />
@@ -144,9 +150,31 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Ticket.resx">
+      <DependentUpon>Ticket.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VerHistorico.resx">
       <DependentUpon>VerHistorico.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\Administracion.datasource" />
+    <None Include="Properties\DataSources\Agregar_Vehiculo.datasource" />
+    <None Include="Properties\DataSources\Alquiler.datasource" />
+    <None Include="Properties\DataSources\AlquileresVigentes.datasource" />
+    <None Include="Properties\DataSources\Chofer.datasource" />
+    <None Include="Properties\DataSources\Cliente.datasource" />
+    <None Include="Properties\DataSources\Empresa.datasource" />
+    <None Include="Properties\DataSources\Form1.datasource" />
+    <None Include="Properties\DataSources\GenerarAlquiler.datasource" />
+    <None Include="Properties\DataSources\Historico.datasource" />
+    <None Include="Properties\DataSources\IGuardar.datasource" />
+    <None Include="Properties\DataSources\IngresoUsuario.datasource" />
+    <None Include="Properties\DataSources\ModificarValoresDeAlquiler.datasource" />
+    <None Include="Properties\DataSources\Persona.datasource" />
+    <None Include="Properties\DataSources\Program.datasource" />
+    <None Include="Properties\DataSources\Usuario.datasource" />
+    <None Include="Properties\DataSources\Vehículo.datasource" />
+    <None Include="Properties\DataSources\VehículoConChofer.datasource" />
+    <None Include="Properties\DataSources\VerHistorico.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

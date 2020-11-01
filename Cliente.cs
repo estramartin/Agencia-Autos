@@ -11,10 +11,10 @@ namespace Agencia_Autos
     {
 
              
-        private long carnet;
+        private string carnet;
         
 
-        public Cliente(string nombreCompleto, int dni, long cuil, string dir, int tel, DateTime fechanac, string estadoCiv, string nac, long carnet)
+        public Cliente(string nombreCompleto, int dni, long cuil, string dir, int tel, DateTime fechanac, string estadoCiv, string nac, string carnet)
         {
 
              Nombre = nombreCompleto;
@@ -32,15 +32,8 @@ namespace Agencia_Autos
 
         }
 
-        public string Nombre { get => nombre; set => nombre = value; }
-        public int Dni { get => dni; set => dni = value; }
-        public long Cuit { get => cuit; set => cuit = value; }
-        public string Direccion { get => direccion; set => direccion = value; }
-        public int Telefono { get => telefono; set => telefono = value; }
-        public DateTime Fechanac { get => fechanac; set => fechanac = value; }
-        public string Estadocivil { get => estadocivil; set => estadocivil = value; }
-        public string Nacionalidad { get => nacionalidad; set => nacionalidad = value; }
-        public long Carnet { get => carnet; set => carnet = value; }
+        
+        public string Carnet { get => carnet; set => carnet = value; }
 
         public override string DatosPersonales()
         {

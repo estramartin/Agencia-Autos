@@ -69,7 +69,7 @@ namespace Agencia_Autos
         
         }
 
-        public double Devolucion(int pos, int kms, ListBox lbAlquileres, DateTime finalizar) {
+        public double Devolucion(int pos, int kms, DataGridView lbAlquileres, DateTime finalizar) {
 
            // paso un parametro DateTime para que no sea siempre valor 1
             
@@ -87,76 +87,90 @@ namespace Agencia_Autos
             int diasdealquiler =Convert.ToInt32(Math.Ceiling( periodoAlquiler.TotalDays));            
             double diasDeAlquilerEnMintos = periodoAlquiler.TotalMinutes;
             double DiasSolicitadosAMinutos = ((alquilerVigente[pos].DiasDeAlquiler * 1440) - 120);
-              
 
-            int recorrido = kms - alquilerVigente[pos].Auto.Kms;
+           
 
-            int recorridoPermitido = diasdealquiler * kilometrosPermitidos;
-
+                int recorrido = kms - alquilerVigente[pos].Auto.Kms;
             
 
-            if ((diasDeAlquilerEnMintos <= DiasSolicitadosAMinutos) && (recorrido <= recorridoPermitido))
+            if (recorrido < 0)
             {
-               
-                aCobrar = diasdealquiler * alquilerVigente[pos].Auto.UnidadDeCobro; //Sin Multa
-            }
-            if ((diasDeAlquilerEnMintos <= DiasSolicitadosAMinutos) && (recorrido > recorridoPermitido)) {
-
-                int exedente = recorrido - recorridoPermitido;
-                              
-                if (exedente <= 100) aCobrar = (diasdealquiler * alquilerVigente[pos].Auto.UnidadDeCobro) + (exedente * 3); // multa medos de 100kms
-                else aCobrar = (diasdealquiler * alquilerVigente[pos].Auto.UnidadDeCobro) + (exedente * 5); // multa mas de 100kms
+                throw new Exception("Error al ingresar el Kilometraje");                
 
             }
-
-            if((diasDeAlquilerEnMintos > DiasSolicitadosAMinutos) && (recorrido <= recorridoPermitido)){
-
-                double exedente = diasdealquiler - alquilerVigente[pos].DiasDeAlquiler;
-                exedente = Math.Ceiling(exedente);
-
-                aCobrar = (alquilerVigente[pos].DiasDeAlquiler * alquilerVigente[pos].Auto.UnidadDeCobro) + (exedente * alquilerVigente[pos].Auto.UnidadDeCobro * 1.1);
-            }
-            if ((diasDeAlquilerEnMintos > DiasSolicitadosAMinutos) && (recorrido > recorridoPermitido)) {
-                int multa = 0;
-                
-                int exedenteKms = recorrido - recorridoPermitido;
-               if (exedenteKms <= 100) multa = (diasdealquiler * alquilerVigente[pos].Auto.UnidadDeCobro) + (exedenteKms * 3); // multa medos de 100kms
-                else multa = (diasdealquiler * alquilerVigente[pos].Auto.UnidadDeCobro) + (exedenteKms * 5); // multa mas de 100kms
-                
-                double exedenteDias = diasdealquiler - alquilerVigente[pos].DiasDeAlquiler;
-
-                aCobrar = (diasdealquiler * alquilerVigente[pos].Auto.UnidadDeCobro)+ multa+ (exedenteDias * alquilerVigente[pos].Auto.UnidadDeCobro * 1.1);
-
-            }
-
-            if (alquilerVigente[pos].Auto.Conchofer == false) preciofinal = aCobrar * Pesos;
-            else {
-                aCobrar = aCobrar + (Chofer.viatico*diasdealquiler);
-                preciofinal = aCobrar* Pesos;
-
-
-            }
-
-            unHistorico.IngrearAlquiler(alquilerVigente[pos]);
-            alquilerVigente[pos].Auto.Kms = kms;
-            alquilerVigente[pos].Auto.Disponible = true;
             
-
-            alquilerVigente.RemoveAt(pos);
-
-            lbAlquileres.Items.Clear();
-
-            foreach (Alquiler a in alquilerVigente) {
-
-                lbAlquileres.Items.Add(a.getClinete() +" "+ GetVehículos()) ;
             
-            }
-
-            return preciofinal;
+                int recorridoPermitido = diasdealquiler * kilometrosPermitidos;
 
 
 
+                if ((diasDeAlquilerEnMintos <= DiasSolicitadosAMinutos) && (recorrido <= recorridoPermitido))
+                {
 
+                    aCobrar = diasdealquiler * alquilerVigente[pos].Auto.UnidadDeCobro; //Sin Multa
+                }
+                if ((diasDeAlquilerEnMintos <= DiasSolicitadosAMinutos) && (recorrido > recorridoPermitido))
+                {
+
+                    int exedente = recorrido - recorridoPermitido;
+
+                    if (exedente <= 100) aCobrar = (diasdealquiler * alquilerVigente[pos].Auto.UnidadDeCobro) + (exedente * 3); // multa medos de 100kms
+                    else aCobrar = (diasdealquiler * alquilerVigente[pos].Auto.UnidadDeCobro) + (exedente * 5); // multa mas de 100kms
+
+                }
+
+                if ((diasDeAlquilerEnMintos > DiasSolicitadosAMinutos) && (recorrido <= recorridoPermitido))
+                {
+
+                    double exedente = diasdealquiler - alquilerVigente[pos].DiasDeAlquiler;
+                    exedente = Math.Ceiling(exedente);
+
+                    aCobrar = (alquilerVigente[pos].DiasDeAlquiler * alquilerVigente[pos].Auto.UnidadDeCobro) + (exedente * alquilerVigente[pos].Auto.UnidadDeCobro * 1.1);
+                }
+                if ((diasDeAlquilerEnMintos > DiasSolicitadosAMinutos) && (recorrido > recorridoPermitido))
+                {
+                    int multa = 0;
+
+                    int exedenteKms = recorrido - recorridoPermitido;
+                    if (exedenteKms <= 100) multa = (diasdealquiler * alquilerVigente[pos].Auto.UnidadDeCobro) + (exedenteKms * 3); // multa medos de 100kms
+                    else multa = (diasdealquiler * alquilerVigente[pos].Auto.UnidadDeCobro) + (exedenteKms * 5); // multa mas de 100kms
+
+                    double exedenteDias = diasdealquiler - alquilerVigente[pos].DiasDeAlquiler;
+
+                    aCobrar = (diasdealquiler * alquilerVigente[pos].Auto.UnidadDeCobro) + multa + (exedenteDias * alquilerVigente[pos].Auto.UnidadDeCobro * 1.1);
+
+                }
+
+                if (alquilerVigente[pos].Auto.Conchofer == false) preciofinal = aCobrar * Pesos;
+                else
+                {
+                    aCobrar = aCobrar + (Chofer.viatico * diasdealquiler);
+                    preciofinal = aCobrar * Pesos;
+
+
+                }
+
+                unHistorico.IngrearAlquiler(alquilerVigente[pos]);
+                alquilerVigente[pos].Auto.Kms = kms;
+                alquilerVigente[pos].Auto.Disponible = true;
+
+
+                alquilerVigente.RemoveAt(pos);
+
+                lbAlquileres.Rows.Clear();
+
+                foreach (Alquiler a in alquilerVigente)
+                {
+
+                    lbAlquileres.Rows.Add(a.getClinete().Nombre + " " + a.getClinete().Dni + " " + a.getClinete().Telefono + " " + Convert.ToString(a.getAcompañantes().Length) + " " + a.Auto.Marca + " " + a.Auto.Patente + " " + a.Auto.Kms);
+
+                }
+
+                return preciofinal;
+
+
+
+           
         }
 
       
