@@ -15,9 +15,13 @@ namespace Agencia_Autos
         private Persona[] acompañantes = new Cliente[2];
         private int diasDeAlquiler;
         private DateTime inicioAlquiler;
-        
 
-        public Alquiler(Persona cliente) {
+        public Alquiler()
+        { }
+
+
+
+       public Alquiler(Persona cliente) {
 
 
             this.cliente = new Cliente(((Cliente)cliente).Nombre, ((Cliente)cliente).Dni, ((Cliente)cliente).Cuit, ((Cliente)cliente).Direccion, ((Cliente)cliente).Telefono, ((Cliente)cliente).Fechanac, ((Cliente)cliente).Estadocivil, ((Cliente)cliente).Nacionalidad, ((Cliente)cliente).Carnet);

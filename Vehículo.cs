@@ -16,7 +16,7 @@ namespace Agencia_Autos
         private bool disponible, conchofer;
         private string patente, marca, modelo, tipocombustible, imagen;
         private int capacidad, unidadDeCobro, kms;
-        public static int ordenar;
+        //public static int ordenar;
        
 
         public Vehículo(bool disponible, bool chofer, string patente, string marca, string modelo, string combustible, string path, int capacidad, int unidadCobro,int kms) {
@@ -54,14 +54,16 @@ namespace Agencia_Autos
                
         public int CompareTo(object obj) {
 
-            switch (ordenar) {
+
+            return Marca.CompareTo(((Vehículo)obj).Marca);
+           /* switch (ordenar) {
 
                 case 0: { return Marca.CompareTo(((Vehículo)obj).Marca);  }
                 case 1: { return Capacidad.CompareTo(((Vehículo)obj).Capacidad); }
                 case 2: { return tipocombustible.CompareTo(((Vehículo)obj).tipocombustible); }
                 default: return -1;
             }
-        
+        */
         
         }
         

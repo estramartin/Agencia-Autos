@@ -53,6 +53,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PrintTicket = new System.Drawing.Printing.PrintDocument();
+            this.tbFiltro = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -162,7 +163,7 @@
             this.label3.Font = new System.Drawing.Font("MV Boli", 24F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
                 | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label3.Location = new System.Drawing.Point(486, 63);
+            this.label3.Location = new System.Drawing.Point(481, 60);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(110, 41);
             this.label3.TabIndex = 16;
@@ -179,10 +180,10 @@
             this.CKMS,
             this.CDISPONIBILE,
             this.CPRECIO});
-            this.DGV1.Location = new System.Drawing.Point(192, 110);
+            this.DGV1.Location = new System.Drawing.Point(184, 110);
             this.DGV1.Name = "DGV1";
             this.DGV1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGV1.Size = new System.Drawing.Size(740, 406);
+            this.DGV1.Size = new System.Drawing.Size(748, 406);
             this.DGV1.TabIndex = 17;
             this.DGV1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV1_CellContentClick);
             this.DGV1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV1_CellContentDoubleClick);
@@ -236,7 +237,7 @@
             this.cbChofer.Items.AddRange(new object[] {
             "CON CHOFER",
             "SIN CHOFER"});
-            this.cbChofer.Location = new System.Drawing.Point(744, 83);
+            this.cbChofer.Location = new System.Drawing.Point(810, 85);
             this.cbChofer.Name = "cbChofer";
             this.cbChofer.Size = new System.Drawing.Size(121, 21);
             this.cbChofer.TabIndex = 18;
@@ -247,20 +248,20 @@
             // 
             this.cbVehiculos.FormattingEnabled = true;
             this.cbVehiculos.Items.AddRange(new object[] {
-            "Marca y Modelo",
+            "Marca y Modelos",
             "Capacidad",
             "Tipo de Combustible"});
-            this.cbVehiculos.Location = new System.Drawing.Point(315, 80);
+            this.cbVehiculos.Location = new System.Drawing.Point(810, 27);
             this.cbVehiculos.Name = "cbVehiculos";
             this.cbVehiculos.Size = new System.Drawing.Size(121, 21);
             this.cbVehiculos.TabIndex = 14;
-            this.cbVehiculos.Text = "Ordenar";
+            this.cbVehiculos.Text = "Filtrar por";
             this.cbVehiculos.SelectedIndexChanged += new System.EventHandler(this.cbVehiculos_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(697, 86);
+            this.label1.Location = new System.Drawing.Point(763, 88);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(41, 13);
             this.label1.TabIndex = 19;
@@ -279,11 +280,20 @@
             // 
             this.PrintTicket.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.PrintTicket_PrintPage);
             // 
+            // tbFiltro
+            // 
+            this.tbFiltro.Location = new System.Drawing.Point(810, 54);
+            this.tbFiltro.Name = "tbFiltro";
+            this.tbFiltro.Size = new System.Drawing.Size(121, 20);
+            this.tbFiltro.TabIndex = 20;
+            this.tbFiltro.TextChanged += new System.EventHandler(this.tbFiltro_TextChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1302, 548);
+            this.Controls.Add(this.tbFiltro);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbChofer);
             this.Controls.Add(this.DGV1);
@@ -336,6 +346,7 @@
         public System.Windows.Forms.ComboBox cbVehiculos;
         private System.Windows.Forms.Label label1;
         private System.Drawing.Printing.PrintDocument PrintTicket;
+        private System.Windows.Forms.TextBox tbFiltro;
     }
 }
 

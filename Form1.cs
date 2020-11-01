@@ -24,11 +24,15 @@ namespace Agencia_Autos
         string nombreArchivo = Application.StartupPath+"\\datos.dat";
         string nombreArchivoChoferes = Application.StartupPath + "\\DatosChoferes.csv";
         string nombreArchivoHistorico = Application.StartupPath + "\\DatosHistorico.csv";
+        List<Vehículo> SinChof = new List<Vehículo>();
+        List<Vehículo> ConChof = new List<Vehículo>();
+        Alquiler devolucion;
+
         public Form1()
         {
             InitializeComponent();
+
            
-            
             
             if (File.Exists(nombreArchivo))
             {
@@ -66,8 +70,9 @@ namespace Agencia_Autos
 
 
             ingresarUsuario.Dispose();
-           
 
+            SinChof.AddRange(administracion.GetVehículos());
+            ConChof.AddRange(administracion.GetVehiculosConChofer());
         }
 
         private void agregarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -207,17 +212,19 @@ namespace Agencia_Autos
                 alquileres= datos.Split(';');
                 veralquileres.dgvAlquileres.ColumnCount = alquileres.Length;
                 veralquileres.dgvAlquileres.Rows.Add(alquileres);
-                                         
 
+                
             }
 
             if (veralquileres.ShowDialog() == DialogResult.OK)
             {
                 try
                 {
+                    devolucion = new Alquiler();
+                    devolucion = administracion.GetAlquileres()[veralquileres.dgvAlquileres.CurrentRow.Index];
                     precio = administracion.Devolucion(veralquileres.dgvAlquileres.CurrentRow.Index, Convert.ToInt32(veralquileres.textBox1.Text), veralquileres.dgvAlquileres, veralquileres.dateTimePicker1.Value);
 
-
+                    
 
                     unTicket.printPreviewControl1.Document = PrintTicket;
                     ActualizarListboxs();
@@ -344,7 +351,7 @@ namespace Agencia_Autos
 
         private void cbVehiculos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbChofer.SelectedIndex == 1)
+           /* if (cbChofer.SelectedIndex == 1)
             {
 
                 Vehículo.ordenar = (cbVehiculos.SelectedIndex);
@@ -356,7 +363,7 @@ namespace Agencia_Autos
                 Vehículo.ordenar = (cbVehiculos.SelectedIndex);
                 administracion.GetVehiculosConChofer().Sort();
                 ActualizarListboxs();
-            }
+            }*/
             
 
 
@@ -470,16 +477,17 @@ namespace Agencia_Autos
 
         private void DGV1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+           
             if (cbChofer.SelectedIndex == 1)
                 try
                 {
-                    pictureBox1.Image = Image.FromFile(administracion.GetVehículos()[DGV1.CurrentRow.Index].Imagen);
+                    pictureBox1.Image = Image.FromFile(SinChof[DGV1.CurrentRow.Index].Imagen);
                 }
                 catch (ArgumentOutOfRangeException) { }
             else {
                 try
                 {
-                    pictureBox1.Image = Image.FromFile(administracion.GetVehiculosConChofer()[DGV1.CurrentRow.Index].Imagen);
+                    pictureBox1.Image = Image.FromFile(ConChof[DGV1.CurrentRow.Index].Imagen);
                 }
                 catch (ArgumentOutOfRangeException) { }
             }
@@ -487,11 +495,14 @@ namespace Agencia_Autos
 
         private void DGV1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-           if(cbChofer.SelectedIndex == 1) { 
-                string ruta = administracion.GetVehículos()[DGV1.CurrentRow.Index].Imagen;
+           if(cbChofer.SelectedIndex == 1) {
+
+                
+
+                string ruta = SinChof[DGV1.CurrentRow.Index].Imagen;
                 GenerarAlquiler VentanaAlquilar = new GenerarAlquiler();
-                VentanaAlquilar.label11.Text = administracion.GetVehículos()[DGV1.CurrentRow.Index].GetVehiculo();
-                if (administracion.GetVehículos()[DGV1.CurrentRow.Index].Disponible == false)
+                VentanaAlquilar.label11.Text = SinChof[DGV1.CurrentRow.Index].GetVehiculo();
+                if (SinChof[DGV1.CurrentRow.Index].Disponible == false)
                 {
 
                     VentanaAlquilar.gbCliente.Enabled = false;
@@ -584,7 +595,7 @@ namespace Agencia_Autos
                         }
 
 
-                        alquiler.Auto = administracion.GetVehículos()[DGV1.CurrentRow.Index];
+                        alquiler.Auto = SinChof[DGV1.CurrentRow.Index];
                         alquiler.InicioAlquiler = DateTime.Now;
                         alquiler.Auto.Disponible = false;
                         administracion.CargarAlquiler(alquiler);
@@ -602,11 +613,11 @@ namespace Agencia_Autos
             }
             else {
 
-                string ruta = administracion.GetVehiculosConChofer()[DGV1.CurrentRow.Index].Imagen;
+                string ruta = ConChof[DGV1.CurrentRow.Index].Imagen;
 
                 GenerarAlquiler VentanaAlquilar = new GenerarAlquiler();
 
-                if (administracion.GetVehiculosConChofer()[DGV1.CurrentRow.Index].Disponible == false)
+                if (ConChof[DGV1.CurrentRow.Index].Disponible == false)
                 {
 
                     VentanaAlquilar.gbCliente.Enabled = false;
@@ -620,7 +631,7 @@ namespace Agencia_Autos
                     VentanaAlquilar.btnAlquilar.Enabled = true;
 
                 }
-                VentanaAlquilar.label11.Text = ((VehículoConChofer)(administracion.GetVehiculosConChofer()[DGV1.CurrentRow.Index])).UnChofer.DatosPersonales();
+                VentanaAlquilar.label11.Text = ((VehículoConChofer)(ConChof[DGV1.CurrentRow.Index])).UnChofer.DatosPersonales();
                 VentanaAlquilar.comboBox1.Hide();
 
                 VentanaAlquilar.pictureBox1.Image = Image.FromFile(ruta);
@@ -641,7 +652,7 @@ namespace Agencia_Autos
                     persona = new Cliente(nombre, Dni, cuil, dir, tel, fechanac, estadocivil, nacionalidad, carnet);
 
                     Alquiler alquiler = new Alquiler(persona);
-                    alquiler.Auto = administracion.GetVehiculosConChofer()[DGV1.CurrentRow.Index];
+                    alquiler.Auto = ConChof[DGV1.CurrentRow.Index];
                     alquiler.InicioAlquiler = DateTime.Now;
                     alquiler.Auto.Disponible = false;
                     administracion.CargarAlquiler(alquiler);
@@ -677,15 +688,123 @@ namespace Agencia_Autos
                 PaperSize paperSize = new PaperSize("My Envelope", 990, 500);
                 paperSize.RawKind = (int)PaperKind.Custom;
                 e.Graphics.DrawString(administracion.GetEmpresa().RazonSocial, new Font("MV Boli", 50, FontStyle.Bold), Brushes.Blue, new PointF(200, 100));
-                e.Graphics.DrawString(administracion.GetEmpresa().DireccionFiscal, new Font("Times new Roman", 50, FontStyle.Bold), Brushes.Black, new PointF(30, 300));
-                 e.Graphics.DrawString("CUIL: "+administracion.GetEmpresa().Cuil.ToString(), new Font("Times new Roman", 50, FontStyle.Bold), Brushes.Black, new PointF(30, 450));
-                // e.Graphics.DrawString("DIAS: " + dias, new Font("Times new Roman", 50, FontStyle.Bold), Brushes.Black, new PointF(30, 750));
-                e.Graphics.DrawString("A PAGAR: " + preciofinal, new Font("Times new Roman", 50, FontStyle.Bold), Brushes.Black, new PointF(30, 800));
+                e.Graphics.DrawString(administracion.GetEmpresa().DireccionFiscal, new Font("Times new Roman", 20, FontStyle.Bold), Brushes.Black, new PointF(30, 200));
+                e.Graphics.DrawString("CUIL: " + administracion.GetEmpresa().Cuil.ToString(), new Font("Times new Roman", 20, FontStyle.Bold), Brushes.Black, new PointF(30, 250));
+                e.Graphics.DrawString(devolucion.getClinete().Nombre, new Font("Times new Roman", 50, FontStyle.Bold), Brushes.Black, new PointF(30, 300));
+                e.Graphics.DrawString(devolucion.Auto.Marca, new Font("Times new Roman", 50, FontStyle.Bold), Brushes.Black, new PointF(30, 400));
+                e.Graphics.DrawString("Desde: "+devolucion.InicioAlquiler.ToShortDateString().ToString(), new Font("Times new Roman", 50, FontStyle.Bold), Brushes.Black, new PointF(30, 500));
+                e.Graphics.DrawString("Hasta: "+DateTime.Now.ToShortDateString().ToString(), new Font("Times new Roman", 50, FontStyle.Bold), Brushes.Black, new PointF(30, 600));
+                e.Graphics.DrawString("POR " + devolucion.DiasDeAlquiler + " DIAS", new Font("Times new Roman", 50, FontStyle.Bold), Brushes.Black, new PointF(30, 800));
+                e.Graphics.DrawString("A PAGAR: " + preciofinal, new Font("Times new Roman", 50, FontStyle.Bold), Brushes.Black, new PointF(30, 900));
             }
             catch (NullReferenceException) { }
             }
 
+        private void tbFiltro_TextChanged(object sender, EventArgs e)
+        {
 
-        
+            DGV1.Rows.Clear();
+            DataGridViewRow fila;
+            
+            try
+            {
+                if (cbChofer.SelectedIndex == 1)
+                {
+                    if (cbVehiculos.SelectedIndex == 0)
+                    {
+                        SinChof = (from v in administracion.GetVehículos() where ((v.Marca != null) && (v.Marca.StartsWith(tbFiltro.Text))) select v).ToList();
+
+                    }
+                    if (cbVehiculos.SelectedIndex == 1)
+                    {
+                        SinChof = (from v in administracion.GetVehículos() where (((v.Capacidad).ToString() != null) && ((v.Capacidad).ToString().StartsWith(tbFiltro.Text))) select v).ToList();
+
+                    }
+                    if (cbVehiculos.SelectedIndex == 2)
+                    {
+                        SinChof = (from v in administracion.GetVehículos() where ((v.Tipocombustible != null) && (v.Tipocombustible.StartsWith(tbFiltro.Text))) select v).ToList();
+
+                    }
+
+
+
+
+                    foreach (Vehículo v in SinChof)
+                    {
+
+                        fila = new DataGridViewRow();
+                        fila.CreateCells(DGV1);
+                        fila.Cells[CMARCA.Index].Value = v.Marca;
+                        fila.Cells[CMOODELO.Index].Value = v.Modelo;
+                        fila.Cells[CCAPACIDAD.Index].Value = v.Capacidad;
+                        fila.Cells[CKMS.Index].Value = v.Kms;
+                        fila.Cells[CPRECIO.Index].Value = ((v.UnidadDeCobro) * (administracion.Pesos));
+                        if (v.Disponible == true)
+                        {
+                            fila.Cells[CDISPONIBILE.Index].Value = "Disponible";
+                        }
+                        else { fila.Cells[CDISPONIBILE.Index].Value = "Alquilado"; }
+
+
+                        fila.Cells[CCOMBUSTIBLE.Index].Value = v.Tipocombustible;
+
+                        DGV1.Rows.Add(fila);
+                    }
+                }
+                else {
+                    if (cbVehiculos.SelectedIndex == 0)
+                    {
+                        ConChof = (from v in administracion.GetVehiculosConChofer() where ((v.Marca != null) && (v.Marca.StartsWith(tbFiltro.Text))) select v).ToList();
+
+                    }
+                    if (cbVehiculos.SelectedIndex == 1)
+                    {
+                        ConChof = (from v in administracion.GetVehiculosConChofer() where (((v.Capacidad).ToString() != null) && ((v.Capacidad).ToString().StartsWith(tbFiltro.Text))) select v).ToList();
+
+                    }
+                    if (cbVehiculos.SelectedIndex == 2)
+                    {
+                        ConChof = (from v in administracion.GetVehiculosConChofer() where ((v.Tipocombustible != null) && (v.Tipocombustible.StartsWith(tbFiltro.Text))) select v).ToList();
+
+                    }
+
+
+                }
+
+                foreach (Vehículo v in ConChof)
+                {
+
+                    fila = new DataGridViewRow();
+                    fila.CreateCells(DGV1);
+                    fila.Cells[CMARCA.Index].Value = v.Marca;
+                    fila.Cells[CMOODELO.Index].Value = v.Modelo;
+                    fila.Cells[CCAPACIDAD.Index].Value = v.Capacidad;
+                    fila.Cells[CKMS.Index].Value = v.Kms;
+                    fila.Cells[CPRECIO.Index].Value = ((v.UnidadDeCobro) * (administracion.Pesos));
+                    if (v.Disponible == true)
+                    {
+                        fila.Cells[CDISPONIBILE.Index].Value = "Disponible";
+                    }
+                    else { fila.Cells[CDISPONIBILE.Index].Value = "Alquilado"; }
+
+
+                    fila.Cells[CCOMBUSTIBLE.Index].Value = v.Tipocombustible;
+
+                    DGV1.Rows.Add(fila);
+
+
+
+
+                }
+            }
+            
+            catch (Exception ex)
+            {
+                MessageBox.Show(string.Format("Error: {0}", ex.Message), "Error inesperado", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+
+
+        }
     }
 }
