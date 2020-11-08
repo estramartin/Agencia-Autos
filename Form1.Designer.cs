@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menúToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,7 +40,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.DGV1 = new System.Windows.Forms.DataGridView();
             this.CMARCA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CMOODELO = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,9 +54,12 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PrintTicket = new System.Drawing.Printing.PrintDocument();
             this.tbFiltro = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.pblogo = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pblogo)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -156,18 +158,6 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("MV Boli", 24F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
-                | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Navy;
-            this.label3.Location = new System.Drawing.Point(481, 60);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(110, 41);
-            this.label3.TabIndex = 16;
-            this.label3.Text = "label3";
-            // 
             // DGV1
             // 
             this.DGV1.AllowUserToAddRows = false;
@@ -183,14 +173,14 @@
             this.CPRECIO});
             this.DGV1.Location = new System.Drawing.Point(184, 110);
             this.DGV1.Name = "DGV1";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGV1.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGV1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.DGV1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGV1.Size = new System.Drawing.Size(747, 406);
             this.DGV1.TabIndex = 17;
@@ -260,7 +250,7 @@
             "Marca y Modelos",
             "Capacidad",
             "Tipo de Combustible"});
-            this.cbVehiculos.Location = new System.Drawing.Point(810, 27);
+            this.cbVehiculos.Location = new System.Drawing.Point(184, 83);
             this.cbVehiculos.Name = "cbVehiculos";
             this.cbVehiculos.Size = new System.Drawing.Size(121, 21);
             this.cbVehiculos.TabIndex = 14;
@@ -291,11 +281,30 @@
             // 
             // tbFiltro
             // 
-            this.tbFiltro.Location = new System.Drawing.Point(810, 54);
+            this.tbFiltro.Location = new System.Drawing.Point(311, 83);
             this.tbFiltro.Name = "tbFiltro";
             this.tbFiltro.Size = new System.Drawing.Size(121, 20);
             this.tbFiltro.TabIndex = 20;
             this.tbFiltro.TextChanged += new System.EventHandler(this.tbFiltro_TextChanged);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1088, 499);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 21;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // pblogo
+            // 
+            this.pblogo.Location = new System.Drawing.Point(0, 30);
+            this.pblogo.Name = "pblogo";
+            this.pblogo.Size = new System.Drawing.Size(178, 132);
+            this.pblogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pblogo.TabIndex = 22;
+            this.pblogo.TabStop = false;
             // 
             // Form1
             // 
@@ -303,11 +312,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1373, 548);
+            this.Controls.Add(this.pblogo);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.tbFiltro);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbChofer);
             this.Controls.Add(this.DGV1);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.cbVehiculos);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.pictureBox1);
@@ -325,6 +335,7 @@
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pblogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -343,7 +354,6 @@
         private System.Windows.Forms.ToolStripMenuItem conChoferToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sinChoferToolStripMenuItem;
         private System.Windows.Forms.Button btnSalir;
-        public System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView DGV1;
         private System.Windows.Forms.DataGridViewTextBoxColumn CMARCA;
         private System.Windows.Forms.DataGridViewTextBoxColumn CMOODELO;
@@ -358,6 +368,8 @@
         private System.Drawing.Printing.PrintDocument PrintTicket;
         private System.Windows.Forms.TextBox tbFiltro;
         private System.Windows.Forms.ToolStripMenuItem modificarDatosDeVehiculoToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox pblogo;
     }
 }
 

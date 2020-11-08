@@ -12,6 +12,7 @@ namespace Agencia_Autos
         private string razonSocial;
         private string direccionFiscal;
         private long cuil;
+        private string logo;
 
         public string RazonSocial {
 
@@ -33,6 +34,12 @@ namespace Agencia_Autos
             get { return direccionFiscal; }
             set { direccionFiscal = value; }
 
+        }
+        public string Logo {
+
+            get { return logo; }
+            set { logo = value; }
+        
         }
 
     }
