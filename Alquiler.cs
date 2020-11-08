@@ -17,7 +17,8 @@ namespace Agencia_Autos
         private DateTime inicioAlquiler;
         private double precioAlquilado;
 
-        private double multa;
+        private double multaxdias;
+        private double multaxkms;
 
         public Alquiler()
         { }
@@ -59,10 +60,15 @@ namespace Agencia_Autos
             set { cantAcompañantes = value; }
         }
 
-        public double Multa
+        public double MultaXDias
         {
-            get { return multa; }
-            set { multa = value; }
+            get { return multaxdias; }
+            set { multaxdias = value; }
+        }
+        public double MultaxKms
+        {
+            get { return multaxkms; }
+            set { multaxkms = value; }
         }
 
         public double PrecioAlquilado
@@ -70,7 +76,21 @@ namespace Agencia_Autos
             get { return precioAlquilado; }
             set { precioAlquilado = value; }
         }
-
+        public int ExcesoDias
+        {
+            get;
+            set;
+        }
+        public int ExcesoKms
+        {
+            get;
+            set;
+        }
+        public double Viaticos
+        {
+            get;
+            set;
+        }
         public Persona getClinete() {
 
 

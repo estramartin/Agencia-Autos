@@ -557,7 +557,10 @@ namespace Agencia_Autos
 
         private void DGV1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-           if(cbChofer.SelectedIndex == 1) {
+                      
+
+                     
+            if(cbChofer.SelectedIndex == 1) {
 
                 
                 
@@ -657,9 +660,9 @@ namespace Agencia_Autos
 
 
                         }
-                       
-                      
-                        
+
+
+
                         alquiler.Auto = SinChof[DGV1.CurrentRow.Index];
                         alquiler.Auto.PrecioAlquiladoEnUDC = alquiler.Auto.UnidadDeCobro;
                         alquiler.InicioAlquiler = DateTime.Now;
@@ -674,6 +677,7 @@ namespace Agencia_Autos
                     }
                     catch (FormatException) { }
                     catch (ArgumentOutOfRangeException) { }
+                    catch (ApplicationException er) { MessageBox.Show(er.Message); }
                 }   
 
 
@@ -752,23 +756,37 @@ namespace Agencia_Autos
             {
                
                 string preciofinal = Convert.ToString(precio);
-
+                //SETEO TAMAÑO PAPEL
                 PaperSize paperSize = new PaperSize("My Envelope", 990, 500);
                 paperSize.RawKind = (int)PaperKind.Custom;
+                Image logo = Image.FromFile(administracion.GetEmpresa().Logo);
+                Image factura = Image.FromFile(Application.StartupPath + "\\FACTURA.png");
+                
 
-                //TRATANDO DE IMPRIMIR IMAGEN EN LA FACTURA
 
-                e.Graphics.DrawString(Image.FromFile(administracion.GetEmpresa().Logo), new Font("MV Boli", 50, FontStyle.Bold), Brushes.Blue, new PointF(200, 100));
-               // e.Graphics.DrawString(administracion.GetEmpresa().RazonSocial, new Font("MV Boli", 50, FontStyle.Bold), Brushes.Blue, new PointF(200, 100));
-                e.Graphics.DrawString(administracion.GetEmpresa().DireccionFiscal, new Font("Times new Roman", 20, FontStyle.Bold), Brushes.Black, new PointF(30, 200));
-                e.Graphics.DrawString("CUIL: " + administracion.GetEmpresa().Cuil.ToString(), new Font("Times new Roman", 20, FontStyle.Bold), Brushes.Black, new PointF(30, 250));
-                e.Graphics.DrawString(devolucion.getClinete().Nombre, new Font("Times new Roman", 50, FontStyle.Bold), Brushes.Black, new PointF(30, 300));
-                e.Graphics.DrawString(devolucion.Auto.Marca, new Font("Times new Roman", 50, FontStyle.Bold), Brushes.Black, new PointF(30, 400));
-                e.Graphics.DrawString("Desde: "+devolucion.InicioAlquiler.ToShortDateString().ToString(), new Font("Times new Roman", 50, FontStyle.Bold), Brushes.Black, new PointF(30, 500));
-                e.Graphics.DrawString("Hasta: "+DateTime.Now.ToShortDateString().ToString(), new Font("Times new Roman", 50, FontStyle.Bold), Brushes.Black, new PointF(30, 600));
-                e.Graphics.DrawString("Multa: " + devolucion.Multa.ToString(), new Font("Times new Roman", 50, FontStyle.Bold), Brushes.Black, new PointF(30, 700));
-                e.Graphics.DrawString("POR " + devolucion.DiasDeAlquiler + " DIAS", new Font("Times new Roman", 50, FontStyle.Bold), Brushes.Black, new PointF(30, 800));
-                e.Graphics.DrawString("A PAGAR: $" + preciofinal, new Font("Times new Roman", 50, FontStyle.Bold), Brushes.Black, new PointF(30, 900));
+                e.Graphics.DrawImage(logo, new PointF(20, 100));
+                e.Graphics.DrawString(administracion.GetEmpresa().RazonSocial, new Font("MV Boli", 20, FontStyle.Bold), Brushes.Blue, new PointF(170, 100));
+                e.Graphics.DrawString(administracion.GetEmpresa().DireccionFiscal, new Font("Times new Roman", 20, FontStyle.Bold), Brushes.Black, new PointF(170, 130));
+                e.Graphics.DrawString(administracion.GetEmpresa().Cuil.ToString(), new Font("Times new Roman", 20, FontStyle.Bold), Brushes.Black, new PointF(170, 160));
+                e.Graphics.DrawString("NOMBRE: ", new Font("Times new Roman", 20, FontStyle.Bold), Brushes.Black, new PointF(30, 300));
+                e.Graphics.DrawString(devolucion.getClinete().Nombre, new Font("Times new Roman", 20, FontStyle.Bold), Brushes.Black, new PointF(170, 300));
+                e.Graphics.DrawString("CUIL/CUIT: ", new Font("Times new Roman", 20, FontStyle.Bold), Brushes.Black, new PointF(30, 330));
+                e.Graphics.DrawString(devolucion.getClinete().Cuit.ToString(), new Font("Times new Roman", 20, FontStyle.Bold), Brushes.Black, new PointF(200, 330)) ;
+                e.Graphics.DrawImage(factura, new PointF(20, 400));
+                e.Graphics.DrawString(devolucion.Auto.Marca, new Font("Times new Roman", 20, FontStyle.Bold), Brushes.Black, new PointF(30, 450));
+                e.Graphics.DrawString("$"+((devolucion.Auto.PrecioAlquiladoEnUDC*devolucion.PrecioAlquilado)*devolucion.DiasDeAlquiler).ToString(), new Font("Times new Roman", 20, FontStyle.Bold), Brushes.Black, new PointF(650, 450));
+                e.Graphics.DrawString("RENTADO POR DIAS: "+ devolucion.DiasDeAlquiler.ToString(), new Font("Times new Roman", 20, FontStyle.Bold), Brushes.Black, new PointF(30, 490));
+                e.Graphics.DrawString("MORA POR EXCESO DE DIAS: "+devolucion.ExcesoDias, new Font("Times new Roman", 20, FontStyle.Bold), Brushes.Black, new PointF(30, 530));
+                e.Graphics.DrawString("$"+devolucion.MultaXDias.ToString(), new Font("Times new Roman", 20, FontStyle.Bold), Brushes.Black, new PointF(650, 530));
+                e.Graphics.DrawString("MORA POR EXCESO DE KMS: "+devolucion.ExcesoKms, new Font("Times new Roman", 20, FontStyle.Bold), Brushes.Black, new PointF(30, 570));
+                e.Graphics.DrawString("$"+devolucion.MultaxKms.ToString(), new Font("Times new Roman", 20, FontStyle.Bold), Brushes.Black, new PointF(650, 570));
+                e.Graphics.DrawString("VIATICOS CHOFER ", new Font("Times new Roman", 20, FontStyle.Bold), Brushes.Black, new PointF(30, 610));
+                e.Graphics.DrawString("$"+devolucion.Viaticos.ToString(), new Font("Times new Roman", 20, FontStyle.Bold), Brushes.Black, new PointF(650, 610));
+                e.Graphics.DrawString("A PAGAR: ", new Font("Times new Roman", 20, FontStyle.Bold), Brushes.Black, new PointF(455, 835));
+                e.Graphics.DrawString("$"+ preciofinal, new Font("Times new Roman", 20, FontStyle.Bold), Brushes.White, new PointF(700, 835));
+
+
+
             }
             catch (NullReferenceException) { }
             }
