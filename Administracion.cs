@@ -83,8 +83,7 @@ namespace Agencia_Autos
             double preciofinal=0;
             double aCobrar = 0;
            // DateTime finalizar = DateTime.Now; //tiempo exacto en el que termina el alquiler
-            //int horaDevolucion = finalizar.Hour;          //hora de finalizacion
-            //int mindevolucion = finalizar.Minute;
+           
             
             
             TimeSpan periodoAlquiler = finalizar.Subtract(alquilerVigente[pos].InicioAlquiler); // intervalo en el que el vehiculo permanecio alquilado

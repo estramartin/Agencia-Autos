@@ -22,7 +22,7 @@ namespace Agencia_Autos
             Nombre = nombreCompleto;
             this.Dni = dni;
             this.Cuit = cuil;
-            dir = Direccion;
+            Direccion = dir;
             Telefono = tel;
             this.Fechanac = fechanac;
             Estadocivil = estadoCiv;

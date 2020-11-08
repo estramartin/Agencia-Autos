@@ -86,10 +86,7 @@ namespace Agencia_Autos
         }
 
         
-        private void button1_Click(object sender, EventArgs e)
-        {
-           
-        }
+       
 
         private void sinChoferToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -210,7 +207,7 @@ namespace Agencia_Autos
 
                     double valor = Convert.ToDouble(modificar.tbModificarValorDeAlquiler.Text);
                     administracion.Pesos = valor;
-
+                    ActualizarListboxs();
 
                 }
             }
@@ -218,11 +215,7 @@ namespace Agencia_Autos
 
         }
 
-        private void listBox1_DoubleClick(object sender, EventArgs e)
-        {
-           
-        }
-
+        
         private void button3_Click(object sender, EventArgs e)
         {
            
@@ -280,16 +273,7 @@ namespace Agencia_Autos
             }
 
         }
-
-        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void listBox2_DoubleClick(object sender, EventArgs e)
-        {
-           
-        }
+        
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -310,21 +294,15 @@ namespace Agencia_Autos
             this.Close();
         }
 
-        private void listBox1_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void listBox2_Click(object sender, EventArgs e)
-        {
-           
-        }
 
 
-        public void ActualizarListboxs() {
+          public void ActualizarListboxs() {
             DGV1.Rows.Clear();
           
             DataGridViewRow fila;
+           
+
+            
 
             if (cbChofer.SelectedIndex == 1)
             {
@@ -486,6 +464,7 @@ namespace Agencia_Autos
                     pictureBox1.Image = Image.FromFile(ConChof[DGV1.CurrentRow.Index].Imagen);
                 }
                 catch (ArgumentOutOfRangeException) { }
+                catch (ArgumentNullException er) { MessageBox.Show(er.Message); }
             }
         }
 
@@ -494,9 +473,11 @@ namespace Agencia_Autos
            if(cbChofer.SelectedIndex == 1) {
 
                 
-
+                
+                
                 string ruta = SinChof[DGV1.CurrentRow.Index].Imagen;
                 GenerarAlquiler VentanaAlquilar = new GenerarAlquiler();
+                VentanaAlquilar.btnSalir.Location = new Point(377, 374);
                 VentanaAlquilar.label9.Show();
                 VentanaAlquilar.label11.Text = SinChof[DGV1.CurrentRow.Index].GetVehiculo();
                 if (SinChof[DGV1.CurrentRow.Index].Disponible == false)
@@ -504,7 +485,7 @@ namespace Agencia_Autos
 
                     VentanaAlquilar.gbCliente.Enabled = false;
                     VentanaAlquilar.btnAlquilar.Enabled = false;
-
+                    
                 }
                 else
                 {
@@ -528,7 +509,7 @@ namespace Agencia_Autos
                         DateTime fechanac = VentanaAlquilar.dtpFechaNac.Value;
                         string estadocivil = VentanaAlquilar.tbEstadoCivilCliente.Text;
                         string nacionalidad = VentanaAlquilar.tbNacionalidadCliente.Text;
-                        string carnet =VentanaAlquilar.tbCarnetCliente.Text;
+                        string carnet = VentanaAlquilar.tbCarnetCliente.Text;
                         int diasDeAlquiler = Convert.ToInt32(VentanaAlquilar.tbDiasDeAlquiler.Text);
                         int cantidadConductores = VentanaAlquilar.comboBox1.SelectedIndex;
 
@@ -597,12 +578,12 @@ namespace Agencia_Autos
                         administracion.CargarAlquiler(alquiler);
                         administracion.VerHistorico().GrabarCSV(nombreArchivoHistorico);
                         DGV1.Rows.Clear();
-                        
+
                         ActualizarListboxs();
 
                     }
                     catch (FormatException) { }
-
+                    catch (ArgumentOutOfRangeException) { }
                 }   
 
 
@@ -799,6 +780,112 @@ namespace Agencia_Autos
            
 
 
+        }
+
+        private void modificarDatosDeVehiculoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Agregar_Vehiculo modificar = new Agregar_Vehiculo();
+            int indice = DGV1.CurrentRow.Index;
+            List<Vehículo> aux;
+
+            if (cbChofer.SelectedIndex == 1)
+            {
+                modificar.Size = new Size(816, 370);
+                modificar.btnCargar.Location = new Point(657, 296);
+                modificar.btnSalir.Location = new Point(59, 300);
+                aux = SinChof;
+
+            }
+            else {
+
+
+
+                modificar.Size = new Size(816, 706);
+                modificar.btnCargar.Location = new Point(565, 636);
+                modificar.btnSalir.Location = new Point(35, 641);
+                modificar.tbNombreChofer.Text = ((VehículoConChofer)ConChof[indice]).UnChofer.Nombre;
+                modificar.tbDireccion.Text = ((VehículoConChofer)ConChof[indice]).UnChofer.Direccion;
+                modificar.tbDniChofer.Text = Convert.ToString(((VehículoConChofer)ConChof[indice]).UnChofer.Dni);
+                modificar.tbCuit.Text = Convert.ToString(((VehículoConChofer)ConChof[indice]).UnChofer.Cuit);
+                modificar.tbCarnet.Text = Convert.ToString(((Chofer)((VehículoConChofer)ConChof[indice]).UnChofer).Carnet);
+                modificar.tbEstadoCivil.Text = ((VehículoConChofer)ConChof[indice]).UnChofer.Estadocivil;
+                modificar.tbNacionalidad.Text = ((VehículoConChofer)ConChof[indice]).UnChofer.Nacionalidad;
+                modificar.tbTelefono.Text = Convert.ToString(((VehículoConChofer)ConChof[indice]).UnChofer.Telefono);
+                modificar.dtpFechaNac.Value = ((VehículoConChofer)ConChof[indice]).UnChofer.Fechanac;
+                aux = ConChof;
+            }
+
+            
+           
+                modificar.pictureBox1.Image = Image.FromFile(aux[indice].Imagen);
+                modificar.path = aux[indice].Imagen;
+                modificar.tbMarca.Text = aux[indice].Marca;
+                modificar.tbModelo.Text = aux[indice].Modelo;
+                modificar.tbPatente.Text = aux[indice].Patente;
+                modificar.tbCapacidad.Text = Convert.ToString(aux[indice].Capacidad);
+                modificar.tbKilometros.Text = Convert.ToString(aux[indice].Kms);
+                modificar.tbtipoCombustible.Text = SinChof[indice].Tipocombustible;
+                modificar.tbUnidadDeCobro.Text = Convert.ToString(aux[indice].UnidadDeCobro);
+
+                try
+                {
+                   
+                   
+                    if (modificar.ShowDialog() == DialogResult.OK)
+                    {
+                       
+                        string patente = modificar.tbPatente.Text;
+                        string marca = modificar.tbMarca.Text;
+                        string modelo = modificar.tbModelo.Text;
+                        string combustible = modificar.tbtipoCombustible.Text;
+                        int capacidad = Convert.ToInt32(modificar.tbCapacidad.Text);
+                        string path = modificar.path;
+                        int unidadDeCobro = Convert.ToInt32(modificar.tbUnidadDeCobro.Text);
+                        int kms = Convert.ToInt32(modificar.tbKilometros.Text);
+
+
+
+                        aux[indice].Patente = patente;
+                        aux[indice].Marca = marca;
+                        aux[indice].Modelo = modelo;
+                        aux[indice].Tipocombustible = combustible;
+                        aux[indice].Capacidad = capacidad;
+                        aux[indice].Imagen = path;
+                        aux[indice].UnidadDeCobro = unidadDeCobro;
+                        aux[indice].Kms = kms;
+
+
+                                           
+
+                        administracion.GetVehículos().Sort();
+
+
+                        ActualizarListboxs();
+                    }
+                }
+
+                catch (FormatException ex)
+                {
+
+                    MessageBox.Show(ex.Message);
+
+                }
+
+
+
+
+
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void darDeBajaVehiculoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }

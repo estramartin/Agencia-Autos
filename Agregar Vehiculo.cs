@@ -73,5 +73,10 @@ namespace Agencia_Autos
         {
 
         }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

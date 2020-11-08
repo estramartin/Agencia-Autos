@@ -45,15 +45,13 @@ namespace Agencia_Autos
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
            
-
             
             
-
-            if (comboBox1.SelectedIndex == 0)
+            if (comboBox1.SelectedIndex < 1)
             {
                 this.Size = new Size(816, 447);
                 this.btnAlquilar.Location = new Point(685, 374);
-               this.btnSalir.Location = new Point(57, 374);
+               this.btnSalir.Location = new Point(377, 374);
                
             }
 
@@ -71,6 +69,11 @@ namespace Agencia_Autos
         private void GenerarAlquiler_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

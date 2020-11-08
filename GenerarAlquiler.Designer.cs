@@ -204,12 +204,13 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(35, 768);
+            this.btnSalir.Location = new System.Drawing.Point(377, 374);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 11;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // tbNombreCliente
             // 
@@ -709,14 +710,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 806);
-            this.Controls.Add(this.gbCliente);
+            this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.gbConductor2);
             this.Controls.Add(this.gbConductor1);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnAlquilar);
             this.Controls.Add(this.label10);
+            this.Controls.Add(this.gbCliente);
             this.Name = "GenerarAlquiler";
             this.Text = "GenerarAlquiler";
             this.Load += new System.EventHandler(this.GenerarAlquiler_Load);

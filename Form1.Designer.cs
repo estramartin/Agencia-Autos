@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menúToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.conChoferToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sinChoferToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modificarDatosDeVehiculoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.borrarRegistrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificarValoresDeAlquilerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button3 = new System.Windows.Forms.Button();
@@ -83,7 +84,8 @@
             // 
             this.agregarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.conChoferToolStripMenuItem,
-            this.sinChoferToolStripMenuItem});
+            this.sinChoferToolStripMenuItem,
+            this.modificarDatosDeVehiculoToolStripMenuItem});
             this.agregarToolStripMenuItem.Name = "agregarToolStripMenuItem";
             this.agregarToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.agregarToolStripMenuItem.Text = "Agregar Vehículo";
@@ -92,16 +94,23 @@
             // conChoferToolStripMenuItem
             // 
             this.conChoferToolStripMenuItem.Name = "conChoferToolStripMenuItem";
-            this.conChoferToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.conChoferToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
             this.conChoferToolStripMenuItem.Text = "Con Chofer";
             this.conChoferToolStripMenuItem.Click += new System.EventHandler(this.conChoferToolStripMenuItem_Click);
             // 
             // sinChoferToolStripMenuItem
             // 
             this.sinChoferToolStripMenuItem.Name = "sinChoferToolStripMenuItem";
-            this.sinChoferToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.sinChoferToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
             this.sinChoferToolStripMenuItem.Text = "Sin Chofer";
             this.sinChoferToolStripMenuItem.Click += new System.EventHandler(this.sinChoferToolStripMenuItem_Click);
+            // 
+            // modificarDatosDeVehiculoToolStripMenuItem
+            // 
+            this.modificarDatosDeVehiculoToolStripMenuItem.Name = "modificarDatosDeVehiculoToolStripMenuItem";
+            this.modificarDatosDeVehiculoToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+            this.modificarDatosDeVehiculoToolStripMenuItem.Text = "Modificar Datos de Vehiculo";
+            this.modificarDatosDeVehiculoToolStripMenuItem.Click += new System.EventHandler(this.modificarDatosDeVehiculoToolStripMenuItem_Click);
             // 
             // borrarRegistrosToolStripMenuItem
             // 
@@ -152,7 +161,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("MV Boli", 24F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
                 | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label3.ForeColor = System.Drawing.Color.Navy;
             this.label3.Location = new System.Drawing.Point(481, 60);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(110, 41);
@@ -174,14 +183,14 @@
             this.CPRECIO});
             this.DGV1.Location = new System.Drawing.Point(184, 110);
             this.DGV1.Name = "DGV1";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGV1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGV1.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DGV1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGV1.Size = new System.Drawing.Size(747, 406);
             this.DGV1.TabIndex = 17;
@@ -271,8 +280,8 @@
             // 
             this.pictureBox1.Location = new System.Drawing.Point(938, 110);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(423, 264);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.Size = new System.Drawing.Size(423, 308);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
@@ -292,6 +301,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1373, 548);
             this.Controls.Add(this.tbFiltro);
             this.Controls.Add(this.label1);
@@ -306,7 +316,9 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ALQUILAUTO 1.0";
+            this.TransparencyKey = System.Drawing.SystemColors.ActiveBorder;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -345,6 +357,7 @@
         private System.Windows.Forms.Label label1;
         private System.Drawing.Printing.PrintDocument PrintTicket;
         private System.Windows.Forms.TextBox tbFiltro;
+        private System.Windows.Forms.ToolStripMenuItem modificarDatosDeVehiculoToolStripMenuItem;
     }
 }
 

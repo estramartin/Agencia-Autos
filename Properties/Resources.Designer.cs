@@ -65,47 +65,7 @@ namespace Agencia_Autos.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _206 {
             get {
-                object obj = ResourceManager.GetObject("_206", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Clio {
-            get {
-                object obj = ResourceManager.GetObject("Clio", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Etios {
-            get {
-                object obj = ResourceManager.GetObject("Etios", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap onix {
-            get {
-                object obj = ResourceManager.GetObject("onix", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Sin_título {
-            get {
-                object obj = ResourceManager.GetObject("Sin_título", resourceCulture);
+                object obj = ResourceManager.GetObject("206", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
