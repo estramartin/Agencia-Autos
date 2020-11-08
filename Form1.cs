@@ -306,7 +306,7 @@ namespace Agencia_Autos
             {
 
 
-                string datos = p.getClinete().Nombre + ";" + p.getClinete().Dni + ";" + p.getClinete().Telefono + ";" + Convert.ToString(p.DiasDeAlquiler) + ";" + p.Auto.Marca + ";" + p.Auto.Patente + ";" + p.Auto.Kms;
+                string datos = p.getClinete().Nombre + ";" + p.getClinete().Dni + ";" + p.getClinete().Telefono + ";" + Convert.ToString(p.DiasDeAlquiler) + ";" + p.Auto.Marca + ";" + p.Auto.Patente + ";" + p.Auto.Kms+";"+(p.Auto.PrecioAlquiladoEnUDC*p.PrecioAlquilado*p.DiasDeAlquiler);
                
                 alquileres= datos.Split(';');
                 veralquileres.dgvAlquileres.ColumnCount = alquileres.Length;
@@ -657,11 +657,14 @@ namespace Agencia_Autos
 
 
                         }
-
-
+                       
+                      
+                        
                         alquiler.Auto = SinChof[DGV1.CurrentRow.Index];
+                        alquiler.Auto.PrecioAlquiladoEnUDC = alquiler.Auto.UnidadDeCobro;
                         alquiler.InicioAlquiler = DateTime.Now;
                         alquiler.Auto.Disponible = false;
+                        alquiler.PrecioAlquilado = administracion.Pesos;
                         administracion.CargarAlquiler(alquiler);
                         administracion.VerHistorico().GrabarCSV(nombreArchivoHistorico);
                         DGV1.Rows.Clear();
@@ -719,6 +722,8 @@ namespace Agencia_Autos
                     Alquiler alquiler = new Alquiler(persona);
                     alquiler.DiasDeAlquiler = diasDeAlquiler;
                     alquiler.Auto = ConChof[DGV1.CurrentRow.Index];
+                    alquiler.Auto.PrecioAlquiladoEnUDC = alquiler.Auto.UnidadDeCobro;
+                    alquiler.PrecioAlquilado = administracion.Pesos;
                     alquiler.InicioAlquiler = DateTime.Now;
                     alquiler.Auto.Disponible = false;
                     administracion.CargarAlquiler(alquiler);
@@ -750,15 +755,20 @@ namespace Agencia_Autos
 
                 PaperSize paperSize = new PaperSize("My Envelope", 990, 500);
                 paperSize.RawKind = (int)PaperKind.Custom;
-                e.Graphics.DrawString(administracion.GetEmpresa().RazonSocial, new Font("MV Boli", 50, FontStyle.Bold), Brushes.Blue, new PointF(200, 100));
+
+                //TRATANDO DE IMPRIMIR IMAGEN EN LA FACTURA
+
+                e.Graphics.DrawString(Image.FromFile(administracion.GetEmpresa().Logo), new Font("MV Boli", 50, FontStyle.Bold), Brushes.Blue, new PointF(200, 100));
+               // e.Graphics.DrawString(administracion.GetEmpresa().RazonSocial, new Font("MV Boli", 50, FontStyle.Bold), Brushes.Blue, new PointF(200, 100));
                 e.Graphics.DrawString(administracion.GetEmpresa().DireccionFiscal, new Font("Times new Roman", 20, FontStyle.Bold), Brushes.Black, new PointF(30, 200));
                 e.Graphics.DrawString("CUIL: " + administracion.GetEmpresa().Cuil.ToString(), new Font("Times new Roman", 20, FontStyle.Bold), Brushes.Black, new PointF(30, 250));
                 e.Graphics.DrawString(devolucion.getClinete().Nombre, new Font("Times new Roman", 50, FontStyle.Bold), Brushes.Black, new PointF(30, 300));
                 e.Graphics.DrawString(devolucion.Auto.Marca, new Font("Times new Roman", 50, FontStyle.Bold), Brushes.Black, new PointF(30, 400));
                 e.Graphics.DrawString("Desde: "+devolucion.InicioAlquiler.ToShortDateString().ToString(), new Font("Times new Roman", 50, FontStyle.Bold), Brushes.Black, new PointF(30, 500));
                 e.Graphics.DrawString("Hasta: "+DateTime.Now.ToShortDateString().ToString(), new Font("Times new Roman", 50, FontStyle.Bold), Brushes.Black, new PointF(30, 600));
+                e.Graphics.DrawString("Multa: " + devolucion.Multa.ToString(), new Font("Times new Roman", 50, FontStyle.Bold), Brushes.Black, new PointF(30, 700));
                 e.Graphics.DrawString("POR " + devolucion.DiasDeAlquiler + " DIAS", new Font("Times new Roman", 50, FontStyle.Bold), Brushes.Black, new PointF(30, 800));
-                e.Graphics.DrawString("A PAGAR: " + preciofinal, new Font("Times new Roman", 50, FontStyle.Bold), Brushes.Black, new PointF(30, 900));
+                e.Graphics.DrawString("A PAGAR: $" + preciofinal, new Font("Times new Roman", 50, FontStyle.Bold), Brushes.Black, new PointF(30, 900));
             }
             catch (NullReferenceException) { }
             }

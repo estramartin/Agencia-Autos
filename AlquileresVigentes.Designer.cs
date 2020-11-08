@@ -28,17 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.btnFinalizar = new System.Windows.Forms.Button();
             this.btnVolver = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dgvAlquileres = new System.Windows.Forms.DataGridView();
-            this.alquilerBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.alquileresVigentesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.verHistoricoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TELEFONO = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,19 +41,9 @@
             this.MARCA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PATENTE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.KMS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CACOBRAR = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlquileres)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.alquilerBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.alquileresVigentesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.verHistoricoBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(38, 62);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(699, 225);
-            this.listBox1.TabIndex = 0;
             // 
             // btnFinalizar
             // 
@@ -115,25 +100,14 @@
             this.DIASALQUILER,
             this.MARCA,
             this.PATENTE,
-            this.KMS});
-            this.dgvAlquileres.Location = new System.Drawing.Point(25, 27);
+            this.KMS,
+            this.CACOBRAR});
+            this.dgvAlquileres.Location = new System.Drawing.Point(53, 12);
             this.dgvAlquileres.Name = "dgvAlquileres";
             this.dgvAlquileres.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAlquileres.Size = new System.Drawing.Size(743, 279);
+            this.dgvAlquileres.Size = new System.Drawing.Size(844, 279);
             this.dgvAlquileres.TabIndex = 6;
             this.dgvAlquileres.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAlquileres_CellContentClick);
-            // 
-            // alquilerBindingSource
-            // 
-            this.alquilerBindingSource.DataSource = typeof(Agencia_Autos.Alquiler);
-            // 
-            // alquileresVigentesBindingSource
-            // 
-            this.alquileresVigentesBindingSource.DataSource = typeof(Agencia_Autos.AlquileresVigentes);
-            // 
-            // verHistoricoBindingSource
-            // 
-            this.verHistoricoBindingSource.DataSource = typeof(Agencia_Autos.VerHistorico);
             // 
             // Nombre
             // 
@@ -175,40 +149,36 @@
             this.KMS.Name = "KMS";
             this.KMS.ReadOnly = true;
             // 
+            // CACOBRAR
+            // 
+            this.CACOBRAR.HeaderText = "A COBRAR";
+            this.CACOBRAR.Name = "CACOBRAR";
+            // 
             // AlquileresVigentes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(954, 450);
             this.Controls.Add(this.dgvAlquileres);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnFinalizar);
-            this.Controls.Add(this.listBox1);
             this.Name = "AlquileresVigentes";
             this.Load += new System.EventHandler(this.AlquileresVigentes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlquileres)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.alquilerBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.alquileresVigentesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.verHistoricoBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        public System.Windows.Forms.ListBox listBox1;
         public System.Windows.Forms.Button btnFinalizar;
         public System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.TextBox textBox1;
         public System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.BindingSource alquileresVigentesBindingSource;
-        private System.Windows.Forms.BindingSource verHistoricoBindingSource;
-        private System.Windows.Forms.BindingSource alquilerBindingSource;
         public System.Windows.Forms.DataGridView dgvAlquileres;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn DNI;
@@ -217,5 +187,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn MARCA;
         private System.Windows.Forms.DataGridViewTextBoxColumn PATENTE;
         private System.Windows.Forms.DataGridViewTextBoxColumn KMS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CACOBRAR;
     }
 }

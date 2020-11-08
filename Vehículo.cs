@@ -15,7 +15,7 @@ namespace Agencia_Autos
        
         private bool disponible, conchofer;
         private string patente, marca, modelo, tipocombustible, imagen;
-        private int capacidad, unidadDeCobro, kms;
+        private int capacidad, unidadDeCobro, kms, precioAlquiladoEnUDC;
         //public static int ordenar;
        
 
@@ -45,6 +45,7 @@ namespace Agencia_Autos
         public int Capacidad { get => capacidad; set => capacidad = value; }
         public int UnidadDeCobro { get => unidadDeCobro; set => unidadDeCobro = value; }
         public int Kms { get => kms; set => kms = value; }
+        public int PrecioAlquiladoEnUDC { get => precioAlquiladoEnUDC; set => precioAlquiladoEnUDC = value; }
 
         public string GetVehiculo() {           
 

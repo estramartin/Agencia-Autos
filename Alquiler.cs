@@ -15,6 +15,9 @@ namespace Agencia_Autos
         private Persona[] acompañantes = new Cliente[2];
         private int diasDeAlquiler;
         private DateTime inicioAlquiler;
+        private double precioAlquilado;
+
+        private double multa;
 
         public Alquiler()
         { }
@@ -56,8 +59,18 @@ namespace Agencia_Autos
             set { cantAcompañantes = value; }
         }
 
+        public double Multa
+        {
+            get { return multa; }
+            set { multa = value; }
+        }
 
-          
+        public double PrecioAlquilado
+        {
+            get { return precioAlquilado; }
+            set { precioAlquilado = value; }
+        }
+
         public Persona getClinete() {
 
 
