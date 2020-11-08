@@ -784,6 +784,7 @@ namespace Agencia_Autos
                 e.Graphics.DrawString("$"+devolucion.Viaticos.ToString(), new Font("Times new Roman", 20, FontStyle.Bold), Brushes.Black, new PointF(650, 610));
                 e.Graphics.DrawString("A PAGAR: ", new Font("Times new Roman", 20, FontStyle.Bold), Brushes.Black, new PointF(455, 835));
                 e.Graphics.DrawString("$"+ preciofinal, new Font("Times new Roman", 20, FontStyle.Bold), Brushes.White, new PointF(700, 835));
+                e.Graphics.DrawString(devolucion.Auto.Patente, new Font("Code 128", 100, FontStyle.Bold), Brushes.Black, new PointF(50, 900));
 
 
 

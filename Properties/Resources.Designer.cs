@@ -69,5 +69,14 @@ namespace Agencia_Autos.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a .
+        /// </summary>
+        internal static string Code128 {
+            get {
+                return ResourceManager.GetString("Code128", resourceCulture);
+            }
+        }
     }
 }
